@@ -1,14 +1,24 @@
-$background: #F6F4F2;
-$dark: #212121;
-$white: #FFFFFF;
-$secondary: #B1B1B1;
-$light: #ECECEC;
-$primary: #18443E;
-$primary-hover: #18443ECC;
-$secondary-hover: #2C5852;
-$negative: #D91528;
+body {
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    background: $bg-color;
+    color: $dark-color;
+    font-weight: 500;
+}
+
+.infant-font {
+    font-family: 'Cormorant Infant', sans-serif;
+}
 
 a {
-  color: $white;
-  text-decoration: none;
+    color: $white-color;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.bg-background {
+    background: $bg-color;
 }
