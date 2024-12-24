@@ -1,7 +1,7 @@
 <template>
     <q-header reveal class="bg-background header">
         <div class="first-row">
-            <img src="/img/logo.svg" alt="Artamonov">
+            <img src="/icons/logo.svg" alt="Artamonov">
             <div class="right-block">
                 <span class="contacts">г. Саратов, ул. им. Чернышевского Н.Г., 60/62.<br>Бизнес-центр «ФРЕГАТ» с 9:00 до 18:00</span>
                 <div class="divider" />
@@ -30,7 +30,7 @@
     </q-header>
 </template>
 <script setup lang="ts">
-import { links } from "./const"
+import { links, socials } from "./const"
 
 const emit = defineEmits(["open-drawer"])
 
@@ -47,20 +47,7 @@ const copyPhoneNumber = () => {
     })
 }
 
-const socials = [
-    {
-        link: "http://www.yandex.ru/",
-        icon: "/img/wa-icon.svg",
-    },
-    {
-        link: "http://www.yandex.ru/",
-        icon: "/img/tg-icon.svg",
-    },
-    {
-        link: "http://www.yandex.ru/",
-        icon: "/img/vk-icon.svg",
-    },
-]
+
 </script>
 <style scoped lang="scss">
 
@@ -97,6 +84,10 @@ const socials = [
                 color: $primary-color;
                 font-weight: 600;
                 font-size: 20px;
+
+                &::after, &::before {
+                    background: $primary-color;
+                }
             }
         }
     }

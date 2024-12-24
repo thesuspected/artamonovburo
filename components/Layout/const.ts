@@ -28,3 +28,21 @@ export const links = [
         to: "catalog",
     },
 ]
+
+export const socials = [
+    {
+        link: "http://www.yandex.ru/",
+        icon: "/img/wa-icon.svg",
+        title: "WhatsApp",
+    },
+    {
+        link: "http://www.yandex.ru/",
+        icon: "/img/tg-icon.svg",
+        title: "Telegram",
+    },
+    {
+        link: "http://www.yandex.ru/",
+        icon: "/img/vk-icon.svg",
+        title: "VK",
+    },
+]

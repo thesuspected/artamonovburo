@@ -37,8 +37,8 @@ export default defineNuxtConfig({
         quietSassWarnings: true,
     }], ["@nuxtjs/google-fonts", {
         families: {
-            Manrope: "200..700",
-            "Cormorant Infant": "200..700",
+            Manrope: [200, 300, 400, 500, 600, 700, 800],
+            "Cormorant Infant": [300, 400, 500, 600, 700],
         },
     }], "@nuxtjs/tailwindcss"],
     vite: {
