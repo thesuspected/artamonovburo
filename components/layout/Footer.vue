@@ -19,12 +19,12 @@
             </a>
         </div>
         <a class="confidential" href="#">Политика конфиденциальности</a>
-        <img class="logo-bg" src="/icons/logo_a.svg" alt="">
+        <img class="logo-bg" src="/icons/logo-a.svg" alt="">
     </div>
 </template>
 
 <script lang="ts" setup>
-import { links, socials } from "~/components/Layout/const"
+import { links, socials } from "~/components/layout/const"
 import { useQuasar } from "quasar"
 
 const quasar = useQuasar()

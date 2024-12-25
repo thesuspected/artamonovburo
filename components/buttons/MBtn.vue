@@ -1,38 +1,38 @@
 <template>
     <q-btn
         unelevated
-        class='base-button'
-        :size='size'
+        class="base-button"
+        :size="size"
         :class="{
             'w-full': fullWidth,
             large: large,
             capitalize: capitalize,
             'shine-effect': shineEffect,
         }"
-        :color='color'
-        :text-color='textColor'
-        :label='label'
-        :icon='icon'
-        :flat='flat'
-        :icon-right='iconRight'
-        :padding='padding'
-        :round='round'
-        :disable='disable'
-        :loading='loading'
+        :color="color"
+        :text-color="textColor"
+        :label="label"
+        :icon="icon"
+        :flat="flat"
+        :icon-right="iconRight"
+        :padding="padding"
+        :round="round"
+        :disable="disable"
+        :loading="loading"
         no-caps
     >
         <slot />
     </q-btn>
 </template>
 
-<script setup lang='ts'>
+<script setup lang="ts">
 defineProps({
     label: {
         type: String,
     },
     color: {
         type: String,
-        default: 'primary',
+        default: "primary",
     },
     textColor: {
         type: String,
@@ -48,7 +48,7 @@ defineProps({
     },
     size: {
         type: String,
-        default: 'md',
+        default: "md",
     },
     round: {
         type: Boolean,
@@ -77,9 +77,10 @@ defineProps({
 })
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .base-button {
     border-radius: 0;
+    padding: 10px 40px;
     font-size: 16px !important;
     font-weight: 600;
 
