@@ -32,17 +32,17 @@ export const links = [
 export const socials = [
     {
         link: "http://www.yandex.ru/",
-        icon: "/img/wa-icon.svg",
+        icon: "/icons/wa-icon.svg",
         title: "WhatsApp",
     },
     {
         link: "http://www.yandex.ru/",
-        icon: "/img/tg-icon.svg",
+        icon: "/icons/tg-icon.svg",
         title: "Telegram",
     },
     {
         link: "http://www.yandex.ru/",
-        icon: "/img/vk-icon.svg",
+        icon: "/icons/vk-icon.svg",
         title: "VK",
     },
 ]
