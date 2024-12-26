@@ -112,7 +112,7 @@ defineProps({
         height: 56px;
         position: absolute;
         z-index: 1;
-        animation: slide 3s infinite;
+        animation: slide 4s infinite;
 
         /*
         CSS Gradient - complete browser support from http://www.colorzilla.com/gradient-editor/

@@ -14,7 +14,7 @@
                 от проектирования дома <br>
                 до благоустройства участка
             </p>
-            <m-btn label="Начать проект" />
+            <m-btn label="Начать проект" shine-effect />
         </div>
     </section>
 </template>
