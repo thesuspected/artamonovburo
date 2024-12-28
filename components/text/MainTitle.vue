@@ -1,7 +1,6 @@
 <template>
-    <div class="grid grid-cols-1 lg:grid-cols-3">
-        <div class="col-span-1" />
-        <h3 class="main-title infant-font col-span-2">
+    <div class="flex justify-center">
+        <h3 class="main-title infant-font">
             <slot />
         </h3>
     </div>
@@ -12,8 +11,30 @@
 
 <style lang="scss" scoped>
 .main-title {
-    text-indent: 100px;
-    margin-left: -100px;
-    margin-bottom: 100px;
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+
+    &:before {
+        content: '\201C';
+        position: absolute;
+        top: 55%;
+        left: -100px;
+        color: $primary-color;
+        opacity: 0.15;
+        font-size: 4em;
+        z-index: -1;
+    }
+
+    &:after {
+        content: '\201D';
+        position: absolute;
+        top: 55%;
+        right: -100px;
+        color: $primary-color;
+        opacity: 0.15;
+        font-size: 4em;
+        z-index: -1;
+    }
 }
 </style>

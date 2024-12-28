@@ -1,13 +1,19 @@
 <template>
-    <section class="services-section">
-        <MainTitle> Полный комплект проектных <br />услуг для строительства дома</MainTitle>
-        <TwoColumnsTable :values="services" />
-    </section>
+    <Section>
+        <Container>
+            <MainTitle><b class="text-primary">Полный комплект</b> проектных <br />услуг
+                для строительства дома
+            </MainTitle>
+            <TwoColumnsTable :values="services" />
+        </Container>
+    </Section>
 </template>
 
 <script lang="ts" setup>
 import MainTitle from "~/components/text/MainTitle.vue"
 import TwoColumnsTable from "~/components/pages/general/TwoColumnsTable.vue"
+import Section from "~/components/layout/Section.vue"
+import Container from "~/components/layout/Container.vue"
 
 const services = [
     {
@@ -79,7 +85,4 @@ const services = [
 </script>
 
 <style lang="scss" scoped>
-.services-section {
-    padding: 80px;
-}
 </style>

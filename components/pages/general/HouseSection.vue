@@ -1,13 +1,15 @@
 <template>
-    <section class="house-section">
-        <img src="/img/building_design_bg.png" alt="building design" />
-        <div class="grid grid-cols-1 lg:grid-cols-3">
-            <span class="col-start-3 text">Проектирование домов от 4 200 ₽/м2</span>
-        </div>
-    </section>
+    <Section :padding="0" class="house-section">
+        <q-img src="/img/building-design/building-design-bg.jpg" :ratio="21/9" />
+        <Container class="grid grid-cols-1 lg:grid-cols-3">
+            <span class="col-start-3 text">Проектирование домов<br> от 4 200 ₽/м2</span>
+        </Container>
+    </Section>
 </template>
 
 <script lang="ts" setup>
+import Section from "~/components/layout/Section.vue"
+import Container from "~/components/layout/Container.vue"
 </script>
 
 <style lang="scss" scoped>
@@ -23,7 +25,7 @@
 
         .text {
             color: $white-color;
-            font-size: 40px;
+            font-size: 30px;
             font-weight: 400;
         }
     }

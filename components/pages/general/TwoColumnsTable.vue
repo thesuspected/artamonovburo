@@ -1,6 +1,6 @@
 <template>
     <div v-for="(item, key) in values" :key="key" class="grid grid-cols-2">
-        <h6 class="title">{{ item.title }}</h6>
+        <h6 class="title infant-font">{{ item.title }}</h6>
         <div class="list">
             <p v-for="(text, textKey) in item.list" :key="textKey">{{ text }}</p>
         </div>
@@ -26,8 +26,14 @@ defineProps({
     padding: 40px 0;
     align-items: center;
 
+    &:last-child {
+        border-bottom: 1px solid $dark-color;
+    }
+
     .title {
         font-size: 40px;
+        line-height: 1.2;
+        font-weight: 500;
     }
 
     .list {
@@ -35,6 +41,7 @@ defineProps({
 
         p {
             margin-bottom: 5px;
+            font-weight: 300;
         }
     }
 }

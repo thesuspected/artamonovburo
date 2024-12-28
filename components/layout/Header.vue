@@ -1,7 +1,9 @@
 <template>
     <q-header reveal class="bg-background header">
-        <div class="first-row">
-            <img src="/icons/logo.svg" alt="Artamonov">
+        <Container class="first-row">
+            <NuxtLink to="/">
+                <img src="/icons/logo.svg" alt="Artamonov">
+            </NuxtLink>
             <div class="right-block">
                 <span class="contacts">г. Саратов, ул. им. Чернышевского Н.Г., 60/62.<br>Бизнес-центр «ФРЕГАТ» с 9:00 до 18:00</span>
                 <div class="divider" />
@@ -21,16 +23,19 @@
                     @click="handleOpenDrawer"
                 />
             </div>
-        </div>
-        <div class="second-row bg-primary">
-            <a class="link" v-for="(link, key) in links" :key="key" :href="`/${link.to}`">
-                {{ link.label }}
-            </a>
+        </Container>
+        <div class="bg-primary">
+            <Container class="second-row">
+                <a class="link" v-for="(link, key) in links" :key="key" :href="`/${link.to}`">
+                    {{ link.label }}
+                </a>
+            </Container>
         </div>
     </q-header>
 </template>
 <script setup lang="ts">
 import { links, socials } from "./const"
+import Container from "~/components/layout/Container.vue"
 
 const emit = defineEmits(["open-drawer"])
 
@@ -62,7 +67,8 @@ const copyPhoneNumber = () => {
         line-height: 1.2;
         background: $bg-color;
         color: $dark-color;
-        padding: 16px 80px;
+        padding-top: 16px;
+        padding-bottom: 16px;
 
         .right-block {
             display: flex;
@@ -97,7 +103,6 @@ const copyPhoneNumber = () => {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0 80px;
     }
 }
 </style>

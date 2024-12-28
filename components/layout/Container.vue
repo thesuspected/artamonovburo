@@ -1,14 +1,21 @@
 <template>
-    <div class="container">
+    <div class="container" :style="{'max-width': `${maxWidth}px`}">
         <slot />
     </div>
 </template>
 
 <script setup lang="ts">
+defineProps({
+    maxWidth: {
+        type: Number,
+        default: 1400,
+    },
+})
 </script>
 
 <style scoped lang="scss">
 .container {
-    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 </style>
