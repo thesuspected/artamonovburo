@@ -1,12 +1,12 @@
 <template>
-      <Layout>
-     <PageHeader
+    <Layout>
+        <PageHeader
             title="Строительство 
             <br> домов"
             description="Воспользуйтесь готовым проверенным решением или создайте уникальный дом по вашим пожеланиям"
             button-label="Рассчитать стоимость"
         />
-        <HouseProjects/>
+        <HouseProjects />
     </Layout>
 </template>
 
