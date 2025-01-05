@@ -8,6 +8,7 @@
         />
         <HouseProjects />
         <TwoColumnsTable />
+        <FormSection/>
     </Layout>
 </template>
 
@@ -15,6 +16,7 @@
 import PageHeader from "~/components/text/PageHeader.vue"
 import HouseProjects from "~/components/pages/construction/HouseProjects.vue"
 import TwoColumnsTable from "~/components/pages/construction/TwoColumnsTable.vue"
+import FormSection from "~/components/pages/construction/FormSection.vue";
 </script>
 
 <style lang="scss" scoped></style>
