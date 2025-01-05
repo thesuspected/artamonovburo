@@ -9,24 +9,26 @@
                 </h4>
             </div>
             <img class="house_4" src="/public/img/construction/house_4.png" alt="" />
-           <div class="request"> <p>Давайте познакомимся поближе! Оставьте заявку,<br> и мы вместе с вами погрузимся в вашу задачу</p>
-            <div class="wrapper">
-    <form action="#">
-        <div class="input-field">
-      <input type="Name" required>
-      <label>Ваше имя</label>
-      </div>
-      <div class="input-field">
-        <input type="password" required>
-        <label>Ваш телефон</label>
-      </div>
-      
-    </form>
-<MBtn class="Send">Отправить</MBtn>
-
-  </div>
-  <p class="info">Нажимая кнопку «Отправить» вы даёте согласие на обработку персональных данных</p>
-        </div>
+            <div class="request">
+                <p>
+                    Давайте познакомимся поближе! Оставьте заявку,<br />
+                    и мы вместе с вами погрузимся в вашу задачу
+                </p>
+                <div class="wrapper">
+                    <form action="#">
+                        <div class="input-field">
+                            <input type="Name" required />
+                            <label>Ваше имя</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="password" required />
+                            <label>Ваш телефон</label>
+                        </div>
+                    </form>
+                    <MBtn class="Send">Отправить</MBtn>
+                </div>
+                <p class="info">Нажимая кнопку «Отправить» вы даёте согласие на обработку персональных данных</p>
+            </div>
         </Container>
     </Section>
 </template>
@@ -34,7 +36,7 @@
 <script lang="ts" setup>
 import Section from "~/components/layout/Section.vue"
 import Container from "~/components/layout/Container.vue"
-import MBtn from "~/components/buttons/MBtn.vue";
+import MBtn from "~/components/buttons/MBtn.vue"
 </script>
 
 <style lang="scss" scoped>
@@ -55,12 +57,12 @@ import MBtn from "~/components/buttons/MBtn.vue";
     margin-left: 15px;
     margin-top: -80px;
 }
-.request{
-    p{
+.request {
+    p {
         margin-left: 822px;
         margin-top: 150px;
     }
-    .wrapper{
+    .wrapper {
         margin-left: 790px;
         border-radius: 8px;
         padding: 30px;
@@ -69,7 +71,7 @@ import MBtn from "~/components/buttons/MBtn.vue";
             display: flex;
             flex-direction: column;
         }
-        .input-field{
+        .input-field {
             position: relative;
             border-bottom: 2px solid black;
             margin: 15px 0;
@@ -84,7 +86,7 @@ import MBtn from "~/components/buttons/MBtn.vue";
                 transition: 0.15s ease;
                 margin-left: 20px;
             }
-            input{
+            input {
                 width: 100%;
                 height: 40px;
                 color: black;
@@ -93,23 +95,22 @@ import MBtn from "~/components/buttons/MBtn.vue";
                 outline: none;
                 font-size: 16px;
             }
-            input:focus~label,
-            input:valid~label {
+            input:focus ~ label,
+            input:valid ~ label {
                 font-size: 0.8rem;
                 top: 10px;
                 transform: translateY(-120%);
             }
         }
-        .Send{
+        .Send {
             width: 100%;
-border-radius: 5px;
-margin-top: 30px;
+            border-radius: 5px;
+            margin-top: 30px;
         }
-        }
-       .info{
+    }
+    .info {
         margin-top: -10px;
         font-size: 12px;
-       }
-
+    }
 }
 </style>
