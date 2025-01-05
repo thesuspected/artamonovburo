@@ -1,6 +1,9 @@
 <template>
     <div v-for="(item, key) in values" :key="key" class="grid grid-cols-2">
-        <h6 class="title infant-font">{{ item.title }}</h6>
+        <div class="flex items-center">
+            <h4 v-if="withNumbers" class="mr-8">0{{ key + 1 }}</h4>
+            <h6 class="title infant-font">{{ item.title }}</h6>
+        </div>
         <div class="list">
             <p v-for="(text, textKey) in item.list" :key="textKey">{{ text }}</p>
         </div>
@@ -15,6 +18,10 @@ defineProps({
     values: {
         type: Array as PropType<TableType[]>,
         required: true,
+    },
+    withNumbers: {
+        type: Boolean,
+        default: true,
     },
 })
 </script>
