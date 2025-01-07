@@ -7,16 +7,21 @@
             button-label="Рассчитать стоимость"
         />
         <HouseProjects />
-        <TwoColumnsTable />
+        <StagesSection />
         <FormSection/>
+        <Accordeon/>
+        <Excursion/>
     </Layout>
 </template>
 
 <script lang="ts" setup>
 import PageHeader from "~/components/text/PageHeader.vue"
 import HouseProjects from "~/components/pages/construction/HouseProjects.vue"
-import TwoColumnsTable from "~/components/pages/construction/TwoColumnsTable.vue"
-import FormSection from "~/components/pages/construction/FormSection.vue";
+import StagesSection from "~/components/pages/construction/StagesSection.vue"
+import FormSection from "~/components/pages/general/FormSection.vue";
+import Accordeon from "~/components/pages/construction/Accordeon.vue";
+import Excursion from "~/components/pages/construction/Excursion.vue";
 </script>
 
 <style lang="scss" scoped></style>
+
