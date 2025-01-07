@@ -15,7 +15,7 @@
                 <h6 v-html="item.title"></h6>
                 <span>{{ item.number }}</span>
             </div>
-            <div>{{ item.subtitle }}</div>
+            <div class="second-row" v-html="item.subtitle"></div>
         </div>
     </div>
 </template>
@@ -52,6 +52,9 @@ defineProps({
             border-bottom: 1px solid;
             padding-bottom: 20px;
             align-items: center;
+        }
+
+        .second-row {
         }
     }
 }

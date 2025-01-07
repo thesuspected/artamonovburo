@@ -11,6 +11,7 @@
         }"
         :color="color"
         :text-color="textColor"
+        :outline="outline"
         :label="label"
         :icon="icon"
         :flat="flat"
@@ -36,6 +37,9 @@ defineProps({
     },
     textColor: {
         type: String,
+    },
+    outline: {
+        type: Boolean,
     },
     icon: {
         type: String,
@@ -79,10 +83,10 @@ defineProps({
 
 <style lang="scss" scoped>
 .base-button {
-    border-radius: 0;
     padding: 10px 40px;
     font-size: 16px !important;
     font-weight: 600;
+    border-radius: 3px;
 
     &.capitalize {
         text-transform: capitalize;
