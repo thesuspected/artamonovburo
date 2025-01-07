@@ -4,7 +4,7 @@
             <MainTitle><b class="text-primary">Полный комплект</b> проектных <br />услуг
                 для строительства дома
             </MainTitle>
-            <TwoColumnsTable :values="services" with-numbers/>
+            <TwoColumnsTable :values="services" />
         </Container>
     </Section>
 </template>

@@ -19,61 +19,18 @@
                 </p>
             </div>
             <div class="house-block col-span-2">
-                <div class="house-card">
-                    <div class="card_1"></div>
-                    <img src="/img/construction/house_1.png" alt="" />
-                    <!--  Контент с иконками и кнопками  -->
+                <div v-for="(house, key) in houses" :key="key" class="house-card">
+                    <img :src="house.src" alt="" />
                     <div class="flex justify-between">
                         <div class="icons">
-                            <img class="icon_house" src="/public/img/construction/house.svg" />
-                            <p>68 м2</p>
-                            <img class="icon_bed" src="/public/img/construction/bed.svg" />
-                            <p>2 спальни</p>
-                            <img class="icon_bathroom" src="/public/img/construction/bathroom.svg" />
-                            <p>1 санузел</p>
+                            <div v-for="(icon, key) in house.icons" :key="key" class="icon">
+                                <img class="icon_house" :src="icon.src" alt="icon house" />
+                                <p>{{ icon.title }}</p>
+                            </div>
                         </div>
                         <div class="buttons">
-                            <MBtn class="Button_1">Подробнее</MBtn><MBtn class="Button_2">Консультация</MBtn>
-                        </div>
-                    </div>
-                    <hr class="border-line" />
-                </div>
-                <div class="house-card">
-                    <div class="card_2">
-                        <img src="/img/construction/house_2.png" alt="" />
-                        <!--  Контент с иконками и кнопками  -->
-                        <div class="flex justify-between">
-                            <div class="icons">
-                                <img class="icon_house" src="/public/img/construction/house.svg" />
-                                <p>68 м2</p>
-                                <img class="icon_bed" src="/public/img/construction/bed.svg" />
-                                <p>2 спальни</p>
-                                <img class="icon_bathroom" src="/public/img/construction/bathroom.svg" />
-                                <p>1 санузел</p>
-                            </div>
-                            <div class="buttons">
-                                <MBtn class="Button_1">Подробнее</MBtn><MBtn class="Button_2">Консультация</MBtn>
-                            </div>
-                        </div>
-                        <hr class="border-line" />
-                    </div>
-                </div>
-                <div class="house-card">
-                    <div class="card_3">
-                        <img src="/img/construction/house_3.png" alt="" />
-                        <!--  Контент с иконками и кнопками  -->
-                        <div class="flex justify-between">
-                            <div class="icons">
-                                <img class="icon_house" src="/public/img/construction/house.svg" />
-                                <p>68 м2</p>
-                                <img class="icon_bed" src="/public/img/construction/bed.svg" />
-                                <p>2 спальни</p>
-                                <img class="icon_bathroom" src="/public/img/construction/bathroom.svg" />
-                                <p>1 санузел</p>
-                            </div>
-                            <div class="buttons">
-                                <MBtn class="Button_1">Подробнее</MBtn><MBtn class="Button_2">Консультация</MBtn>
-                            </div>
+                            <m-btn label="Подробнее" />
+                            <m-btn label="Консультация" outline />
                         </div>
                     </div>
                 </div>
@@ -86,24 +43,58 @@
 import Container from "~/components/layout/Container.vue"
 import Section from "~/components/layout/Section.vue"
 import MBtn from "~/components/buttons/MBtn.vue"
+
 const houses = [
     {
         src: "/img/construction/house_1.png",
-        meters: "68м2",
-        bedroom: "2 спальни",
-        bathroom: "1 санузел",
+        icons: [
+            {
+                title: "68м2",
+                src: "/img/construction/house.svg",
+            },
+            {
+                title: "2 спальни",
+                src: "/img/construction/bed.svg",
+            },
+            {
+                title: "1 санузел",
+                src: "/img/construction/bathroom.svg",
+            },
+        ],
     },
     {
         src: "/img/construction/house_2.png",
-        meters: "68м2",
-        bedroom: "2 спальни",
-        bathroom: "1 санузел",
+        icons: [
+            {
+                title: "68м2",
+                src: "/img/construction/house.svg",
+            },
+            {
+                title: "2 спальни",
+                src: "/img/construction/bed.svg",
+            },
+            {
+                title: "1 санузел",
+                src: "/img/construction/bathroom.svg",
+            },
+        ],
     },
     {
         src: "/img/construction/house_3.png",
-        meters: "68м2",
-        bedroom: "2 спальни",
-        bathroom: "1 санузел",
+        icons: [
+            {
+                title: "68м2",
+                src: "/img/construction/house.svg",
+            },
+            {
+                title: "2 спальни",
+                src: "/img/construction/bed.svg",
+            },
+            {
+                title: "1 санузел",
+                src: "/img/construction/bathroom.svg",
+            },
+        ],
     },
 ]
 </script>
@@ -111,53 +102,69 @@ const houses = [
 <style lang="scss" scoped>
 .grid {
     .sticky-block {
+        position: sticky;
+        top: 15px;
+        align-self: self-start;
+
         h3 {
             margin-bottom: 30px;
-            position: sticky;
-            top: 15px;
         }
 
         p {
-            position: sticky;
-            top: 200px;
         }
     }
 
     .house-block {
         .house-card {
+            border-bottom: 1px solid $dark-color;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+
+            &:last-child {
+                border-bottom: none;
+            }
+
             .flex {
                 .icons {
                     display: flex;
-                    flex-wrap: wrap-reverse;
+                    gap: 20px;
                     margin-top: 5px;
-                    .icon_bed {
-                        margin-left: 20px;
-                    }
-                    .icon_bathroom {
-                        margin-left: 20px;
+
+                    .icon {
+                        display: flex;
+                        align-items: center;
+
+                        img {
+                            height: 40px;
+                            width: 40px;
+                        }
+
+                        .icon_bed {
+                            margin-left: 20px;
+                        }
+
+                        .icon_bathroom {
+                            margin-left: 20px;
+                        }
                     }
                 }
+
                 p {
                     margin-top: 17px;
                     margin-left: 5px;
                 }
+
                 .buttons {
-                    margin-top: 10px;
-                    .Button_1 {
-                        border-radius: 5px;
-                        margin-right: 10px;
-                    }
-                    .Button_2 {
-                        border-radius: 5px;
-                    }
+                    display: flex;
+                    gap: 12px;
+                    margin-top: 16px;
                 }
             }
-            .border-line {
-                margin-top: 30px;
-            }
+
             .card_2 {
                 margin-top: 30px;
             }
+
             .card_3 {
                 margin-top: 30px;
             }

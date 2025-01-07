@@ -1,5 +1,5 @@
 <template>
-    <q-header reveal class="bg-background header">
+    <q-header ref="headerRef" reveal class="bg-background header" :reveal-offset="250">
         <Container class="first-row">
             <NuxtLink to="/">
                 <img src="/icons/logo.svg" alt="Artamonov">
@@ -36,10 +36,14 @@
 <script setup lang="ts">
 import { links, socials } from "./const"
 import Container from "~/components/layout/Container.vue"
+import { computed } from "vue"
 
 const emit = defineEmits(["open-drawer"])
 
 const quasar = useQuasar()
+
+const headerRef = ref()
+const isHeaderVisible = computed(() => headerRef.value.classList)
 
 const handleOpenDrawer = (route: string) => {
     emit("open-drawer", route)
