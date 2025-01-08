@@ -5,7 +5,11 @@
             description="От предварительного концептуального дизайна до готовой рабочей документации, гарантируя высокое качество и соответствие всем строительным нормам"
             button-label="Получить консультацию"
         />
-        <HouseSection />
+        <HouseSection 
+        title="Проектирование домов <br>
+         от 4200 ₽/м2"
+        src="/img/building_design_bg.png"
+        />
         <TilesSection />
         <ServicesSection />
     </Layout>

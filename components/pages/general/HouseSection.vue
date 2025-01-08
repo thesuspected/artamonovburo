@@ -1,8 +1,8 @@
 <template>
     <Section :padding="0" class="house-section">
-        <q-img src="/img/building-design/building-design-bg.jpg" :ratio="21/9" />
+        <q-img :src="src" :ratio="21/9"/>
         <Container class="grid grid-cols-1 lg:grid-cols-3">
-            <span class="col-start-3 text">Проектирование домов<br> от 4 200 ₽/м2</span>
+            <span class="col-start-3 text" v-html="title"></span>
         </Container>
     </Section>
 </template>
@@ -10,6 +10,14 @@
 <script lang="ts" setup>
 import Section from "~/components/layout/Section.vue"
 import Container from "~/components/layout/Container.vue"
+defineProps({
+    title: {
+        type: String,
+    },
+    src: {
+        type: String
+    }
+})
 </script>
 
 <style lang="scss" scoped>
