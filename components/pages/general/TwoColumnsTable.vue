@@ -1,8 +1,8 @@
 <template>
     <div v-for="(item, key) in values" :key="key" class="grid grid-cols-2">
         <div class="flex" v-if="isTextSmall">
-            <h6 v-if="withNumbers" class="mr-4">0{{ key + 1 }}</h6>
-            <h6 class="">{{ item.title }}</h6>
+            <h5 v-if="withNumbers" class="mr-4">0{{ key + 1 }}</h5>
+            <h5 class="">{{ item.title }}</h5>
         </div>
         <div v-else class="flex items-center">
             <h4 v-if="withNumbers" class="mr-8">0{{ key + 1 }}</h4>

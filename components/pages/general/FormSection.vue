@@ -1,11 +1,11 @@
 <template>
     <Section>
-        <MainTitle>Вместе <b class="text-primary">создадим дом</b>, <br> который будет соответствовать<br>
-            <b class="text-primary">вашим ожиданиям </b> и предпочтениям
+        <MainTitle>
+            <slot />
         </MainTitle>
         <Container :max-width="1200" class="grid grid-cols-2 items-center">
             <div class="image-container">
-                <q-img class="image" src="img/building-design/form-house.png" :ratio="1">
+                <q-img class="image" :src="src" :ratio="1">
                     <h3 class="infant-font title">Обратная связь</h3>
                 </q-img>
             </div>
@@ -29,6 +29,13 @@ import Container from "~/components/layout/Container.vue"
 import MInput from "~/components/form/MInput.vue"
 import MainTitle from "~/components/text/MainTitle.vue"
 import MBtn from "~/components/buttons/MBtn.vue"
+
+defineProps({
+    src: {
+        type: String,
+        default: "img/building-design/form-house.png",
+    },
+})
 
 const form = ref({
     name: undefined,

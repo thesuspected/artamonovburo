@@ -8,7 +8,6 @@
         <div class="request span-1">
             <q-img src="/img/construction/request.png" :ratio="16/9" />
         </div>
-
     </div>
 </template>
 

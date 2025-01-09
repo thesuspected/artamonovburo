@@ -1,39 +1,43 @@
 <template>
-    <section class="services-section">
-        <MainTitle>
-            Делаем дома прочными, фасады<br>выразительными, а интерьеры —
-            <br>неповторимыми
-        </MainTitle>
-        <div class="grid grid-cols-1 lg:grid-cols-3">
-            <a
-                v-for="service in services"
-                :key="service.title"
-                class="service-card"
-                :class="{'row-span-2': service.isTwice}"
-                :href="service.to"
-            >
-                <img
-                    :src="service.image"
-                    :alt="service.alt"
-                    loading="lazy"
-                    class="image"
-                />
-                <div class="info">
-                    <span class="title">{{ service.title }}</span>
+    <Section class="services-section">
+        <Container>
+            <MainTitle>
+                Делаем дома <b class="text-primary">прочными</b>, фасады<br>выразительными, а интерьеры —
+                <br><b class="text-primary">неповторимыми</b>
+            </MainTitle>
+            <div class="grid grid-cols-1 lg:grid-cols-3">
+                <a
+                    v-for="service in services"
+                    :key="service.title"
+                    class="service-card"
+                    :class="{'row-span-2': service.isTwice}"
+                    :href="service.to"
+                >
                     <img
-                        src="/icons/chevron-right.svg"
-                        alt="chevron right"
-                        class="icon"
+                        :src="service.image"
+                        :alt="service.alt"
+                        loading="lazy"
+                        class="image"
                     />
-                </div>
-            </a>
-        </div>
-    </section>
+                    <div class="info">
+                        <span class="title">{{ service.title }}</span>
+                        <img
+                            src="/icons/chevron-right.svg"
+                            alt="chevron right"
+                            class="icon"
+                        />
+                    </div>
+                </a>
+            </div>
+        </Container>
+    </Section>
 </template>
 
 <script lang="ts" setup>
 
 import MainTitle from "~/components/text/MainTitle.vue"
+import Container from "~/components/layout/Container.vue"
+import Section from "~/components/layout/Section.vue"
 
 interface Service {
     title: string
@@ -80,8 +84,6 @@ const services = ref<Service[]>([
 
 <style lang="scss" scoped>
 .services-section {
-    padding: 80px;
-
     .grid {
         gap: 20px;
 
