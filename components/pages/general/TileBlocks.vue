@@ -1,4 +1,5 @@
 <template>
+    
     <div class="grid grid-cols-1" :class="innerClass">
         <div
             class="tile"
