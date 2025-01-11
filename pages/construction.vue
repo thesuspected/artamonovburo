@@ -9,8 +9,9 @@
         <ProjectsSection />
         <StagesSection />
         <FormSection>
-            Вместе <b class="text-primary">создадим дом</b>, <br> который будет соответствовать<br>
-            <b class="text-primary">вашим ожиданиям </b> и предпочтениям
+            Вместе создадим<b class="text-primary"> дом</b>,<br>
+            который <b class="text-primary">будет соответствовать</b><br>
+            вашим<b class="text-primary"> ожиданиям </b> и предпочтениям
         </FormSection>
         <AccordionSection />
     </Layout>
