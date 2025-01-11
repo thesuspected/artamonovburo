@@ -1,12 +1,14 @@
 <template>
     <Section>
-        <MainTitle class="title"
-            >Реализуем проект от <b>идеи </b><br />
-            до <b>готового ремонта</b></MainTitle
-        >
+        <MainTitle class="title">
+            Реализуем проект от <b class="text-primary">идеи </b><br />
+            до <b class="text-primary">готового ремонта</b>
+        </MainTitle>
 
         <Container class="grid grid-cols-3">
-            <div class="room-1 col-span-1"><img src="/public/img/interior-design/room_1.png" /></div>
+            <div class="room-1 col-span-1">
+                <q-img src="/img/interior-design/room_1.png" />
+            </div>
             <div class="consultation-1 col-span-2">
                 <p class="mainTitle">Дизайн-проект</p>
                 <ul>
@@ -34,13 +36,16 @@
                     Авторский надзор в нашей компании является неотъемлемой частью <br />
                     разработки дизайна интерьера. Это помогает гарантировать, <br />
                     что все элементы интерьера реализуются в соответствии <br />
-                    с первоначальной концепцией и замыслом дизайнера. Также, позволяет <br />
-                    избежать искажений и упрощений, которые могут возникнуть на стадии <br />
-                    выполнения работ.
+                    с первоначальной концепцией и замыслом дизайнера. <br />
+                    <br />
+                    Это также, позволяет избежать искажений и упрощений, <br />
+                    которые могут возникнуть на стадии выполнения работ.
                 </p>
                 <m-btn class="button" label="Консультация" outline />
             </div>
-            <div class="room-2 col-span-1"><img src="/public/img/interior-design/room_2.png" /></div>
+            <div class="room-2 col-span-1">
+                <q-img src="/img/interior-design/room_2.png" />
+            </div>
         </Container>
     </Section>
 </template>
@@ -56,19 +61,23 @@ import Section from "~/components/layout/Section.vue"
 .title {
     margin-top: 150px;
 }
+
 .grid {
     margin-top: 50px;
 
     .consultation-1 {
-        border-bottom: solid 1px;
+        border-bottom: solid 1px $secondary-color;
 
         .button {
             margin-top: 15px;
         }
+
         .mainTitle {
             font-size: 30px;
         }
+
         margin-left: 70px;
+
         ul {
             padding-left: 20px;
             list-style: disc;
@@ -77,13 +86,16 @@ import Section from "~/components/layout/Section.vue"
                 margin-bottom: 10px;
             }
         }
+
         .mainTitle {
             font-size: 40px;
         }
     }
+
     .consultation-2 {
-        border-bottom: solid 1px;
+        border-bottom: solid 1px $secondary-color;
         margin-right: 100px;
+
         .description {
             margin-top: 40px;
         }
@@ -91,6 +103,7 @@ import Section from "~/components/layout/Section.vue"
         .button {
             margin-top: 15px;
         }
+
         .mainTitle {
             font-size: 30px;
         }
@@ -98,10 +111,12 @@ import Section from "~/components/layout/Section.vue"
         ul {
             padding-left: 20px;
             list-style: disc;
+
             li {
                 margin-bottom: 10px;
             }
         }
+
         .mainTitle {
             font-size: 40px;
         }
