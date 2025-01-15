@@ -1,7 +1,7 @@
 <template>
     <Layout>
         <ProjectStickySection :title="project.title" :subtitle="project.subtitle">
-            <q-img :src="project.src" :ratio="4/3" />
+            <q-img :src="project.src" :ratio="4 / 3" />
             <ProjectInfo :info="project.info" />
             <ProjectBlock v-for="(block, key) in project.blocks" :key="key" :data="block" />
         </ProjectStickySection>
@@ -68,9 +68,128 @@ const project: ProjectType = {
                 },
             ],
         },
+        {
+            title: "Спальня",
+            subtitle: `Мебель выбирали преимущественно скандинавских брендов. Плюс<br>
+            в том, что имея небольшие габариты, она выглядит одновременно<br>
+            современной и традиционной, визуально не утяжеляет интерьер`,
+            images: [
+                {
+                    src: "/img/projects/technical-street-apartments/bedroom_1.png",
+                    rows: 2,
+                    cols: 6,
+                    alt: "Спальня 1",
+                },
+                {
+                    src: "/img/projects/technical-street-apartments/bedroom_2.png",
+                    rows: 2,
+                    cols: 6,
+                    alt: "Спальня 2",
+                },
+                {
+                    src: "/img/projects/technical-street-apartments/bedroom_3.png",
+                    rows: 1,
+                    cols: 3,
+                    alt: "Спальня 3",
+                },
+                {
+                    src: "/img/projects/technical-street-apartments/bedroom_4.png",
+                    rows: 1,
+                    cols: 3,
+                    alt: "Спальня 4",
+                },
+                {
+                    src: "/img/projects/technical-street-apartments/bedroom_5.png",
+                    rows: 1,
+                    cols: 6,
+                    alt: "Спальня 5",
+                },
+            ],
+        },
+        {
+            title: "Ванная",
+            subtitle: "",
+            images: [
+                {
+                    src: "/img/projects/technical-street-apartments/bathroom_1.png",
+                    rows: 3,
+                    cols: 6,
+                    alt: "Ванная 1",
+                },
+                {
+                    src: "/img/projects/technical-street-apartments/bathroom_2.png",
+                    rows: 3,
+                    cols: 6,
+                    alt: "Ванная 2",
+                },
+            ],
+        },
+        {
+            title: "Детская",
+            subtitle: `Мебель выбирали преимущественно скандинавских брендов. Плюс<br>
+             в том, что имея небольшие габариты, она выглядит одновременно<br>
+             современной и традиционной, визуально не утяжеляет интерьер`,
+            images: [
+                {
+                    src: "/img/projects/technical-street-apartments/childrenroom_1.png",
+                    rows: 2,
+                    cols: 6,
+                    alt: "Детская 1",
+                },
+                {
+                    src: "/img/projects/technical-street-apartments/childrenroom_2.png",
+                    rows: 2,
+                    cols: 6,
+                    alt: "Детская 2",
+                },
+                {
+                    src: "/img/projects/technical-street-apartments/childrenroom_3.png",
+                    rows: 1,
+                    cols: 3,
+                    alt: "Детская 3",
+                },
+                {
+                    src: "/img/projects/technical-street-apartments/childrenroom_4.png",
+                    rows: 1,
+                    cols: 6,
+                    alt: "Детская 4",
+                },
+                {
+                    src: "/img/projects/technical-street-apartments/childrenroom_5.png",
+                    rows: 1,
+                    cols: 3,
+                    alt: "Детская 5",
+                },
+            ],
+        },
+        {
+            title: "Кабинет",
+            subtitle: `Мебель выбирали преимущественно скандинавских брендов. Плюс<br>
+            в том, что имея небольшие габариты, она выглядит одновременно<br>
+            современной и традиционной, визуально не утяжеляет интерьер`,
+            images: [
+                {
+                    src: "/img/projects/technical-street-apartments/office_1.png",
+                    rows: 3,
+                    cols: 6,
+                    alt: "Кабинет 1",
+                },
+                {
+                    src: "/img/projects/technical-street-apartments/office_2.png",
+                    rows: 2,
+                    cols: 6,
+                    alt: "Кабинет 2",
+                },
+                {
+                    src: "/img/projects/technical-street-apartments/office_3.png",
+                    rows: 1,
+                    cols: 6,
+                    alt: "Кабинет 3",
+                },
+            ],
+        },
     ],
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
