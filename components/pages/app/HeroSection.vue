@@ -24,7 +24,7 @@ import Section from "~/components/layout/Section.vue"
 .hero-section {
     position: relative;
     height: calc(100vh - 150px);
-    background-image: url("/img/output_lab.png");
+    background-image: url("/img/main_home.png");
     background-size: cover;
     background-position: center;
     color: $white-color;

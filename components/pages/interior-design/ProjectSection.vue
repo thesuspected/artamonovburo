@@ -1,7 +1,10 @@
 <template>
     <Section :padding="100">
         <Container>
-            <MainTitle>Каждый проект уникален,<br />как и каждый клиент, с которым мы работаем </MainTitle>
+            <MainTitle>
+                Каждый проект <b class="text-primary">уникален</b>,<br />
+                как и <b class="text-primary">каждый клиент</b>, с которым мы работаем
+            </MainTitle>
             <hr />
             <div class="button">
                 <h3 class="infant-font">Саратов | жк крылья</h3>
@@ -28,6 +31,7 @@ import Container from "~/components/layout/Container.vue"
 import Section from "~/components/layout/Section.vue"
 import MBtn from "~/components/buttons/MBtn.vue"
 import ImagesGrid from "../general/ImagesGrid.vue"
+
 defineProps({
     images: {
         type: Array as PropType<ImageGridType[]>,
@@ -104,13 +108,16 @@ const images2: ImageGridType[] = [
     display: flex;
     justify-content: space-between;
 }
+
 hr {
     margin-top: 30px;
     margin-bottom: 90px;
 }
+
 .hr-2 {
     margin-top: 90px;
 }
+
 .images-grid {
     margin-top: 20px;
     display: grid;
