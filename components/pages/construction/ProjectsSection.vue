@@ -28,6 +28,7 @@
                                 <p>{{ icon.title }}</p>
                             </div>
                         </div>
+                        
                         <div class="buttons">
                             <m-btn label="Подробнее" />
                             <m-btn label="Консультация" outline />

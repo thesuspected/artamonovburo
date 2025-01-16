@@ -2,9 +2,7 @@
     <Section>
         <MainTitle class="title"
             >Реализуем проект от <b>идеи </b><br />
-            до <b>готового ремонта</b></MainTitle
-        >
-
+            до <b>готового ремонта</b></MainTitle>
         <Container class="grid grid-cols-3">
             <div class="room-1 col-span-1"><img src="/public/img/interior-design/room_1.png" /></div>
             <div class="consultation-1 col-span-2">

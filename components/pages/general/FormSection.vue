@@ -10,14 +10,22 @@
                 </q-img>
             </div>
             <q-form class="form">
-                <span
-                    class="text-center"><b class="border-b-2">Давайте познакомимся поближе!</b><br> Оставьте заявку, и мы вместе с вами<br> погрузимся в вашу задачу</span>
+                <span class="text-center"
+                    ><b class="border-b-2">Давайте познакомимся поближе!</b><br />
+                    Оставьте заявку, и мы вместе с вами<br />
+                    погрузимся в вашу задачу</span
+                >
                 <m-input v-model="form.name" label="Ваше Имя" placeholder="Как к вам обращаться?" />
-                <m-input v-model="form.phone" label="Ваш телефон" mask="+7 (###) ###-##-##"
-                         placeholder="+7 (987) 654-32-10" />
+                <m-input
+                    v-model="form.phone"
+                    label="Ваш телефон"
+                    mask="+7 (###) ###-##-##"
+                    placeholder="+7 (987) 654-32-10"
+                />
                 <m-btn class="mt-default" label="Отправить" shine-effect full-width />
-                <span
-                    class="sub-text">Нажимая кнопку «Отправить» вы даёте согласие на обработку персональных данных</span>
+                <span class="sub-text"
+                    >Нажимая кнопку «Отправить» вы даёте согласие на обработку персональных данных</span
+                >
             </q-form>
         </Container>
     </Section>
@@ -51,14 +59,13 @@ const form = ref({
     --c: rgba(24, 68, 62, 0.5); /* color of the border */
     --w: 80px; /* width of border */
 
-
     border: var(--b) solid #0000; /* space for the border */
     --_g: #0000 90deg, var(--c) 0;
     --_p: var(--w) var(--w) border-box no-repeat;
-    background: conic-gradient(from 90deg at top var(--b) left var(--b), var(--_g)) 0 0    / var(--_p),
-    conic-gradient(from 180deg at top var(--b) right var(--b), var(--_g)) 100% 0    / var(--_p),
-    conic-gradient(from 0deg at bottom var(--b) left var(--b), var(--_g)) 0 100% / var(--_p),
-    conic-gradient(from -90deg at bottom var(--b) right var(--b), var(--_g)) 100% 100% / var(--_p);
+    background: conic-gradient(from 90deg at top var(--b) left var(--b), var(--_g)) 0 0 / var(--_p),
+        conic-gradient(from 180deg at top var(--b) right var(--b), var(--_g)) 100% 0 / var(--_p),
+        conic-gradient(from 0deg at bottom var(--b) left var(--b), var(--_g)) 0 100% / var(--_p),
+        conic-gradient(from -90deg at bottom var(--b) right var(--b), var(--_g)) 100% 100% / var(--_p);
 
     .image-container {
         position: relative;
@@ -69,7 +76,7 @@ const form = ref({
         }
 
         &:before {
-            content: '';
+            content: "";
             position: absolute;
             background: $primary-color;
             top: 0;
