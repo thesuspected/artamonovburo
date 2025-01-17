@@ -1,8 +1,6 @@
 <template>
     <Section>
-        <MainTitle class="title"
-            >Реализуем проект от <b>идеи </b><br />
-            до <b>готового ремонта</b></MainTitle>
+       
         <MainTitle class="title">
             Реализуем проект от <b class="text-primary">идеи </b><br />
             до <b class="text-primary">готового ремонта</b>

@@ -4,21 +4,42 @@
             <hr />
             <h3 class="infant-font">Дом в стиле Тюдор</h3>
             <ImagesGrid :images="images" />
-            <div class="house-block col-span-2">
+            <div class="house-block">
                 <div v-for="(house, key) in houses" :key="key" class="house-card">
+
+                    <p>О проекте:</p>
                     <div class="flex justify-between">
                         <div class="icons">
+                            
                             <div v-for="(icon, key) in house.icons" :key="key" class="icon">
+                                
                                 <img class="icon_house" :src="icon.src" alt="icon house" />
+                                
                                 <p>{{ icon.title }}</p>
                             </div>
                         </div>
+                        <hr class="vertical" />
+                        <div class="icons2">
+                        <div v-for="(house, key) in houses" :key="key" class="house-card2">
+                            <div class="flex ">
+                                <div class="icons">
+                                    <div v-for="(icon, key) in house.icons2" :key="key" class="icon">
+                                        <img class="icon_house" :src="icon.src" alt="icon house" />
+                                        <p>{{ icon.title }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                         <div class="buttons">
                             <m-btn label="Консультация" outline />
                         </div>
                     </div>
+                    
                 </div>
+                
             </div>
+            <hr class="b-b"/>
         </Container>
     </Section>
 </template>
@@ -71,6 +92,16 @@ const houses = [
                 src: "/img/cooperation/calendar.svg",
             },
         ],
+        icons2: [
+            {
+                title: "30% годовых",
+                src: "/img/cooperation/hand-coins.svg",
+            },
+            {
+                title: "от 1 млн. ₽ ",
+                src: "/img/cooperation/door.svg",
+            },
+        ],
     },
 ]
 </script>
@@ -80,54 +111,43 @@ h3 {
     margin-top: 40px;
     margin-bottom: 40px;
 }
+.house-card2{
+    margin-top: 15px;
+}
+.house-block {
+    display: flex;
+    margin-top: 15px;
+}
+.vertical {
+    height: 70px;
+    border-left: 1px solid;
+    margin: 10px;
+    
+}
 .flex {
     .icons {
         display: flex;
         gap: 20px;
-        margin-top: 5px;
+       
 
         .icon {
             display: flex;
             align-items: center;
-
-            img {
-                height: 40px;
-                width: 40px;
-            }
-
-            .icon_bed {
-                margin-left: 20px;
-            }
-
-            .icon_bathroom {
-                margin-left: 20px;
-            }
         }
     }
     .icons2 {
         display: flex;
         gap: 20px;
-        margin-top: 5px;
+        
 
         .icon {
             display: flex;
             align-items: center;
 
-            img {
-                height: 40px;
-                width: 40px;
-            }
 
-            .icon_bed {
-                margin-left: 20px;
-            }
-
-            .icon_bathroom {
-                margin-left: 20px;
-            }
         }
     }
-
+    
     p {
         margin-top: 17px;
         margin-left: 5px;
@@ -136,15 +156,10 @@ h3 {
     .buttons {
         display: flex;
         gap: 12px;
-        margin-top: 16px;
+       
+        
+        
     }
 }
 
-.card_2 {
-    margin-top: 30px;
-}
-
-.card_3 {
-    margin-top: 30px;
-}
 </style>
