@@ -44,6 +44,16 @@ import Container from "~/components/layout/Container.vue"
 <style lang="scss" scoped>
 .grid {
     gap: 15px;
+    .house_1 {
+        p {
+            margin-top: 20px;
+        }
+    }
+    .house_2 {
+        p {
+            margin-top: 20px;
+        }
+    }
 }
 .infant-font {
     margin-top: 20px;

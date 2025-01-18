@@ -5,41 +5,23 @@
             <h3 class="infant-font">Дом в стиле Тюдор</h3>
             <ImagesGrid :images="images" />
             <div class="house-block">
-                <div v-for="(house, key) in houses" :key="key" class="house-card">
-
-                    <p>О проекте:</p>
-                    <div class="flex justify-between">
+                <div class="flex">
+                    <div v-for="(house, key) in houses" :key="key" class="info-block">
+                        <p>{{ house.title }}</p>
                         <div class="icons">
-                            
                             <div v-for="(icon, key) in house.icons" :key="key" class="icon">
-                                
-                                <img class="icon_house" :src="icon.src" alt="icon house" />
-                                
+                                <img class="img" :src="icon.src" alt="icon house" />
+
                                 <p>{{ icon.title }}</p>
                             </div>
                         </div>
-                        <hr class="vertical" />
-                        <div class="icons2">
-                        <div v-for="(house, key) in houses" :key="key" class="house-card2">
-                            <div class="flex ">
-                                <div class="icons">
-                                    <div v-for="(icon, key) in house.icons2" :key="key" class="icon">
-                                        <img class="icon_house" :src="icon.src" alt="icon house" />
-                                        <p>{{ icon.title }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                        <div class="buttons">
-                            <m-btn label="Консультация" outline />
-                        </div>
-                    </div>
-                    
                 </div>
-                
+
+                <m-btn label="Консультация" class="button" outline />
             </div>
-            <hr class="b-b"/>
+
+            <hr class="b-b" />
         </Container>
     </Section>
 </template>
@@ -78,6 +60,7 @@ const images: ImageGridType[] = [
 ]
 const houses = [
     {
+        title: "О проекте:",
         icons: [
             {
                 title: "250м2",
@@ -92,7 +75,10 @@ const houses = [
                 src: "/img/cooperation/calendar.svg",
             },
         ],
-        icons2: [
+    },
+    {
+        title: "Финансовые условия:",
+        icons: [
             {
                 title: "30% годовых",
                 src: "/img/cooperation/hand-coins.svg",
@@ -111,7 +97,7 @@ h3 {
     margin-top: 40px;
     margin-bottom: 40px;
 }
-.house-card2{
+.house-card2 {
     margin-top: 15px;
 }
 .house-block {
@@ -122,44 +108,42 @@ h3 {
     height: 70px;
     border-left: 1px solid;
     margin: 10px;
-    
 }
-.flex {
-    .icons {
-        display: flex;
-        gap: 20px;
-       
-
-        .icon {
+.house-block {
+    display: flex;
+    justify-content: space-between;
+    .button {
+        align-self: flex-end;
+        margin-bottom: 15px;
+    }
+    .flex {
+        .info-block {
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            margin-bottom: 15px;
+            &:first-child {
+                border-right: 1px solid $secondary-color;
+                padding-right: 20px;
+            }
+            &:last-child {
+                padding-left: 20px;
+            }
+            .icons {
+                display: flex;
+                gap: 20px;
+                .icon {
+                    display: flex;
+                    align-items: center;
+                    p {
+                        margin: 0;
+                    }
+                    .img {
+                        width: 40px;
+                        height: 40px;
+                    }
+                }
+            }
         }
     }
-    .icons2 {
-        display: flex;
-        gap: 20px;
-        
-
-        .icon {
-            display: flex;
-            align-items: center;
-
-
-        }
-    }
-    
-    p {
-        margin-top: 17px;
-        margin-left: 5px;
-    }
-
-    .buttons {
-        display: flex;
-        gap: 12px;
-       
-        
-        
-    }
 }
-
 </style>
