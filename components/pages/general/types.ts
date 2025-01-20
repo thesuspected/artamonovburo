@@ -9,3 +9,14 @@ export interface ImageGridType {
     cols: number
     alt: string
 }
+
+export interface SelectType {
+    label: string
+    value: string
+}
+
+export interface QuizType {
+    question: string,
+    selected: string,
+    answers: SelectType[]
+}
