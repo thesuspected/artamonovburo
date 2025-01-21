@@ -2,10 +2,11 @@
     <Section>
         <Container>
             <MainTitle>
-                <b class="text-primary">Пройдите опрос</b>, чтобы<br>
-                получить предварительную смету <br>
+                <b class="text-primary">Пройдите опрос</b>, чтобы<br />
+                получить предварительную смету <br />
                 на строительство вашего дома
             </MainTitle>
+
             <Quiz :quiz-options="options" />
         </Container>
     </Section>
@@ -19,43 +20,118 @@ import Quiz from "~/components/pages/general/Quiz.vue"
 
 const options = ref([
     {
-        question: "Вопрос 1",
+        question: "Какую общую площадь Вы рассматриваете?",
         selected: undefined,
         answers: [
             {
-                label: "Ответ 1",
-                value: "Ответ 1",
+                label: "До 100 м²",
+                value: "До 100 м²",
             },
             {
-                label: "Ответ 2",
-                value: "Ответ 2",
+                label: "100-150 м²",
+                value: "100-150 м²",
             },
             {
-                label: "Option 3",
-                value: "Ответ 3",
+                label: "150-200 м²",
+                value: "150-200 м²",
+            },
+            {
+                label: "Больше 200 м²",
+                value: "Больше 200 м²",
             },
         ],
     },
     {
-        question: "Вопрос 2",
+        question: "Из какого материала будем строить дом?",
         selected: undefined,
         answers: [
             {
-                label: "Ответ 11",
+                label: "Кирпич",
                 value: "Ответ 11",
             },
             {
-                label: "Ответ 22",
+                label: "Газобетон",
                 value: "Ответ 22",
             },
             {
-                label: "Option 33",
+                label: "Газоблок+кирпич",
                 value: "Ответ 33",
+            },
+            {
+                label: "Монолит",
+                value: "Ответ 44",
+            },
+            {
+                label: "Пока не определился, нужна консультация",
+                value: "Ответ 55",
+            },
+        ],
+    },
+    {
+        question: "За какие средства планируете строить дом?",
+        selected: undefined,
+        answers: [
+            {
+                label: "За наличные средства",
+                value: "Ответ 11",
+            },
+            {
+                label: "В ипотеку",
+                value: "Ответ 22",
+            },
+        ],
+    },
+    {
+        question: "Вы купили участок?",
+        selected: undefined,
+        answers: [
+            {
+                label: "Да (Строим только в Московской области)",
+                value: "Ответ 11",
+            },
+            {
+                label: "Участок еще не куплен",
+                value: "Ответ 22",
+            },
+        ],
+    },
+    {
+        question: "Готовы рассмотреть вариант: готовый дом + участок в нашем коттеджном посёлке в 30 минут от Москвы ?",
+        selected: undefined,
+        answers: [
+            {
+                label: "Да",
+                value: "Ответ 11",
+            },
+            {
+                label: "Нет",
+                value: "Ответ 22",
+            },
+        ],
+    },
+    {
+        question: "Когда Вы планируете строительство?",
+        selected: undefined,
+        answers: [
+            {
+                label: "В ближайшее время",
+                value: "Ответ 11",
+            },
+            {
+                label: "Через 1-3 месяца",
+                value: "Ответ 22",
+            },
+            {
+                label: "Через 3-6 месяцев",
+                value: "Ответ 33",
+            },
+            {
+                label: "Не знаю, нужна консультация",
+                value: "Ответ 44",
             },
         ],
     },
 ])
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
