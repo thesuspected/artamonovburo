@@ -1,28 +1,31 @@
 <template>
-    <div class="content">
-        <div class="q-pa-md">
-            <q-linear-progress :value="progress" color="$primary-color" class="q-mt-sm" />
-        </div>
+    <div class="grid grid-cols-2">
+        <div class="col-span-1"><img src="/public/img/construction/quiz.png" alt="" /></div>
+        <div class="content col-span-1">
+            <div class="q-pa-md">
+                <q-linear-progress :value="progress" color="$primary-color" class="q-mt-sm" />
+            </div>
 
-        <div v-if="step !== options.length" class="quiz">
-            <h6>{{ options[step].question }}</h6>
-            <q-option-group v-model="options[step].selected" :options="options[step].answers" color="primary" />
-        </div>
+            <div v-if="step !== options.length" class="quiz">
+                <h6>{{ options[step].question }}</h6>
+                <q-option-group v-model="options[step].selected" :options="options[step].answers" color="primary" />
+            </div>
 
-        <div v-if="step == options.length" class="form">
-            <!--     Добавить сюда текст      -->
-            <m-input v-model="form.name" label="Ваше Имя" placeholder="Как к вам обращаться?" />
-            <m-input
-                v-model="form.phone"
-                label="Ваш телефон"
-                mask="+7 (###) ###-##-##"
-                placeholder="+7 (987) 654-32-10"
-            />
-        </div>
+            <div v-if="step == options.length" class="form">
+                <p>Укажите ваши даннные, и мы отправим стоимость домов и бесплатный чек-лист</p>
+                <m-input v-model="form.name" label="Ваше Имя" placeholder="Как к вам обращаться?" />
+                <m-input
+                    v-model="form.phone"
+                    label="Ваш телефон"
+                    mask="+7 (###) ###-##-##"
+                    placeholder="+7 (987) 654-32-10"
+                />
+            </div>
 
-        <m-btn v-if="step > 0" label="Назад" outline @click="clickPrev" class="prev mt-5" />
-        <m-btn v-if="step < options.length" label="Далее" @click="clickNext" class="next ml-3 mt-5" />
-        <m-btn v-if="step == options.length" class="ml-3 mt-5" label="Отправить" shine-effect />
+            <m-btn v-if="step > 0" label="Назад" outline @click="clickPrev" class="prev mt-5" />
+            <m-btn v-if="step < options.length" label="Далее" @click="clickNext" class="next ml-3 mt-5" />
+            <m-btn v-if="step == options.length" class="ml-3 mt-5" label="Отправить" shine-effect />
+        </div>
     </div>
 </template>
 
@@ -61,6 +64,8 @@ const form = ref({
 <style lang="scss" scoped>
 .content {
     .quiz {
+        height: 250px;
+        margin-top: 40px;
     }
 
     .form {
