@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
     <Layout>
         <Section>
             <Container>
@@ -18,6 +19,9 @@
             </Container>
         </Section>
     </Layout>
+=======
+    <Layout> </Layout>
+>>>>>>> ad75ff9e4a84b2292e0c9e802ed85c964855bc70
 </template>
 
 <script lang="ts" setup>
@@ -91,6 +95,7 @@ const product = [
 
 </script>
 
+<<<<<<< HEAD
 <style lang="scss" scoped>
 
 .grid{
@@ -107,3 +112,6 @@ const product = [
 }
 
 </style>
+=======
+<style lang="scss" scoped></style>
+>>>>>>> ad75ff9e4a84b2292e0c9e802ed85c964855bc70
