@@ -29,10 +29,10 @@
                             <p>Крепежные материалы:</p>
                             <div class="q-pa">
                                 <q-select
+                                    v-model="form.material"
                                     outlined
-                                    v-model="model"
-                                    :options="options"
-                                    label="Материалы"
+                                    :options="materials"
+                                    placeholder="Выберите"
                                     color="primary"
                                 />
                             </div>
@@ -41,10 +41,10 @@
                             <p>Необходима ли доставка?</p>
                             <div class="q-pa">
                                 <q-select
+                                    v-model="form.delivery"
                                     outlined
-                                    v-model="model"
-                                    :options="options"
-                                    label="Материалы"
+                                    :options="delivery"
+                                    placeholder="Выберите"
                                     color="primary"
                                 />
                             </div>
@@ -68,13 +68,22 @@
                 </div>
                 <div class="carusel">
                     <h3 class="infant-font">Смотрите также</h3>
-                    <swiper :slides-per-view="4" :space-between="30">
-                        <swiper-slide><img src="/public/img/catalog/wall.png" alt="" /></swiper-slide>
-                        <swiper-slide><img src="/public/img/catalog/wall.png" alt="" /></swiper-slide>
-                        <swiper-slide><img src="/public/img/catalog/wall.png" alt="" /></swiper-slide>
-                        <swiper-slide><img src="/public/img/catalog/wall.png" alt="" /></swiper-slide>
-                        ...
-                    </swiper>
+                    <div class="swiper">
+                        <swiper
+                            :slides-per-view="4"
+                            :space-between="30"
+                            :navigation="true"
+                            :modules="modules"
+                            class="mySwiper"
+                        >
+                            <swiper-slide><img src="/public/img/catalog/wall.png" alt="" /></swiper-slide>
+                            <swiper-slide><img src="/public/img/catalog/wall.png" alt="" /></swiper-slide>
+                            <swiper-slide><img src="/public/img/catalog/wall.png" alt="" /></swiper-slide>
+                            <swiper-slide><img src="/public/img/catalog/wall.png" alt="" /></swiper-slide>
+                            <swiper-slide><img src="/public/img/catalog/wall.png" alt="" /></swiper-slide>
+                            ...
+                        </swiper>
+                    </div>
                 </div>
             </Container>
         </Section>
@@ -88,6 +97,18 @@ import Container from "~/components/layout/Container.vue"
 import Layout from "~/components/layout/Layout.vue"
 import { Swiper, SwiperSlide } from "swiper/vue"
 import "swiper/css"
+import "swiper/css/navigation"
+
+// import required modules
+import { Navigation } from "swiper/modules"
+
+const modules = [Navigation]
+const materials = ["Кирпич", "Камень", "Песок"]
+const delivery = ["Да", "Нет"]
+const form = ref({
+    material: "Кирпич",
+    delivery: "Да",
+})
 </script>
 
 <style lang="scss" scoped>
@@ -129,5 +150,35 @@ import "swiper/css"
 }
 .carusel {
     margin-top: 120px;
+    .swiper {
+        margin-top: 30px;
+    }
+    &:deep(.swiper) {
+        .swiper-button-prev {
+            background: $primary-color;
+            opacity: 1;
+            border-radius: 100%;
+            color: white;
+            padding: 10px;
+            width: 50px;
+            height: 50px;
+            margin-left: -10px;
+            &:after {
+                font-size: 20px;
+            }
+        }
+        .swiper-button-next {
+            background: $primary-color;
+            opacity: 1;
+            border-radius: 100%;
+            color: white;
+            width: 50px;
+            height: 50px;
+            margin-right: -10px;
+            &:after {
+                font-size: 20px;
+            }
+        }
+    }
 }
 </style>
