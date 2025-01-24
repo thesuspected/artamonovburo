@@ -18,7 +18,7 @@
                             термопанель <br />
                             «название»
                         </h3>
-                        <h3 class="price mt-20">1 100 ₽</h3>
+                        <h3 class="price mt-10">1 100 ₽</h3>
                         <div class="size mt-10">
                             <p>Размер:</p>
                             <m-btn label="50 мм" class="button" />
@@ -135,10 +135,10 @@ const form = ref({
     .description {
     }
     .parameters {
-        margin-top: 30px;
+        margin-top: 20px;
         border-top: 1px solid;
         display: flex;
-        padding-top: 30px;
+        padding-top: 20px;
         .column-2 {
             margin-left: 50px;
         }
@@ -146,12 +146,12 @@ const form = ref({
 }
 .cost {
     width: 425px;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 .carusel {
     margin-top: 120px;
     .swiper {
-        margin-top: 30px;
+        margin-top: 20px;
     }
     &:deep(.swiper) {
         .swiper-button-prev {
