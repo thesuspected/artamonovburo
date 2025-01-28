@@ -66,25 +66,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="carusel">
-                    <h3 class="infant-font">Смотрите также</h3>
-                    <div class="swiper">
-                        <swiper
-                            :slides-per-view="4"
-                            :space-between="30"
-                            :navigation="true"
-                            :modules="modules"
-                            class="mySwiper"
-                        >
-                            <swiper-slide><img src="/public/img/catalog/wall.png" alt="" /></swiper-slide>
-                            <swiper-slide><img src="/public/img/catalog/wall.png" alt="" /></swiper-slide>
-                            <swiper-slide><img src="/public/img/catalog/wall.png" alt="" /></swiper-slide>
-                            <swiper-slide><img src="/public/img/catalog/wall.png" alt="" /></swiper-slide>
-                            <swiper-slide><img src="/public/img/catalog/wall.png" alt="" /></swiper-slide>
-                            ...
-                        </swiper>
-                    </div>
-                </div>
             </Container>
         </Section>
     </Layout>
@@ -147,38 +128,5 @@ const form = ref({
 .cost {
     width: 425px;
     margin-top: 20px;
-}
-.carusel {
-    margin-top: 120px;
-    .swiper {
-        margin-top: 20px;
-    }
-    &:deep(.swiper) {
-        .swiper-button-prev {
-            background: $primary-color;
-            opacity: 1;
-            border-radius: 100%;
-            color: white;
-            padding: 10px;
-            width: 50px;
-            height: 50px;
-            margin-left: -10px;
-            &:after {
-                font-size: 20px;
-            }
-        }
-        .swiper-button-next {
-            background: $primary-color;
-            opacity: 1;
-            border-radius: 100%;
-            color: white;
-            width: 50px;
-            height: 50px;
-            margin-right: -10px;
-            &:after {
-                font-size: 20px;
-            }
-        }
-    }
 }
 </style>

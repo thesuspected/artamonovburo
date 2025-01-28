@@ -3,7 +3,7 @@
         <Section>
             <Container>
                 <h1 class="infant-font">Каталог фасадов</h1>
-                <div class="flex " v-for="(category, key) in categories" :key="key">
+                <div class="flex" v-for="(category, key) in categories" :key="key">
                     <h4 class="infant-font">{{ category.name }}</h4>
                     <h6 class="infant-font">{{ category.count }}</h6>
                 </div>
@@ -15,6 +15,8 @@
                         <m-btn label="Подробнее" full-width />
                     </div>
                 </div>
+                <MainTitle class="mt-40"> Смотрите также </MainTitle>
+                <FacadeMaterials />
             </Container>
         </Section>
     </Layout>
@@ -25,8 +27,8 @@ import MBtn from "~/components/buttons/MBtn.vue"
 import Layout from "~/components/layout/Layout.vue"
 import Container from "~/components/layout/Container.vue"
 import Section from "~/components/layout/Section.vue"
-
-
+import FacadeMaterials from "~/components/pages/facades/FacadeMaterials.vue"
+import MainTitle from "~/components/text/MainTitle.vue"
 const categories = [
     {
         name: `Термопанели`,
@@ -88,7 +90,6 @@ const product = [
         price: "1 100 ₽",
     },
 ]
-
 </script>
 
 <style lang="scss" scoped>
@@ -101,8 +102,8 @@ const product = [
     flex-direction: column;
 
     .square {
-        background: #D9D9D9;
-        height: 250px
+        background: #d9d9d9;
+        height: 250px;
     }
 }
 </style>
