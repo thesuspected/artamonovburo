@@ -14,12 +14,10 @@
             и точную смету на фасадные работы
         </FormSection>
         <ImageSliderSection />
-        <MainTitle>
-            Выберите материалы <br />
+        <FacadeMaterialsSection show-btn>
+            <b class="text-primary">Выберите материалы</b>
             для будущего фасада
-        </MainTitle>
-        <MBtn class="button" outline>Смотреть все фасады</MBtn>
-        <FacadeMaterials />
+        </FacadeMaterialsSection>
     </Layout>
 </template>
 
@@ -32,15 +30,8 @@ import TilesSection from "~/components/pages/facades/TilesSection.vue"
 import FormSection from "~/components/pages/general/FormSection.vue"
 import StyleSection from "~/components/pages/facades/StyleSection.vue"
 import ImageSliderSection from "~/components/pages/facades/ImageSliderSection.vue"
-import FacadeMaterials from "~/components/pages/facades/FacadeMaterials.vue"
-import MainTitle from "~/components/text/MainTitle.vue"
-import MBtn from "~/components/buttons/MBtn.vue"
+import FacadeMaterialsSection from "~/components/pages/general/FacadeMaterialsSection.vue"
 </script>
 
 <style lang="scss" scoped>
-.button {
-    display: flex;
-    float: right;
-    margin-right: 80px;
-}
 </style>

@@ -68,6 +68,9 @@
                 </div>
             </Container>
         </Section>
+        <FacadeMaterialsSection>
+            Смотрите также
+        </FacadeMaterialsSection>
     </Layout>
 </template>
 
@@ -76,14 +79,10 @@ import MBtn from "~/components/buttons/MBtn.vue"
 import Section from "~/components/layout/Section.vue"
 import Container from "~/components/layout/Container.vue"
 import Layout from "~/components/layout/Layout.vue"
-import { Swiper, SwiperSlide } from "swiper/vue"
 import "swiper/css"
 import "swiper/css/navigation"
+import FacadeMaterialsSection from "~/components/pages/general/FacadeMaterialsSection.vue"
 
-// import required modules
-import { Navigation } from "swiper/modules"
-
-const modules = [Navigation]
 const materials = ["Кирпич", "Камень", "Песок"]
 const delivery = ["Да", "Нет"]
 const form = ref({
@@ -96,35 +95,42 @@ const form = ref({
 .q-pa {
     width: 425px;
 }
+
 .grid {
     .img {
         .wall {
             height: 721px;
             width: 721px;
         }
+
         .catalog {
             display: flex;
             justify-content: space-between;
             flex-direction: row;
             margin-top: 20px;
+
             .choice {
                 height: 129px;
                 width: 129px;
             }
         }
     }
+
     .description {
     }
+
     .parameters {
         margin-top: 20px;
         border-top: 1px solid;
         display: flex;
         padding-top: 20px;
+
         .column-2 {
             margin-left: 50px;
         }
     }
 }
+
 .cost {
     width: 425px;
     margin-top: 20px;
