@@ -15,8 +15,6 @@
                         <m-btn label="Подробнее" full-width />
                     </div>
                 </div>
-                <MainTitle class="mt-40"> Смотрите также </MainTitle>
-                <FacadeMaterials />
             </Container>
         </Section>
     </Layout>
@@ -27,8 +25,7 @@ import MBtn from "~/components/buttons/MBtn.vue"
 import Layout from "~/components/layout/Layout.vue"
 import Container from "~/components/layout/Container.vue"
 import Section from "~/components/layout/Section.vue"
-import FacadeMaterials from "~/components/pages/facades/FacadeMaterials.vue"
-import MainTitle from "~/components/text/MainTitle.vue"
+
 const categories = [
     {
         name: `Термопанели`,
