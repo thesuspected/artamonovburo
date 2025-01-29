@@ -9,24 +9,7 @@
                     <h3 class="infant-font title">Обратная связь</h3>
                 </q-img>
             </div>
-            <q-form class="form">
-                <span class="text-center"
-                    ><b class="border-b-2">Давайте познакомимся поближе!</b><br />
-                    Оставьте заявку, и мы вместе с вами<br />
-                    погрузимся в вашу задачу</span
-                >
-                <m-input v-model="form.name" label="Ваше Имя" placeholder="Как к вам обращаться?" />
-                <m-input
-                    v-model="form.phone"
-                    label="Ваш телефон"
-                    mask="+7 (###) ###-##-##"
-                    placeholder="+7 (987) 654-32-10"
-                />
-                <m-btn class="mt-default" label="Отправить" shine-effect full-width />
-                <span class="sub-text"
-                    >Нажимая кнопку «Отправить» вы даёте согласие на обработку персональных данных</span
-                >
-            </q-form>
+            <Form />
         </Container>
     </Section>
 </template>
@@ -34,9 +17,8 @@
 <script lang="ts" setup>
 import Section from "~/components/layout/Section.vue"
 import Container from "~/components/layout/Container.vue"
-import MInput from "~/components/form/MInput.vue"
 import MainTitle from "~/components/text/MainTitle.vue"
-import MBtn from "~/components/buttons/MBtn.vue"
+import Form from "./Form.vue"
 
 defineProps({
     src: {
