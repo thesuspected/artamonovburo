@@ -16,7 +16,8 @@ export interface SelectType {
 }
 
 export interface QuizType {
-    question: string,
-    selected: string,
+    question: string
+    selected: string
     answers: SelectType[]
+    type: string
 }

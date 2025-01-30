@@ -18,6 +18,7 @@
             <b class="text-primary">Выберите материалы</b>
             для будущего фасада
         </FacadeMaterialsSection>
+        <FacadeQuiz />
     </Layout>
 </template>
 
@@ -31,7 +32,7 @@ import FormSection from "~/components/pages/general/FormSection.vue"
 import StyleSection from "~/components/pages/facades/StyleSection.vue"
 import ImageSliderSection from "~/components/pages/facades/ImageSliderSection.vue"
 import FacadeMaterialsSection from "~/components/pages/general/FacadeMaterialsSection.vue"
+import FacadeQuiz from "~/components/pages/facades/FacadeQuiz.vue"
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

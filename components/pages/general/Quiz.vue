@@ -8,7 +8,23 @@
 
             <div v-if="step !== options.length" class="quiz">
                 <h6>{{ options[step].question }}</h6>
-                <q-option-group v-model="options[step].selected" :options="options[step].answers" color="primary" />
+                <q-slider
+                    v-if="options[step].type === 'slider'"
+                    v-model="value"
+                    :min="50"
+                    :max="500"
+                    :step="1"
+                    label
+                    label-always
+                    color="primary"
+                />
+                <q-option-group
+                    v-else
+                    v-model="options[step].selected"
+                    :options="options[step].answers"
+                    color="primary"
+                    :type="options[step].type"
+                />
             </div>
 
             <div v-if="step == options.length" class="form">
@@ -66,9 +82,6 @@ const form = ref({
     .quiz {
         height: 250px;
         margin-top: 40px;
-    }
-
-    .form {
     }
 }
 
