@@ -15,10 +15,10 @@ export const links = [
         label: "Отделка фасадов",
         to: "facades",
     },
-    {
-        label: "Реставрация",
-        to: "restoration",
-    },
+    // {
+    //     label: "Реставрация",
+    //     to: "restoration",
+    // },
     {
         label: "Сотрудничество",
         to: "cooperation",

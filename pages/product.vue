@@ -1,5 +1,5 @@
 <template>
-    <Layout>
+    <div>
         <Section>
             <Container>
                 <div class="grid grid-cols-2">
@@ -71,14 +71,13 @@
         <FacadeMaterialsSection>
             Смотрите также
         </FacadeMaterialsSection>
-    </Layout>
+    </div>
 </template>
 
 <script lang="ts" setup>
 import MBtn from "~/components/buttons/MBtn.vue"
 import Section from "~/components/layout/Section.vue"
 import Container from "~/components/layout/Container.vue"
-import Layout from "~/components/layout/Layout.vue"
 import "swiper/css"
 import "swiper/css/navigation"
 import FacadeMaterialsSection from "~/components/pages/general/FacadeMaterialsSection.vue"

@@ -1,5 +1,5 @@
 <template>
-    <Layout>
+    <div>
         <Section>
             <Container>
                 <h1 class="infant-font">Каталог фасадов</h1>
@@ -17,12 +17,11 @@
                 </div>
             </Container>
         </Section>
-    </Layout>
+    </div>
 </template>
 
 <script lang="ts" setup>
 import MBtn from "~/components/buttons/MBtn.vue"
-import Layout from "~/components/layout/Layout.vue"
 import Container from "~/components/layout/Container.vue"
 import Section from "~/components/layout/Section.vue"
 

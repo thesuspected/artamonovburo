@@ -1,5 +1,5 @@
 <template>
-    <Layout>
+    <div>
         <PageHeader
             title="Строительство 
             <br> домов"
@@ -14,8 +14,7 @@
             вашим<b class="text-primary"> ожиданиям </b> и предпочтениям
         </FormSection>
         <QuizSection />
-        <AccordionSection />
-    </Layout>
+    </div>
 </template>
 
 <script lang="ts" setup>
@@ -23,7 +22,6 @@ import PageHeader from "~/components/text/PageHeader.vue"
 import ProjectsSection from "~/components/pages/construction/ProjectsSection.vue"
 import StagesSection from "~/components/pages/construction/StagesSection.vue"
 import FormSection from "~/components/pages/general/FormSection.vue"
-import AccordionSection from "~/components/pages/general/AccordionSection.vue"
 import QuizSection from "~/components/pages/cooperation/QuizSection.vue"
 </script>
 

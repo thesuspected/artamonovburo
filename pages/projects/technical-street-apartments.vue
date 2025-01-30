@@ -1,11 +1,11 @@
 <template>
-    <Layout>
+    <div>
         <ProjectStickySection :title="project.title" :subtitle="project.subtitle">
             <q-img :src="project.src" :ratio="4 / 3" />
             <ProjectInfo :info="project.info" />
             <ProjectBlock v-for="(block, key) in project.blocks" :key="key" :data="block" />
         </ProjectStickySection>
-    </Layout>
+    </div>
 </template>
 
 <script lang="ts" setup>

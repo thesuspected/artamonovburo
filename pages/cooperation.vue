@@ -1,5 +1,5 @@
 <template>
-    <Layout>
+    <div>
         <PageHeader
             title="Сотрудничество"
             description="Предлагаем лучшие условия для сотрудничества и инвестиций в застройку, обеспечивая надёжные партнёрские отношения"
@@ -15,7 +15,7 @@
             которые гарантируют стабильную<br />
             и высокую доходность
         </FormSection>
-    </Layout>
+    </div>
 </template>
 
 <script lang="ts" setup>
@@ -25,6 +25,7 @@ import TwoColumnsTable from "~/components/pages/cooperation/TwoColumnsTable.vue"
 import ComparisonSection from "~/components/pages/cooperation/ComparisonSection.vue"
 import FinanceProjectsSection from "~/components/pages/cooperation/FinanceProjectsSection.vue"
 import FormSection from "~/components/pages/general/FormSection.vue"
+
 defineProps({
     src: {
         type: String,
