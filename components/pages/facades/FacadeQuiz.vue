@@ -18,15 +18,17 @@ import Section from "~/components/layout/Section.vue"
 import MainTitle from "~/components/text/MainTitle.vue"
 import Quiz from "~/components/pages/general/Quiz.vue"
 import { ref } from "vue"
+
 const options = ref([
     {
         question: "Укажите приблизительную площадь вашего фасада",
-        selected: undefined,
+        selected: 100,
         type: "slider",
+        answers: [],
     },
     {
         question: "Сколько этажей в вашем доме?",
-        selected: undefined,
+        selected: [],
         type: "checkbox",
         answers: [
             {

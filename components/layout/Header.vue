@@ -26,9 +26,9 @@
         </Container>
         <div class="bg-primary">
             <Container class="second-row">
-                <a class="link" v-for="(link, key) in links" :key="key" :href="`/${link.to}`">
+                <NuxtLink class="link" v-for="(link, key) in links" :key="key" :to="`/${link.to}`">
                     {{ link.label }}
-                </a>
+                </NuxtLink>
             </Container>
         </div>
     </q-header>

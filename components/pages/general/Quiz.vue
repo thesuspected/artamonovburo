@@ -10,7 +10,9 @@
                 <h6>{{ options[step].question }}</h6>
                 <q-slider
                     v-if="options[step].type === 'slider'"
-                    v-model="value"
+                    v-model="options[step].selected"
+                    class="q-pt-xl"
+                    :marker-labels="markerLabels"
                     :min="50"
                     :max="500"
                     :step="1"
@@ -63,6 +65,17 @@ const step = ref<number>(0)
 const options: Ref<QuizType[]> = toRef(props, "quizOptions")
 const progress = computed(() => step.value / options.value.length)
 const percent = computed(() => (progress.value * 100).toFixed(2) + "%")
+
+const markerLabels = [
+    {
+        label: "50",
+        value: 50,
+    },
+    {
+        label: "500",
+        value: 500,
+    },
+]
 
 const clickPrev = () => {
     step.value--
