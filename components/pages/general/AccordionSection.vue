@@ -1,11 +1,16 @@
 <template>
     <Section>
         <Container>
-            <MainTitle>Постарались <b class="text-primary">ответить <br> на вопросы</b>, которые вы чаще <br>
+            <MainTitle
+                >Постарались
+                <b class="text-primary"
+                    >ответить <br />
+                    на вопросы</b
+                >, которые вы чаще <br />
                 всего задаёте
             </MainTitle>
 
-            <q-list class="list" bordered>
+            <q-list class="list grid grid-cols-1 lg:grid-cols-1" bordered>
                 <div v-for="(item, key) in FAQ" :key="key">
                     <q-expansion-item
                         group="somegroup"
@@ -13,7 +18,6 @@
                         :default-opened="key == 0"
                         header-class="text-primary"
                         expand-icon="add"
-
                     >
                         <q-card class="card">
                             <q-card-section>
@@ -24,8 +28,6 @@
 
                     <q-separator />
                 </div>
-
-
             </q-list>
         </Container>
     </Section>
@@ -49,7 +51,6 @@ const FAQ = [
         answer: "Ответ 3",
     },
 ]
-
 </script>
 
 <style lang="scss" scoped>
@@ -69,6 +70,4 @@ const FAQ = [
         font-size: 33px;
     }
 }
-
-
 </style>

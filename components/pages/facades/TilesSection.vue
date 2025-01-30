@@ -1,9 +1,9 @@
 <template>
     <Section :padding="100">
-        <Container>
+        <Container class="grid grid-cols-1">
             <MainTitle>
-                Шаги, которые мы пройдём,<br>
-                Чтобы <b class="text-primary">фасад вашего дома</b><br>
+                Шаги, которые мы пройдём,<br />
+                Чтобы <b class="text-primary">фасад вашего дома</b><br />
                 стал воплощённой мечтой
             </MainTitle>
             <TileBlocks :tiles="tiles" inner-class="lg:grid-cols-3" />

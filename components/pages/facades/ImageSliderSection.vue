@@ -2,7 +2,7 @@
     <Section>
         <Container>
             <MainTitle>
-                Оцените как мы меняем<br>
+                Оцените как мы меняем<br />
                 <b class="text-primary">внешний вид домов</b>
             </MainTitle>
             <div v-for="(compare, key) in compares" :key="key" class="compare-block">
@@ -14,16 +14,8 @@
                         hover
                         class="slider"
                     >
-                        <img
-                            slot="first"
-                            :src="slider.before"
-                            alt="facade 1"
-                        />
-                        <img
-                            slot="second"
-                            :src="slider.after"
-                            alt="facade 2"
-                        />
+                        <img slot="first" :src="slider.before" alt="facade 1" />
+                        <img slot="second" :src="slider.after" alt="facade 2" />
                     </ImgComparisonSlider>
                 </div>
             </div>

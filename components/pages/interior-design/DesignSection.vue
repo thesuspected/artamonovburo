@@ -1,12 +1,11 @@
 <template>
     <Section>
-       
         <MainTitle class="title">
             Реализуем проект от <b class="text-primary">идеи </b><br />
             до <b class="text-primary">готового ремонта</b>
         </MainTitle>
 
-        <Container class="grid grid-cols-3">
+        <Container class="grid grid-cols-1 lg:grid-cols-3">
             <div class="room-1 col-span-1">
                 <q-img src="/img/interior-design/room_1.png" />
             </div>
@@ -25,7 +24,7 @@
                 <m-btn class="button" label="Консультация" outline />
             </div>
         </Container>
-        <Container class="grid grid-cols-2">
+        <Container class="grid grid-cols-1 lg:grid-cols-2">
             <div class="consultation-2 col-span-1">
                 <p class="mainTitle">Авторский надзор</p>
                 <ul>

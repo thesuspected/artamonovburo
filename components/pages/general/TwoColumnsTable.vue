@@ -1,5 +1,5 @@
 <template>
-    <div v-for="(item, key) in values" :key="key" class="grid grid-cols-2">
+    <div v-for="(item, key) in values" :key="key" class="grid grid-cols-1 lg:grid-cols-2">
         <div class="flex" v-if="isTextSmall">
             <h5 v-if="withNumbers" class="mr-4">0{{ key + 1 }}</h5>
             <h5 class="">{{ item.title }}</h5>

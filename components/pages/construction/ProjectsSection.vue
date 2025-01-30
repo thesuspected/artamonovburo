@@ -1,6 +1,6 @@
 <template>
     <Section>
-        <Container class="grid grid-cols-3">
+        <Container class="grid grid-cols-1 lg:grid-cols-3">
             <div class="sticky-block">
                 <h3 class="infant-font">
                     Проекты домов <br />
@@ -28,7 +28,7 @@
                                 <p>{{ icon.title }}</p>
                             </div>
                         </div>
-                        
+
                         <div class="buttons">
                             <m-btn label="Подробнее" />
                             <m-btn label="Консультация" outline />

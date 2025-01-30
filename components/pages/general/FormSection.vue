@@ -3,7 +3,7 @@
         <MainTitle>
             <slot />
         </MainTitle>
-        <Container :max-width="1200" class="grid grid-cols-2 items-center">
+        <Container :max-width="1200" class="grid grid-cols-1 lg:grid-cols-2 items-center">
             <div class="image-container">
                 <q-img class="image" :src="src" :ratio="1">
                     <h3 class="infant-font title">Обратная связь</h3>

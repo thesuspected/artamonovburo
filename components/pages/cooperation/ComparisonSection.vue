@@ -5,7 +5,7 @@
                 >Мы строим уникальные объекты<br />
                 и не предлагаем инвестировать <br />в типовую однообразную застройку
             </MainTitle>
-            <div class="grid grid-cols-2">
+            <div class="grid grid-cols-1 lg:grid-cols-2">
                 <div class="house_1 col-span-1">
                     <img src="/public/img/cooperation/Comparison_1.png" alt="" />
                     <h3 class="infant-font">

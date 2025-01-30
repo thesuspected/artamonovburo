@@ -1,10 +1,10 @@
 <template>
     <Section>
         <Container>
-            <MainTitle><b class="text-primary">Полный комплект</b> проектных <br />услуг
-                для строительства дома
+            <MainTitle
+                ><b class="text-primary">Полный комплект</b> проектных <br />услуг для строительства дома
             </MainTitle>
-            <TwoColumnsTable :values="services" />
+            <TwoColumnsTable :values="services" class="grid grid-cols-1 lg:grid-cols-2" />
         </Container>
     </Section>
 </template>
@@ -84,5 +84,4 @@ const services = [
 ]
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

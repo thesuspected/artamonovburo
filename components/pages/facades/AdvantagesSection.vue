@@ -1,6 +1,6 @@
 <template>
     <Section>
-        <Container class="grid grid-cols-3">
+        <Container class="grid grid-cols-1 lg:grid-cols-3">
             <div v-for="(item, key) in advantages" :key="key" class="advantage">
                 <h5 class="infant-font" v-html="item.title" />
                 <p v-html="item.subtitle"></p>
@@ -21,7 +21,8 @@ const advantages = [
     },
     {
         title: "Визуализация<br> фасада",
-        subtitle: "Придадим дому стильный фасад <br>благодаря дизайнеру, который сделает<br> предварительный проект фасада",
+        subtitle:
+            "Придадим дому стильный фасад <br>благодаря дизайнеру, который сделает<br> предварительный проект фасада",
     },
     {
         title: "Отделочные<br> бригады",

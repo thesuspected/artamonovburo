@@ -1,10 +1,11 @@
 <template>
     <Section>
         <Container>
-            <MainTitle>При проектировании дома<br /> мы согласовываем каждый этап, <br />чтобы <b class="text-primary">получить
-                идеальный результат</b>
+            <MainTitle
+                >При проектировании дома<br />
+                мы согласовываем каждый этап, <br />чтобы <b class="text-primary">получить идеальный результат</b>
             </MainTitle>
-            <TwoColumnsTable :values="stages" with-numbers is-text-small />
+            <TwoColumnsTable :values="stages" with-numbers is-text-small class="grid grid-cols-1 lg:grid-cols-3" />
         </Container>
     </Section>
 </template>
@@ -14,7 +15,6 @@ import MainTitle from "~/components/text/MainTitle.vue"
 import TwoColumnsTable from "../general/TwoColumnsTable.vue"
 import Section from "~/components/layout/Section.vue"
 import Container from "~/components/layout/Container.vue"
-
 
 const stages = [
     {
@@ -27,11 +27,15 @@ const stages = [
     },
     {
         title: "Проектирование",
-        list: ["Предварительный проект: Создание концептуального дизайна с эскизами и планами; Рабочая документация: Подробное проектирование, включая архитектурные чертежи, инженерные сети и сметы"],
+        list: [
+            "Предварительный проект: Создание концептуального дизайна с эскизами и планами; Рабочая документация: Подробное проектирование, включая архитектурные чертежи, инженерные сети и сметы",
+        ],
     },
     {
         title: "Строительство",
-        list: ["Подготовка участка, закладка фундамента с учётом проекта и геологии участка. Строительство стен и установка окон, монтаж кровли, установка водоснабжения, отопления, канализации и электричества"],
+        list: [
+            "Подготовка участка, закладка фундамента с учётом проекта и геологии участка. Строительство стен и установка окон, монтаж кровли, установка водоснабжения, отопления, канализации и электричества",
+        ],
     },
     {
         title: "Ввод в эксплуатацию",

@@ -1,10 +1,8 @@
 <template>
     <Section>
         <Container>
-            <TextQuote>
-                Выберите <b class="text-primary">будущий стиль</b> вашего дома
-            </TextQuote>
-            <div class="grid grid-cols-3">
+            <TextQuote> Выберите <b class="text-primary">будущий стиль</b> вашего дома </TextQuote>
+            <div class="grid grid-cols-1 lg:grid-cols-3">
                 <div v-for="(item, key) in styles" :key="key" class="card">
                     <q-img :src="item.src" />
                     <div class="bottom">
@@ -33,7 +31,8 @@ const styles = [
     {
         title: "Фахверк",
         src: "/img/facades/fahverk.png",
-        subtitle: "Имитация видимого деревянного каркаса, который формирует структуру фасада с декоративной штукатуркой, ставнями и другими резными изделиями, выглядят уютно и гармонично, сочетая в себе элементы функциональности и эстетики",
+        subtitle:
+            "Имитация видимого деревянного каркаса, который формирует структуру фасада с декоративной штукатуркой, ставнями и другими резными изделиями, выглядят уютно и гармонично, сочетая в себе элементы функциональности и эстетики",
     },
     {
         title: "Хай-тек",

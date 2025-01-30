@@ -7,7 +7,7 @@
                 <m-btn :label="buttonLabel" shine-effect />
             </div>
         </Container>
-    </Section> 
+    </Section>
 </template>
 
 <script lang="ts" setup>

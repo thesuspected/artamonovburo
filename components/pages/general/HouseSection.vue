@@ -1,6 +1,6 @@
 <template>
     <Section :padding="0" class="house-section">
-        <q-img :src="src" :ratio="21/9"/>
+        <q-img :src="src" :ratio="21 / 9" />
         <Container class="grid grid-cols-1 lg:grid-cols-3">
             <span class="col-start-3 text" v-html="title"></span>
         </Container>
@@ -15,8 +15,8 @@ defineProps({
         type: String,
     },
     src: {
-        type: String
-    }
+        type: String,
+    },
 })
 </script>
 

@@ -1,12 +1,11 @@
 <template>
     <Section :padding="100">
         <Container>
-            <MainTitle>Проект, который <b class="text-primary">точно<br />соответствует</b> вашим
-                пожеланиям
-                <br>и стандартам
-                строительства
+            <MainTitle
+                >Проект, который <b class="text-primary">точно<br />соответствует</b> вашим пожеланиям
+                <br />и стандартам строительства
             </MainTitle>
-            <TileBlocks :tiles="tiles" inner-class="lg:grid-cols-4" />
+            <TileBlocks :tiles="tiles" inner-class="grid grid-cols-1 lg:grid-cols-4" />
         </Container>
     </Section>
 </template>
@@ -55,5 +54,4 @@ const tiles: TilesType[] = [
 ]
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

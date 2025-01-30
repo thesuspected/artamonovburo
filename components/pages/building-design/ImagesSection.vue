@@ -2,8 +2,12 @@
     <Section :top="20">
         <Container>
             <TextQuote>
-                Ниже представлены дома, <b class="text-primary">спроектированные и изготовленные<br>
-                нами</b> в разных стилях, таких как Хай-тек, Фахверк и другие
+                Ниже представлены дома,
+                <b class="text-primary"
+                    >спроектированные и изготовленные<br />
+                    нами</b
+                >
+                в разных стилях, таких как Хай-тек, Фахверк и другие
             </TextQuote>
             <ImagesGrid :images="images" />
         </Container>
@@ -51,5 +55,4 @@ const images: ImageGridType[] = [
 ]
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

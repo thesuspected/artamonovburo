@@ -1,5 +1,5 @@
 <template>
-    <div class="grid grid-cols-2">
+    <div class="grid grid-cols-1 lg:grid-cols-2">
         <div class="col-span-1"><img src="/public/img/construction/quiz.png" alt="" /></div>
         <div class="content col-span-1">
             <div class="q-pa-md">
