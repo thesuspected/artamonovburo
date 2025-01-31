@@ -1,6 +1,6 @@
 <template>
     <Section :padding="0" class="house-section">
-        <q-img :src="src" :ratio="21 / 9" />
+        <q-img :src="src" :ratio="21 / 9" :position="position" />
         <Container class="grid grid-cols-1 lg:grid-cols-3">
             <span class="col-start-3 text" v-html="title"></span>
         </Container>
@@ -10,12 +10,17 @@
 <script lang="ts" setup>
 import Section from "~/components/layout/Section.vue"
 import Container from "~/components/layout/Container.vue"
+
 defineProps({
     title: {
         type: String,
     },
     src: {
         type: String,
+    },
+    position: {
+        type: String,
+        default: "50% 50%",
     },
 })
 </script>

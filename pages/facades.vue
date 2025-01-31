@@ -1,11 +1,15 @@
 <template>
     <div>
-        <PageHeader
-            title="Отделка фасадов"
-            description="Мы разрабатываем проект, подбираем материалы и выполняем все работы с гарантией. Вам не нужно беспокоиться о деталях — мы позаботимся обо всем"
-            button-label="Записаться на консультацию"
-        />
-        <HouseSection src="/img/facade_finishing.png" />
+        <HeroSection background-image="/img/facade_finishing.png">
+            <template #title>
+                Отделка фасадов
+            </template>
+            <template #subtitle>
+                Мы разрабатываем проект, подбираем материалы <br>
+                и выполняем все работы с гарантией. Вам не нужно<br>
+                беспокоиться о деталях — мы позаботимся обо всем
+            </template>
+        </HeroSection>
         <AdvantagesSection />
         <TilesSection />
         <StyleSection />
@@ -23,15 +27,14 @@
 </template>
 
 <script lang="ts" setup>
-import PageHeader from "~/components/text/PageHeader.vue"
 import AdvantagesSection from "~/components/pages/facades/AdvantagesSection.vue"
-import HouseSection from "~/components/pages/general/HouseSection.vue"
 import TilesSection from "~/components/pages/facades/TilesSection.vue"
 import FormSection from "~/components/pages/general/FormSection.vue"
 import StyleSection from "~/components/pages/facades/StyleSection.vue"
 import ImageSliderSection from "~/components/pages/facades/ImageSliderSection.vue"
 import FacadeMaterialsSection from "~/components/pages/general/FacadeMaterialsSection.vue"
 import FacadeQuiz from "~/components/pages/facades/FacadeQuiz.vue"
+import HeroSection from "~/components/pages/general/HeroSection.vue"
 </script>
 
 <style lang="scss" scoped></style>

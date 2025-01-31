@@ -5,18 +5,20 @@
                 <img src="/icons/logo.svg" alt="Artamonov">
             </NuxtLink>
             <div class="right-block">
-                <span class="contacts">г. Саратов, ул. им. Чернышевского Н.Г., 60/62.<br>Бизнес-центр «ФРЕГАТ» с 9:00 до 18:00</span>
-                <div class="divider" />
-                <div class="socials">
-                    <a v-for="social in socials" :href="social.link">
-                        <img :src="social.icon" alt="">
+                <div v-if="isDesktop" class="desktop">
+                    <span class="contacts">г. Саратов, ул. им. Чернышевского Н.Г., 60/62.<br>Бизнес-центр «ФРЕГАТ» с 9:00 до 18:00</span>
+                    <div class="divider" />
+                    <div class="socials">
+                        <a v-for="social in socials" :href="social.link">
+                            <img :src="social.icon" alt="">
+                        </a>
+                    </div>
+                    <a href="tel:+79869864306" class="phone" v-touch-hold:300.mouse="copyPhoneNumber">
+                        +7 (927) 102-39-69
                     </a>
                 </div>
-                <a href="tel:+79869864306" class="phone" v-touch-hold:300.mouse="copyPhoneNumber">
-                    +7 (927) 102-39-69
-                </a>
                 <q-btn
-                    v-if="false"
+                    v-else
                     flat
                     round
                     icon="menu"
@@ -24,7 +26,7 @@
                 />
             </div>
         </Container>
-        <div class="bg-primary">
+        <div v-if="isDesktop" class="bg-primary">
             <Container class="second-row">
                 <NuxtLink class="link" v-for="(link, key) in links" :key="key" :to="`/${link.to}`">
                     {{ link.label }}
@@ -41,6 +43,7 @@ import { computed } from "vue"
 const emit = defineEmits(["open-drawer"])
 
 const quasar = useQuasar()
+const isDesktop = computed(() => quasar.screen.gt.md)
 
 const headerRef = ref()
 const isHeaderVisible = computed(() => headerRef.value.classList)
@@ -78,6 +81,12 @@ const copyPhoneNumber = () => {
             display: flex;
             align-items: center;
             gap: 32px;
+
+            .desktop {
+                display: flex;
+                align-items: center;
+                gap: 32px;
+            }
 
             .divider {
                 height: 40px;
