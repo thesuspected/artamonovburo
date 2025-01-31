@@ -7,7 +7,7 @@
             <div class="right-block">
                 <div v-if="isDesktop" class="desktop">
                     <span class="contacts"
-                        >г. Саратов, ул. им. Чернышевского Н.Г., 60/62.<br />Бизнес-центр «ФРЕГАТ» с 9:00 до 18:00</span
+                    >г. Саратов, ул. им. Чернышевского Н.Г., 60/62.<br />Бизнес-центр «ФРЕГАТ» с 9:00 до 18:00</span
                     >
                     <div class="divider" />
                     <div class="socials">
@@ -40,9 +40,7 @@ const emit = defineEmits(["open-drawer"])
 
 const quasar = useQuasar()
 const isDesktop = computed(() => quasar.screen.gt.md)
-
 const headerRef = ref()
-const isHeaderVisible = computed(() => headerRef.value.classList)
 
 const handleOpenDrawer = () => {
     emit("open-drawer")

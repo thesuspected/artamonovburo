@@ -1,7 +1,7 @@
 <template>
     <q-layout view="hHh lpR fFf">
         <Header @open-drawer="openDrawer" />
-        <MobileDrawer v-model="isDrawerVisible" />>
+        <MobileDrawer v-model="isDrawerVisible" @close="closeDrawer" />
         <q-page-container class="page">
             <slot />
             <Footer />
@@ -13,6 +13,7 @@ import useVisibilityController from "~/hooks/useVisibilityController"
 import Header from "~/components/layout/Header.vue"
 import Footer from "~/components/layout/Footer.vue"
 import MobileDrawer from "~/components/layout/MobileDrawer.vue"
+
 const { isVisible: isDrawerVisible, open: openDrawer, close: closeDrawer } = useVisibilityController()
 </script>
 

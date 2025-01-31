@@ -2,7 +2,9 @@
     <q-dialog v-model="localValue" maximized transition-show="jump-up" transition-hide="jump-down">
         <q-card>
             <q-card-section class="row items-center q-pb-none">
-                <div class="text-h6"><img src="/icons/logo.svg" alt="Artamonov" /></div>
+                <NuxtLink to="/">
+                    <img src="/icons/logo.svg" alt="Artamonov" />
+                </NuxtLink>
                 <q-space />
                 <q-btn icon="close" flat round dense v-close-popup @click="emit('close')" />
             </q-card-section>
@@ -41,13 +43,18 @@ import FormDialog from "../pages/general/FormDialog.vue"
 import MBtn from "../buttons/MBtn.vue"
 import useVisibilityController from "~/hooks/useVisibilityController"
 import { links, socials } from "./const"
-import { computed } from "vue"
-const { isVisible: isDialogVisible, open: openDialog, close: closeDialog } = useVisibilityController()
-const emit = defineEmits(["open-drawer"])
+import { onBeforeRouteLeave } from "#app"
+
+const props = defineProps({
+    modelValue: {
+        type: Boolean,
+    },
+})
+const emit = defineEmits(["close"])
 
 const quasar = useQuasar()
-
-const headerRef = ref()
+const localValue = toRef(props, "modelValue")
+const { isVisible: isDialogVisible, open: openDialog, close: closeDialog } = useVisibilityController()
 
 const copyPhoneNumber = () => {
     navigator.clipboard.writeText("+7 (927) 102-39-69")
@@ -55,6 +62,13 @@ const copyPhoneNumber = () => {
         message: "Номер телефона скопирован",
     })
 }
+
+onBeforeRouteLeave(async (to, from, next) => {
+    next()
+    setTimeout(() => {
+        emit("close")
+    }, 300)
+})
 </script>
 
 <style lang="scss" scoped>
@@ -62,19 +76,23 @@ const copyPhoneNumber = () => {
     width: 100%;
     overflow-x: hidden;
 }
+
 .link {
     color: $primary-color;
 }
+
 .phone {
     color: $primary-color;
     font-size: 20px;
 }
+
 .main-block {
     height: calc(100vh - 64px - 32px);
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
     .links {
         display: flex;
         flex-direction: column;
@@ -82,6 +100,7 @@ const copyPhoneNumber = () => {
         margin-top: 20px;
         font-size: 20px;
     }
+
     .right-block {
         .socials {
             display: flex;
@@ -89,6 +108,7 @@ const copyPhoneNumber = () => {
             margin-top: 10px;
             margin-bottom: 20px;
         }
+
         .button {
             width: 100%;
         }
