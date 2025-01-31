@@ -9,7 +9,16 @@
                     <h3 class="infant-font title">Обратная связь</h3>
                 </q-img>
             </div>
-            <Form />
+            <Form>
+                <template #subtitle>
+                    <b class="border-b-2">Давайте познакомимся поближе!</b><br />
+                    Оставьте заявку, и мы вместе с вами<br />
+                    погрузимся в вашу задачу
+                </template>
+                <template #under>
+                    Нажимая кнопку «Отправить», вы даёте согласие<br> на обработку персональных данных
+                </template>
+            </Form>
         </Container>
     </Section>
 </template>
@@ -45,9 +54,9 @@ const form = ref({
     --_g: #0000 90deg, var(--c) 0;
     --_p: var(--w) var(--w) border-box no-repeat;
     background: conic-gradient(from 90deg at top var(--b) left var(--b), var(--_g)) 0 0 / var(--_p),
-        conic-gradient(from 180deg at top var(--b) right var(--b), var(--_g)) 100% 0 / var(--_p),
-        conic-gradient(from 0deg at bottom var(--b) left var(--b), var(--_g)) 0 100% / var(--_p),
-        conic-gradient(from -90deg at bottom var(--b) right var(--b), var(--_g)) 100% 100% / var(--_p);
+    conic-gradient(from 180deg at top var(--b) right var(--b), var(--_g)) 100% 0 / var(--_p),
+    conic-gradient(from 0deg at bottom var(--b) left var(--b), var(--_g)) 0 100% / var(--_p),
+    conic-gradient(from -90deg at bottom var(--b) right var(--b), var(--_g)) 100% 100% / var(--_p);
 
     .image-container {
         position: relative;

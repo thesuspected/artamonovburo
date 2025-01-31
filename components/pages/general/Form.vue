@@ -1,14 +1,17 @@
 <template>
     <q-form class="form">
-        <span class="text-center"
-            ><b class="border-b-2">Давайте познакомимся поближе!</b><br />
-            Оставьте заявку, и мы вместе с вами<br />
-            погрузимся в вашу задачу</span
-        >
+        <h3 class="text-center infant-font">
+            <slot name="title" />
+        </h3>
+        <span class="text-center">
+            <slot name="subtitle" />
+        </span>
         <m-input v-model="form.name" label="Ваше Имя" placeholder="Как к вам обращаться?" />
         <m-input v-model="form.phone" label="Ваш телефон" mask="+7 (###) ###-##-##" placeholder="+7 (987) 654-32-10" />
-        <m-btn class="mt-default" label="Отправить" shine-effect full-width />
-        <span class="sub-text">Нажимая кнопку «Отправить» вы даёте согласие на обработку персональных данных</span>
+        <m-btn class="mt-default" :label="buttonLabel" shine-effect full-width />
+        <span class="sub-text">
+            <slot name="under" />
+        </span>
     </q-form>
 </template>
 <script lang="ts" setup>
@@ -19,6 +22,10 @@ defineProps({
     src: {
         type: String,
         default: "img/building-design/form-house.png",
+    },
+    buttonLabel: {
+        type: String,
+        default: "Отправить",
     },
 })
 
@@ -37,6 +44,7 @@ const form = ref({
     .sub-text {
         font-size: 12px;
         font-weight: 300;
+        text-align: center;
     }
 }
 </style>
