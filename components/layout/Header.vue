@@ -2,28 +2,24 @@
     <q-header ref="headerRef" reveal class="bg-background header" :reveal-offset="250">
         <Container class="first-row">
             <NuxtLink to="/">
-                <img src="/icons/logo.svg" alt="Artamonov">
+                <img src="/icons/logo.svg" alt="Artamonov" />
             </NuxtLink>
             <div class="right-block">
                 <div v-if="isDesktop" class="desktop">
-                    <span class="contacts">г. Саратов, ул. им. Чернышевского Н.Г., 60/62.<br>Бизнес-центр «ФРЕГАТ» с 9:00 до 18:00</span>
+                    <span class="contacts"
+                        >г. Саратов, ул. им. Чернышевского Н.Г., 60/62.<br />Бизнес-центр «ФРЕГАТ» с 9:00 до 18:00</span
+                    >
                     <div class="divider" />
                     <div class="socials">
                         <a v-for="social in socials" :href="social.link">
-                            <img :src="social.icon" alt="">
+                            <img :src="social.icon" alt="" />
                         </a>
                     </div>
                     <a href="tel:+79869864306" class="phone" v-touch-hold:300.mouse="copyPhoneNumber">
                         +7 (927) 102-39-69
                     </a>
                 </div>
-                <q-btn
-                    v-else
-                    flat
-                    round
-                    icon="menu"
-                    @click="handleOpenDrawer"
-                />
+                <q-btn v-else flat round icon="menu" @click="handleOpenDrawer" />
             </div>
         </Container>
         <div v-if="isDesktop" class="bg-primary">
@@ -48,8 +44,8 @@ const isDesktop = computed(() => quasar.screen.gt.md)
 const headerRef = ref()
 const isHeaderVisible = computed(() => headerRef.value.classList)
 
-const handleOpenDrawer = (route: string) => {
-    emit("open-drawer", route)
+const handleOpenDrawer = () => {
+    emit("open-drawer")
 }
 
 const copyPhoneNumber = () => {
@@ -58,11 +54,8 @@ const copyPhoneNumber = () => {
         message: "Номер телефона скопирован",
     })
 }
-
-
 </script>
 <style scoped lang="scss">
-
 .header {
     background: $bg-color;
 
@@ -104,7 +97,8 @@ const copyPhoneNumber = () => {
                 font-weight: 600;
                 font-size: 20px;
 
-                &::after, &::before {
+                &::after,
+                &::before {
                     background: $primary-color;
                 }
             }

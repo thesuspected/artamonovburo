@@ -43,7 +43,7 @@ const { isVisible: isDialogVisible, open: openDialog, close: closeDialog } = use
     color: $white-color;
 
     &:before {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         background: rgba(9, 28, 25, 0.2);

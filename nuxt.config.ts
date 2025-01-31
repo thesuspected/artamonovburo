@@ -26,29 +26,39 @@ export default defineNuxtConfig({
     },
     compatibilityDate: "2024-11-01",
     devtools: { enabled: true },
-    modules: [["nuxt-quasar-ui", {
-        config: {
-            brand: {
-                background: "#F6F4F2", // base-01
-                dark: "#212121", // base-02
-                white: "#FFFFFF", // base-03
-                secondary: "#B1B1B1", // base-04
-                light: "#ECECEC", // base-05
-                primary: "#18443E",
-                "primary-hover": "#18443ECC",
-                "secondary-hover": "#2C5852",
-                negative: "#D91528",
+    modules: [
+        [
+            "nuxt-quasar-ui",
+            {
+                config: {
+                    brand: {
+                        background: "#F6F4F2", // base-01
+                        dark: "#212121", // base-02
+                        white: "#FFFFFF", // base-03
+                        secondary: "#B1B1B1", // base-04
+                        light: "#ECECEC", // base-05
+                        primary: "#18443E",
+                        "primary-hover": "#18443ECC",
+                        "secondary-hover": "#2C5852",
+                        negative: "#D91528",
+                    },
+                },
+                plugins: ["Notify"],
+                sassVariables: true,
+                quietSassWarnings: true,
             },
-        },
-        plugins: ["Notify"],
-        sassVariables: true,
-        quietSassWarnings: true,
-    }], ["@nuxtjs/google-fonts", {
-        families: {
-            Manrope: [200, 300, 400, 500, 600, 700, 800],
-            "Cormorant Infant": [300, 400, 500, 600, 700],
-        },
-    }], "@nuxtjs/tailwindcss"],
+        ],
+        [
+            "@nuxtjs/google-fonts",
+            {
+                families: {
+                    Manrope: [200, 300, 400, 500, 600, 700, 800],
+                    "Cormorant Infant": [300, 400, 500, 600, 700],
+                },
+            },
+        ],
+        "@nuxtjs/tailwindcss",
+    ],
     vite: {
         css: {
             preprocessorOptions: {

@@ -1,38 +1,30 @@
 <template>
-    <Section>
-        <Container>
-            <q-dialog v-model="localValue" transition-show="jump-up" transition-hide="jump-down">
-                <q-card>
-                    <q-card-section class="row items-center q-pb-none">
-                        <div class="text-h6"></div>
-                        <q-space />
-                        <q-btn icon="close" flat round dense v-close-popup @click="emit('close')" />
-                    </q-card-section>
+    <q-dialog v-model="localValue" transition-show="jump-up" transition-hide="jump-down">
+        <q-card>
+            <q-card-section class="row items-center q-pb-none">
+                <div class="text-h6"></div>
+                <q-space />
+                <q-btn icon="close" flat round dense v-close-popup @click="emit('close')" />
+            </q-card-section>
 
-                    <q-card-section>
-                        <Form button-label="Получить консультацию">
-                            <template #title>
-                                Получить бесплатную консультацию
-                            </template>
-                            <template #subtitle>
-                                Пожалуйста, оставьте свои контактные данные, наш менеджер свяжется с вами для обсуждения
-                                будущего проекта
-                            </template>
-                            <template #under>
-                                Нажимая кнопку «Получить консультацию», вы даёте согласие<br> на обработку персональных
-                                данных
-                            </template>
-                        </Form>
-                    </q-card-section>
-                </q-card>
-            </q-dialog>
-        </Container>
-    </Section>
+            <q-card-section>
+                <Form button-label="Получить консультацию">
+                    <template #title> Получить бесплатную консультацию </template>
+                    <template #subtitle>
+                        Пожалуйста, оставьте свои контактные данные, наш менеджер свяжется с вами для обсуждения
+                        будущего проекта
+                    </template>
+                    <template #under>
+                        Нажимая кнопку «Получить консультацию», вы даёте согласие<br />
+                        на обработку персональных данных
+                    </template>
+                </Form>
+            </q-card-section>
+        </q-card>
+    </q-dialog>
 </template>
 
 <script lang="ts" setup>
-import Section from "~/components/layout/Section.vue"
-import Container from "~/components/layout/Container.vue"
 import Form from "./Form.vue"
 import { defineProps } from "vue"
 import { toRef } from "vue"
