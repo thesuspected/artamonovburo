@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <Layout>
         <Section>
             <Container class="block">
                 <h1 class="error infant-font">404</h1>
@@ -9,7 +9,7 @@
                 <m-btn label="На главную" full-width />
             </Container>
         </Section>
-    </div>
+    </Layout>
 </template>
 
 <script lang="ts" setup>

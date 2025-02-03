@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <Layout>
         <PageHeader
             title="Дизайн интерьера"
             description="Используя знания о композиции, форме и цвете, создаём пространство для жизни в выбранном вами стиле"
@@ -7,7 +7,7 @@
         />
         <HouseSection
             title="Дизайн интерьера <br>от 4000 ₽/м2"
-            src="/img/interior-design/architectural_design.png"
+            src="/img/interior-design/interior-design.png"
         />
         <DesignSection />
         <TilesSection />
@@ -18,7 +18,7 @@
         </FormSection>
         <ImagesGrid />
 
-    </div>
+    </Layout>
 </template>
 
 <script lang="ts" setup>

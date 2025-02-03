@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <Layout>
         <PageHeader
             title="Строительство 
             <br> домов"
@@ -14,11 +14,10 @@
             вашим<b class="text-primary"> ожиданиям </b> и предпочтениям
         </FormSection>
         <QuizSection />
-    </div>
+    </Layout>
 </template>
 
 <script lang="ts" setup>
-import Container from "~/components/layout/Container.vue"
 import PageHeader from "~/components/text/PageHeader.vue"
 import ProjectsSection from "~/components/pages/construction/ProjectsSection.vue"
 import StagesSection from "~/components/pages/construction/StagesSection.vue"

@@ -43,7 +43,6 @@ import FormDialog from "../pages/general/FormDialog.vue"
 import MBtn from "../buttons/MBtn.vue"
 import useVisibilityController from "~/hooks/useVisibilityController"
 import { links, socials } from "./const"
-import { onBeforeRouteLeave } from "#app"
 
 const props = defineProps({
     modelValue: {
@@ -63,18 +62,11 @@ const copyPhoneNumber = () => {
     })
 }
 
-onBeforeRouteLeave(async (to, from, next) => {
-    next()
-    setTimeout(() => {
-        emit("close")
-    }, 300)
-})
 </script>
 
 <style lang="scss" scoped>
 .page {
     width: 100%;
-    overflow-x: hidden;
 }
 
 .link {

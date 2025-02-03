@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <HeroSection background-image="/img/facade_finishing.png">
+    <Layout>
+        <HeroSection background-image="/img/facade_finishing.png" background-position="bottom">
             <template #title>
                 Отделка фасадов
             </template>
@@ -23,7 +23,7 @@
             для будущего фасада
         </FacadeMaterialsSection>
         <FacadeQuiz />
-    </div>
+    </Layout>
 </template>
 
 <script lang="ts" setup>

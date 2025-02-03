@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <Layout>
         <HeroSection />
         <ServicesSection />
-    </div>
+    </Layout>
 </template>
 
 <script lang="ts" setup>

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <Layout>
         <Section>
             <Container class="grid grid-cols-1 lg:grid-cols-3">
                 <h1 class="infant-font">Каталог фасадов</h1>
@@ -17,7 +17,7 @@
                 </div>
             </Container>
         </Section>
-    </div>
+    </Layout>
 </template>
 
 <script lang="ts" setup>

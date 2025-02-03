@@ -1,5 +1,6 @@
 <template>
-    <Section class="hero-section" :style="`background-image: url(${backgroundImage})`">
+    <Section class="hero-section"
+             :style="`background-image: url(${backgroundImage}); background-position: ${backgroundPosition}`">
         <Container class="content">
             <h2 class="title infant-font">
                 <slot name="title" />
@@ -28,6 +29,10 @@ defineProps({
     backgroundImage: {
         type: String,
     },
+    backgroundPosition: {
+        type: String,
+        default: "center",
+    },
 })
 
 const { isVisible: isDialogVisible, open: openDialog, close: closeDialog } = useVisibilityController()
@@ -37,9 +42,7 @@ const { isVisible: isDialogVisible, open: openDialog, close: closeDialog } = use
 .hero-section {
     position: relative;
     height: calc(100vh - 150px);
-    background-image: url("/img/facade_finishing.png");
     background-size: cover;
-    background-position: bottom;
     color: $white-color;
 
     &:before {
@@ -76,7 +79,7 @@ const { isVisible: isDialogVisible, open: openDialog, close: closeDialog } = use
         }
 
         .main-btn {
-            width: 350px;
+            min-width: 250px;
             filter: drop-shadow(5px 5px 50px $dark-color);
         }
     }

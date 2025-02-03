@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <Layout>
         <Section>
             <Container>
                 <div class="grid grid-cols-2">
@@ -71,7 +71,7 @@
         <FacadeMaterialsSection>
             Смотрите также
         </FacadeMaterialsSection>
-    </div>
+    </Layout>
 </template>
 
 <script lang="ts" setup>
