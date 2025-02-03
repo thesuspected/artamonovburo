@@ -21,7 +21,7 @@
                     </a>
                 </div>
             </div>
-            <a class="confidential" href="#">Политика конфиденциальности</a>
+            <a class="confidential" href="/privacy-policy.pdf">Политика конфиденциальности</a>
         </Container>
         <img class="logo-bg" src="/icons/logo-a.svg" alt="">
     </Section>
