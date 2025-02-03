@@ -8,7 +8,7 @@
         </span>
         <m-input v-model="form.name" label="Ваше Имя" placeholder="Как к вам обращаться?" />
         <m-input v-model="form.phone" label="Ваш телефон" mask="+7 (###) ###-##-##" placeholder="+7 (987) 654-32-10" />
-        <m-btn class="mt-default" :label="buttonLabel" shine-effect full-width />
+        <m-btn class="mt-default" :label="buttonLabel" shine-effect full-width @click="handleFormSubmit" />
         <span class="sub-text">
             <slot name="under" />
         </span>
@@ -33,6 +33,17 @@ const form = ref({
     name: undefined,
     phone: undefined,
 })
+
+const handleFormSubmit = async () => {
+    const res = await $fetch("/api/submit", {
+        method: "POST",
+        body: {
+            name: form.value.name,
+            phone: form.value.phone,
+        },
+    })
+    console.log("res", res)
+}
 </script>
 <style lang="scss" scoped>
 .form {
