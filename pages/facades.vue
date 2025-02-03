@@ -18,10 +18,10 @@
             и точную смету на фасадные работы
         </FormSection>
         <ImageSliderSection />
-        <FacadeMaterialsSection show-btn>
-            <b class="text-primary">Выберите материалы</b>
-            для будущего фасада
-        </FacadeMaterialsSection>
+        <!--        <FacadeMaterialsSection show-btn>-->
+        <!--            <b class="text-primary">Выберите материалы</b>-->
+        <!--            для будущего фасада-->
+        <!--        </FacadeMaterialsSection>-->
         <FacadeQuiz />
     </Layout>
 </template>
@@ -32,7 +32,6 @@ import TilesSection from "~/components/pages/facades/TilesSection.vue"
 import FormSection from "~/components/pages/general/FormSection.vue"
 import StyleSection from "~/components/pages/facades/StyleSection.vue"
 import ImageSliderSection from "~/components/pages/facades/ImageSliderSection.vue"
-import FacadeMaterialsSection from "~/components/pages/general/FacadeMaterialsSection.vue"
 import FacadeQuiz from "~/components/pages/facades/FacadeQuiz.vue"
 import HeroSection from "~/components/pages/general/HeroSection.vue"
 </script>

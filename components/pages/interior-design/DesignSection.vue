@@ -59,7 +59,7 @@ import Section from "~/components/layout/Section.vue"
 
 <style lang="scss" scoped>
 .title {
-    margin-top: 150px;
+    margin-top: 50px;
 }
 
 .grid {

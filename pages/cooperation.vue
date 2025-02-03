@@ -1,11 +1,14 @@
 <template>
     <Layout>
-        <PageHeader
-            title="Сотрудничество"
-            description="Предлагаем лучшие условия для сотрудничества и инвестиций в застройку, обеспечивая надёжные партнёрские отношения"
-            button-label="Стать партнером"
-        />
-        <HouseSection src="/img/cooperation/roofers.png" />
+        <HeroSection background-image="/img/cooperation/cooperation.jpeg" button-label="Стать партнером">
+            <template #title>
+                Сотрудничество
+            </template>
+            <template #subtitle>
+                Предлагаем лучшие условия для сотрудничества и инвестиций<br>
+                в застройку, обеспечивая надёжные партнёрские отношения
+            </template>
+        </HeroSection>
         <TwoColumnsTable class="twoColumnsTable" />
         <ComparisonSection />
         <FinanceProjectsSection />
@@ -19,12 +22,11 @@
 </template>
 
 <script lang="ts" setup>
-import PageHeader from "~/components/text/PageHeader.vue"
-import HouseSection from "~/components/pages/general/HouseSection.vue"
 import TwoColumnsTable from "~/components/pages/cooperation/TwoColumnsTable.vue"
 import ComparisonSection from "~/components/pages/cooperation/ComparisonSection.vue"
 import FinanceProjectsSection from "~/components/pages/cooperation/FinanceProjectsSection.vue"
 import FormSection from "~/components/pages/general/FormSection.vue"
+import HeroSection from "~/components/pages/general/HeroSection.vue"
 
 defineProps({
     src: {

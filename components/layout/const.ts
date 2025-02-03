@@ -23,10 +23,10 @@ export const links = [
         label: "Сотрудничество",
         to: "cooperation",
     },
-    {
-        label: "Каталог фасадов",
-        to: "catalog",
-    },
+    // {
+    //     label: "Каталог фасадов",
+    //     to: "catalog",
+    // },
 ]
 
 export const socials = [

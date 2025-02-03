@@ -1,7 +1,7 @@
 <template>
     <Layout>
         <Section>
-            <Container class="grid grid-cols-1 lg:grid-cols-3">
+            <Container>
                 <h1 class="infant-font">Каталог фасадов</h1>
                 <div class="flex" v-for="(category, key) in categories" :key="key">
                     <h4 class="infant-font">{{ category.name }}</h4>

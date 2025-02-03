@@ -46,6 +46,11 @@ export default defineNuxtConfig({
                 plugins: ["Notify"],
                 sassVariables: true,
                 quietSassWarnings: true,
+                extras: {
+                    fontIcons: [
+                        "fontawesome-v6",
+                    ],
+                },
             },
         ],
         [

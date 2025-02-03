@@ -9,6 +9,12 @@
                 <slot name="subtitle" />
             </p>
             <m-btn class="main-btn" :label="buttonLabel" shine-effect @click="openDialog" />
+            <div class="bottom">
+                <p class="text">
+                    <slot name="bottom" />
+                </p>
+                <q-icon name="fa-solid fa-arrow-down-long" size="30px" class="animate-bounce" />
+            </div>
         </Container>
         <FormDialog v-model="isDialogVisible" @close="closeDialog" />
     </Section>
@@ -81,6 +87,20 @@ const { isVisible: isDialogVisible, open: openDialog, close: closeDialog } = use
         .main-btn {
             min-width: 250px;
             filter: drop-shadow(5px 5px 50px $dark-color);
+        }
+
+        .bottom {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .text {
+                text-align: center;
+            }
         }
     }
 }

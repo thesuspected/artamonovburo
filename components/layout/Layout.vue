@@ -20,6 +20,6 @@ const { isVisible: isDrawerVisible, open: openDrawer, close: closeDrawer } = use
 <style lang="scss" scoped>
 .page {
     width: 100%;
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 </style>
