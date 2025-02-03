@@ -8,19 +8,19 @@
             >
             </MainTitle>
             <div class="grid grid-cols-1 lg:grid-cols-3">
-                <a
+                <NuxtLink
                     v-for="service in services"
                     :key="service.title"
                     class="service-card"
                     :class="{ 'row-span-2': service.isTwice }"
-                    :href="service.to"
+                    :to="service.to"
                 >
                     <img :src="service.image" :alt="service.alt" loading="lazy" class="image" />
                     <div class="info">
                         <span class="title">{{ service.title }}</span>
                         <img src="/icons/chevron-right.svg" alt="chevron right" class="icon" />
                     </div>
-                </a>
+                </NuxtLink>
             </div>
         </Container>
     </Section>
@@ -42,14 +42,14 @@ interface Service {
 const services = ref<Service[]>([
     {
         title: "Дизайн интерьеров",
-        image: "/img/interior_designs.png",
+        image: "/img/interior-design/interior-design.png",
         alt: "Interior design showcase",
         to: "interior-design",
         isTwice: true,
     },
     {
         title: "Строительство домов",
-        image: "/img/build_houses.png",
+        image: "/img/english-house.png",
         alt: "House construction",
         to: "construction",
     },
@@ -61,15 +61,15 @@ const services = ref<Service[]>([
     },
     {
         title: "Проектирование",
-        image: "/img/interior-design.png",
+        image: "/img/architectural_design.png",
         alt: "Architectural design",
         to: "building-design",
     },
     {
-        title: "Реставрация",
-        image: "/img/restoration.png",
-        alt: "Restoration work",
-        to: "restoration",
+        title: "Сотрудничество",
+        image: "/img/cooperation/cooperation.jpeg",
+        alt: "Cooperation",
+        to: "cooperation",
     },
 ])
 </script>

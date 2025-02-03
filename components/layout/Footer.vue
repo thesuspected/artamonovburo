@@ -2,7 +2,7 @@
     <Section class="footer">
         <Container class="grid grid-cols-1 lg:grid-cols-2 gap-[50px] items-end">
             <div class="nav">
-                <a class="infant-font" v-for="link in links" :href="link.to">{{ link.label }}</a>
+                <NuxtLink class="infant-font" v-for="link in links" :to="link.to">{{ link.label }}</NuxtLink>
             </div>
             <div class="flex flex-col justify-between h-full">
                 <div class="contacts">
