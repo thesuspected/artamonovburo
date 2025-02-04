@@ -1,10 +1,10 @@
 <template>
     <Section class="hero-section"
-             :style="`background-image: url(${backgroundImage}); background-position: ${backgroundPosition}`">
+             :style="`background-image: url(${backgroundImage}); background-position: ${backgroundPosition}; height: calc(100vh - ${isDesktop ? 150 : 82}px)`">
         <Container class="content">
-            <h2 class="title infant-font">
+            <component :is="isDesktop ? 'h2' : 'h4'" class="title infant-font">
                 <slot name="title" />
-            </h2>
+            </component>
             <p class="description">
                 <slot name="subtitle" />
             </p>
@@ -26,6 +26,7 @@ import Container from "~/components/layout/Container.vue"
 import Section from "~/components/layout/Section.vue"
 import FormDialog from "~/components/pages/general/FormDialog.vue"
 import useVisibilityController from "~/hooks/useVisibilityController"
+import { computed } from "vue"
 
 defineProps({
     buttonLabel: {
@@ -41,13 +42,14 @@ defineProps({
     },
 })
 
+const quasar = useQuasar()
+const isDesktop = computed(() => quasar.screen.gt.sm)
 const { isVisible: isDialogVisible, open: openDialog, close: closeDialog } = useVisibilityController()
 </script>
 
 <style lang="scss" scoped>
 .hero-section {
     position: relative;
-    height: calc(100vh - 150px);
     background-size: cover;
     color: $white-color;
 

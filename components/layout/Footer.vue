@@ -1,10 +1,10 @@
 <template>
     <Section class="footer">
-        <Container class="grid grid-cols-1 lg:grid-cols-2 gap-[50px] items-end">
-            <div class="nav">
+        <Container class="grid grid-cols-1 lg:grid-cols-2 gap-[50px] items-start">
+            <div class="nav" :style="`font-size: ${isDesktop ? 40 : 30}px`">
                 <NuxtLink class="infant-font" v-for="link in links" :to="link.to">{{ link.label }}</NuxtLink>
             </div>
-            <div class="flex flex-col justify-between h-full">
+            <div class="flex flex-col justify-between h-full gap-6">
                 <div class="contacts">
                     <span class="mb-small font-light">Контакты</span>
                     <a href="tel:+79869864306" class="phone" v-touch-hold:300.mouse="copyPhoneNumber">
@@ -17,6 +17,7 @@
                 <div class="socials">
                     <span class="mb-small font-light">Социальные сети</span>
                     <a v-for="social in socials" class="social" :href="social.link">
+                        <q-img :src="social.iconW" height="24px" width="24px" class="q-mr-sm" />
                         <span>{{ social.title }}</span>
                     </a>
                 </div>
@@ -32,8 +33,10 @@ import { links, socials } from "~/components/layout/const"
 import { useQuasar } from "quasar"
 import Container from "~/components/layout/Container.vue"
 import Section from "~/components/layout/Section.vue"
+import { computed } from "vue"
 
 const quasar = useQuasar()
+const isDesktop = computed(() => quasar.screen.gt.sm)
 const copyPhoneNumber = () => {
     navigator.clipboard.writeText("+7 (927) 102-39-69")
     quasar.notify({
@@ -59,7 +62,6 @@ const copyPhoneNumber = () => {
             display: flex;
             flex-direction: column;
             align-items: start;
-            font-size: 40px;
             gap: 10px;
         }
 

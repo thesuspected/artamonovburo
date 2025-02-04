@@ -1,18 +1,21 @@
 <template>
-     <Section>
+    <Section :top="150">
         <Container>
-            <MainTitle>Инвестируйте в застройку<br />перспективных объектов с полным <br />сопровождением проекта 
+            <MainTitle>
+                <b class="text-primary">Инвестируйте</b> в застройку<br>перспективных объектов <b
+                class="text-primary">с полным <br>сопровождением</b> проекта
             </MainTitle>
-    <TwoColumnsTable :values="stages" with-numbers is-text-small/>
-</Container>
-</Section>
+            <TwoColumnsTable :values="stages" with-numbers is-text-small />
+        </Container>
+    </Section>
 </template>
 
 <script lang="ts" setup>
 import Section from "~/components/layout/Section.vue"
 import Container from "~/components/layout/Container.vue"
 import MainTitle from "~/components/text/MainTitle.vue"
-import TwoColumnsTable from '../general/TwoColumnsTable.vue';
+import TwoColumnsTable from "../general/TwoColumnsTable.vue"
+
 const stages = [
     {
         title: "Выбор проекта",

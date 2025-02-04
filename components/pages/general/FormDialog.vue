@@ -15,7 +15,7 @@
                         будущего проекта
                     </template>
                     <template #under>
-                        Нажимая кнопку «Получить консультацию», вы даёте согласие<br />
+                        Нажимая кнопку «Получить консультацию», вы даёте согласие<br>
                         на обработку персональных данных
                     </template>
                 </Form>
@@ -26,7 +26,7 @@
 
 <script lang="ts" setup>
 import Form from "./Form.vue"
-import { computed, defineProps } from "vue"
+import { computed } from "vue"
 import { toRef } from "vue"
 
 const props = defineProps({
@@ -37,7 +37,7 @@ const props = defineProps({
 const emit = defineEmits(["close"])
 
 const quasar = useQuasar()
-const isDesktop = computed(() => quasar.screen.gt.md)
+const isDesktop = computed(() => quasar.screen.gt.sm)
 const localValue = toRef(props, "modelValue")
 </script>
 

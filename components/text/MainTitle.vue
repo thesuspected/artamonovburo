@@ -1,12 +1,16 @@
 <template>
     <div class="flex justify-center">
-        <h3 class="main-title infant-font">
+        <component :is="isDesktop ? 'h3' : 'h4'" class="main-title infant-font">
             <slot />
-        </h3>
+        </component>
     </div>
 </template>
 
 <script lang="ts" setup>
+import { computed } from "vue"
+
+const quasar = useQuasar()
+const isDesktop = computed(() => quasar.screen.gt.sm)
 </script>
 
 <style lang="scss" scoped>

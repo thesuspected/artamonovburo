@@ -14,7 +14,7 @@
         <TilesSection />
         <StyleSection />
         <FormSection>
-            Записывайтесь на проект фасада<br />
+            Записывайтесь на проект фасада<br>
             и точную смету на фасадные работы
         </FormSection>
         <ImageSliderSection />
