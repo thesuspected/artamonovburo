@@ -21,3 +21,9 @@ export interface QuizType {
     answers: SelectType[]
     type: string
 }
+
+export interface FormType {
+    name?: string
+    phone?: string
+    from?: string
+}

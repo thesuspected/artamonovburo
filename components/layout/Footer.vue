@@ -33,10 +33,10 @@ import { links, socials } from "~/components/layout/const"
 import { useQuasar } from "quasar"
 import Container from "~/components/layout/Container.vue"
 import Section from "~/components/layout/Section.vue"
-import { computed } from "vue"
+import useScreenController from "~/hooks/useScreenController"
 
 const quasar = useQuasar()
-const isDesktop = computed(() => quasar.screen.gt.sm)
+const { isDesktop } = useScreenController()
 const copyPhoneNumber = () => {
     navigator.clipboard.writeText("+7 (927) 102-39-69")
     quasar.notify({

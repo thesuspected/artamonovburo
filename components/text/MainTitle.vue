@@ -7,10 +7,9 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from "vue"
+import useScreenController from "~/hooks/useScreenController"
 
-const quasar = useQuasar()
-const isDesktop = computed(() => quasar.screen.gt.sm)
+const { isDesktop } = useScreenController()
 </script>
 
 <style lang="scss" scoped>

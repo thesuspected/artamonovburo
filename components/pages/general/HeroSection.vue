@@ -26,7 +26,7 @@ import Container from "~/components/layout/Container.vue"
 import Section from "~/components/layout/Section.vue"
 import FormDialog from "~/components/pages/general/FormDialog.vue"
 import useVisibilityController from "~/hooks/useVisibilityController"
-import { computed } from "vue"
+import useScreenController from "~/hooks/useScreenController"
 
 defineProps({
     buttonLabel: {
@@ -42,8 +42,7 @@ defineProps({
     },
 })
 
-const quasar = useQuasar()
-const isDesktop = computed(() => quasar.screen.gt.sm)
+const { isDesktop } = useScreenController()
 const { isVisible: isDialogVisible, open: openDialog, close: closeDialog } = useVisibilityController()
 </script>
 

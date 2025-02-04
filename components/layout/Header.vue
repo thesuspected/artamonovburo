@@ -34,12 +34,12 @@
 <script setup lang="ts">
 import { links, socials } from "./const"
 import Container from "~/components/layout/Container.vue"
-import { computed } from "vue"
+import useScreenController from "~/hooks/useScreenController"
 
 const emit = defineEmits(["open-drawer"])
 
 const quasar = useQuasar()
-const isDesktop = computed(() => quasar.screen.gt.sm)
+const { isDesktop } = useScreenController()
 const headerRef = ref()
 
 const handleOpenDrawer = () => {

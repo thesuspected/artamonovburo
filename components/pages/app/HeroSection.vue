@@ -1,5 +1,5 @@
 <template>
-    <Section class="hero-section">
+    <Section class="hero-section" :style="`height: calc(100vh - ${isDesktop ? 150 : 82}px)`">
         <Container class="content">
             <component :is="isDesktop ? 'h2' : 'h3'" class="title infant-font">
                 Создаём комфорт,<br> меняя пространство
@@ -9,7 +9,7 @@
                 от проектирования дома <br>
                 до благоустройства участка
             </p>
-            <m-btn class="main-btn" label="Заказать проект" shine-effect />
+            <m-btn class="main-btn" label="Заказать проект" shine-effect @click="handleClickProject" />
         </Container>
     </Section>
 </template>
@@ -18,16 +18,20 @@
 import MBtn from "~/components/buttons/MBtn.vue"
 import Container from "~/components/layout/Container.vue"
 import Section from "~/components/layout/Section.vue"
-import { computed } from "vue"
+import { Events } from "~/plugins/event-bus"
+import useScreenController from "~/hooks/useScreenController"
 
-const quasar = useQuasar()
-const isDesktop = computed(() => quasar.screen.gt.sm)
+const { isDesktop } = useScreenController()
+
+const { $event } = useNuxtApp()
+const handleClickProject = () => {
+    $event(Events.open_form_dialog, "Главная - Заказать проект")
+}
 </script>
 
 <style lang="scss" scoped>
 .hero-section {
     position: relative;
-    height: calc(100vh - 150px);
     background-image: url("/img/main_home.png");
     background-size: cover;
     background-position: center;

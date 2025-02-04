@@ -12,6 +12,7 @@ export default defineEventHandler(async (event) => {
                 },
             ],
             SOURCE_ID: "WEB",
+            SOURCE_DESCRIPTION: body.from,
         },
         params: {
             REGISTER_SONET_EVENT: "Y",
