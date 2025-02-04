@@ -2,19 +2,19 @@
     <Section>
         <Container class="grid grid-cols-1 lg:grid-cols-3">
             <div class="sticky-block">
-                <h3 class="infant-font">
-                    Проекты домов <br>
-                    готовые для <br>
+                <component :is="isDesktop ? 'h3' : 'h4'" class="infant-font">
+                    Проекты домов <br />
+                    готовые для <br />
                     строительства
-                </h3>
+                </component>
                 <p>
-                    Вы сэкономите время, так как разработка <br>
-                    индивидуального проекта не требуется, <br>
-                    что способствует быстрому началу <br>
-                    строительного процесса. <br>
-                    <br>
-                    Предварительно рассчитанные сметы <br>
-                    помогают избежать перерасхода бюджета, <br>
+                    Вы сэкономите время, так как разработка <br />
+                    индивидуального проекта не требуется, <br />
+                    что способствует быстрому началу <br />
+                    строительного процесса. <br />
+                    <br />
+                    Предварительно рассчитанные сметы <br />
+                    помогают избежать перерасхода бюджета, <br />
                     обеспечивая экономию денежных средств
                 </p>
             </div>
@@ -44,7 +44,9 @@
 import Container from "~/components/layout/Container.vue"
 import Section from "~/components/layout/Section.vue"
 import MBtn from "~/components/buttons/MBtn.vue"
+import useScreenController from "~/hooks/useScreenController"
 
+const { isDesktop } = useScreenController()
 const houses = [
     {
         src: "/img/construction/house_1.png",

@@ -1,6 +1,6 @@
 <template>
     <div class="flex justify-center">
-        <component :is="isDesktop ? 'h3' : 'h4'" class="main-title infant-font">
+        <component :is="isDesktop ? 'h3' : 'h5'" class="main-title infant-font">
             <slot />
         </component>
     </div>
@@ -19,7 +19,7 @@ const { isDesktop } = useScreenController()
     position: relative;
 
     &:before {
-        content: '\201C';
+        content: "\201C";
         position: absolute;
         top: 55%;
         left: -100px;
@@ -30,7 +30,7 @@ const { isDesktop } = useScreenController()
     }
 
     &:after {
-        content: '\201D';
+        content: "\201D";
         position: absolute;
         top: 55%;
         right: -100px;

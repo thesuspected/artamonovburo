@@ -1,12 +1,13 @@
 <template>
     <Section class="hero-section" :style="`height: calc(100vh - ${isDesktop ? 150 : 82}px)`">
         <Container class="content">
-            <component :is="isDesktop ? 'h2' : 'h3'" class="title infant-font">
-                Создаём комфорт,<br> меняя пространство
+            <component :is="isDesktop ? 'h3' : 'h4'" class="title infant-font">
+                Создаём комфорт,<br />
+                меняя пространство
             </component>
             <p class="description">
-                Возьмём на себя 100% работ <br>
-                от проектирования дома <br>
+                Возьмём на себя 100% работ <br />
+                от проектирования дома <br />
                 до благоустройства участка
             </p>
             <m-btn class="main-btn" label="Заказать проект" shine-effect @click="handleClickProject" />
@@ -38,7 +39,7 @@ const handleClickProject = () => {
     color: $white-color;
 
     &:before {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         background: rgba(9, 28, 25, 0.2);
