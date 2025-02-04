@@ -1,9 +1,9 @@
 <template>
     <Section class="hero-section">
         <Container class="content">
-            <h2 class="title infant-font">
+            <component :is="isDesktop ? 'h2' : 'h3'" class="title infant-font">
                 Создаём комфорт,<br> меняя пространство
-            </h2>
+            </component>
             <p class="description">
                 Возьмём на себя 100% работ <br>
                 от проектирования дома <br>
@@ -18,6 +18,10 @@
 import MBtn from "~/components/buttons/MBtn.vue"
 import Container from "~/components/layout/Container.vue"
 import Section from "~/components/layout/Section.vue"
+import { computed } from "vue"
+
+const quasar = useQuasar()
+const isDesktop = computed(() => quasar.screen.gt.sm)
 </script>
 
 <style lang="scss" scoped>

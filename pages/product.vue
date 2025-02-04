@@ -15,7 +15,7 @@
                     </div>
                     <div class="description col-span-1 ml-5">
                         <h3 class="infant-font">
-                            термопанель <br />
+                            термопанель <br>
                             «название»
                         </h3>
                         <h3 class="price mt-10">1 100 ₽</h3>

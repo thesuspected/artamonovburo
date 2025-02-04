@@ -2,8 +2,8 @@
     <Section :padding="100">
         <Container>
             <MainTitle
-                >Проект, который <b class="text-primary">точно<br />соответствует</b> вашим пожеланиям
-                <br />и стандартам строительства
+            >Проект, который <b class="text-primary">точно<br>соответствует</b> вашим пожеланиям
+                <br>и стандартам строительства
             </MainTitle>
             <TileBlocks :tiles="tiles" inner-class="grid grid-cols-1 lg:grid-cols-4" />
         </Container>

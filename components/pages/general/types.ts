@@ -17,7 +17,7 @@ export interface SelectType {
 
 export interface QuizType {
     question: string
-    selected: number | string | string[]
+    selected?: number | string | string[]
     answers: SelectType[]
     type: string
 }

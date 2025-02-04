@@ -9,8 +9,8 @@
         <ProjectsSection />
         <StagesSection />
         <FormSection>
-            Вместе создадим<b class="text-primary"> дом</b>,<br />
-            который <b class="text-primary">будет соответствовать</b><br />
+            Вместе создадим<b class="text-primary"> дом</b>,<br>
+            который <b class="text-primary">будет соответствовать</b><br>
             вашим<b class="text-primary"> ожиданиям </b> и предпочтениям
         </FormSection>
         <QuizSection />

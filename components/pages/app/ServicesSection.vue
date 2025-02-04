@@ -2,7 +2,7 @@
     <Section class="services-section">
         <Container>
             <MainTitle>
-                Делаем дома <b class="text-primary">прочными</b>, фасады<br />выразительными, а интерьеры — <br /><b
+                Делаем дома <b class="text-primary">прочными</b>, фасады<br>выразительными, а интерьеры — <br><b
                 class="text-primary"
             >неповторимыми</b
             >

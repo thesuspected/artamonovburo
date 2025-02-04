@@ -2,11 +2,11 @@
     <Section>
         <Container>
             <MainTitle
-                >Постарались
+            >Постарались
                 <b class="text-primary"
-                    >ответить <br />
+                >ответить <br>
                     на вопросы</b
-                >, которые вы чаще <br />
+                >, которые вы чаще <br>
                 всего задаёте
             </MainTitle>
 

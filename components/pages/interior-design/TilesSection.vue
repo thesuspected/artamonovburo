@@ -1,7 +1,7 @@
 <template>
     <Section :padding="100">
         <Container>
-            <MainTitle>Пошаговый <b class="text-primary">процесс создания<br />дизайн-проекта</b> вашего интерьера
+            <MainTitle>Пошаговый <b class="text-primary">процесс создания<br>дизайн-проекта</b> вашего интерьера
             </MainTitle>
             <TileBlocks :tiles="tiles" inner-class="lg:grid-cols-3" />
         </Container>

@@ -7,12 +7,12 @@
             <div class="right-block">
                 <div v-if="isDesktop" class="desktop">
                     <span class="contacts"
-                    >г. Саратов, ул. им. Чернышевского Н.Г., 60/62.<br />Бизнес-центр «ФРЕГАТ» с 9:00 до 18:00</span
+                    >г. Саратов, ул. им. Чернышевского Н.Г., 60/62.<br>Бизнес-центр «ФРЕГАТ» с 9:00 до 18:00</span
                     >
                     <div class="divider" />
                     <div class="socials">
                         <a v-for="social in socials" :href="social.link">
-                            <img :src="social.icon" alt="" />
+                            <img :src="social.icon" alt="" height="24px" width="24px" />
                         </a>
                     </div>
                     <a href="tel:+79869864306" class="phone" v-touch-hold:300.mouse="copyPhoneNumber">
@@ -39,7 +39,7 @@ import { computed } from "vue"
 const emit = defineEmits(["open-drawer"])
 
 const quasar = useQuasar()
-const isDesktop = computed(() => quasar.screen.gt.md)
+const isDesktop = computed(() => quasar.screen.gt.sm)
 const headerRef = ref()
 
 const handleOpenDrawer = () => {

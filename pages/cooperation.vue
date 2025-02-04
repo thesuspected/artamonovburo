@@ -9,14 +9,14 @@
                 в застройку, обеспечивая надёжные партнёрские отношения
             </template>
         </HeroSection>
-        <TwoColumnsTable class="twoColumnsTable" />
+        <TwoColumnsTable />
         <ComparisonSection />
         <FinanceProjectsSection />
         <FormSection :src="src">
-            уникальные возможности <br />
-            для инвестирования в застройку, <br />
-            которые гарантируют стабильную<br />
-            и высокую доходность
+            <b class="text-primary">Уникальные возможности</b> <br>
+            для инвестирования в застройку, <br>
+            которые <b class="text-primary">гарантируют</b> стабильную<br>
+            и <b class="text-primary">высокую доходность</b>
         </FormSection>
     </Layout>
 </template>
@@ -37,7 +37,4 @@ defineProps({
 </script>
 
 <style lang="scss" scoped>
-.twoColumnsTable {
-    margin-top: 150px;
-}
 </style>

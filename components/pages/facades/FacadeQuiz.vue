@@ -2,8 +2,8 @@
     <Section>
         <Container>
             <MainTitle>
-                <b class="text-primary">Пройдите опрос</b>, чтобы<br />
-                получить предварительную смету <br />
+                <b class="text-primary">Пройдите опрос</b>, чтобы<br>
+                получить предварительную смету <br>
                 на строительство вашего дома
             </MainTitle>
 

@@ -31,18 +31,21 @@ export const links = [
 
 export const socials = [
     {
-        link: "http://www.yandex.ru/",
+        link: "https://wtsp.cc/79018051391",
         icon: "/icons/wa-icon.svg",
+        iconW: "/icons/wa-icon-w.svg",
         title: "WhatsApp",
     },
     {
-        link: "http://www.yandex.ru/",
+        link: "https://t.me/asb_artamonov",
         icon: "/icons/tg-icon.svg",
+        iconW: "/icons/tg-icon-w.svg",
         title: "Telegram",
     },
     {
-        link: "http://www.yandex.ru/",
+        link: "https://vk.com/asb_artamonov",
         icon: "/icons/vk-icon.svg",
+        iconW: "/icons/vk-icon-w.svg",
         title: "VK",
     },
 ]

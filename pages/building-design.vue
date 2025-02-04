@@ -19,8 +19,8 @@
         <ServicesSection />
         <ImagesSection />
         <FormSection>
-            Вместе <b class="text-primary">создадим дом</b>, <br />
-            который будет соответствовать<br />
+            Вместе <b class="text-primary">создадим дом</b>, <br>
+            который будет соответствовать<br>
             <b class="text-primary">вашим ожиданиям </b> и предпочтениям
         </FormSection>
     </Layout>

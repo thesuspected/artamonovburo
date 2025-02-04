@@ -2,7 +2,7 @@
     <Section :padding="100">
         <Container>
             <MainTitle>
-                Каждый проект <b class="text-primary">уникален</b>,<br />
+                Каждый проект <b class="text-primary">уникален</b>,<br>
                 как и <b class="text-primary">каждый клиент</b>, с которым мы работаем
             </MainTitle>
             <hr />
