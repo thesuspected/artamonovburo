@@ -1,13 +1,28 @@
 <template>
-    <q-form class="form">
+    <q-form ref="formRef" class="form">
         <component :is="isDesktop ? 'h3' : 'h4'" class="text-center infant-font">
             <slot name="title" />
         </component>
         <span class="text-center">
             <slot name="subtitle" />
         </span>
-        <m-input v-model="form.name" label="Ваше Имя" placeholder="Как к вам обращаться?" />
-        <m-input v-model="form.phone" label="Ваш телефон" mask="+7 (###) ###-##-##" placeholder="+7 (987) 654-32-10" />
+        <div>
+            <m-input
+                v-model="form.name"
+                label="Ваше Имя"
+                placeholder="Как к вам обращаться?"
+                lazy-rules
+                :rules="[ val => val && val.length > 0 || 'Обязательное поле']"
+            />
+            <m-input
+                v-model="form.phone"
+                label="Ваш телефон"
+                mask="+7 (###) ###-##-##"
+                placeholder="+7 (987) 654-32-10"
+                lazy-rules
+                :rules="[ val => val && val.length > 0 || 'Обязательное поле']"
+            />
+        </div>
         <m-btn class="mt-default" :label="buttonLabel" :loading="isLoading" shine-effect full-width
                @click="handleFormSubmit" />
         <span class="sub-text">
@@ -37,6 +52,7 @@ const props = defineProps({
 })
 const emit = defineEmits(["submit"])
 
+const formRef = ref()
 const form = ref<FormType>({
     name: undefined,
     phone: undefined,
@@ -46,6 +62,10 @@ const { isLoading, onLoading, offLoading } = useIsLoading()
 const { isDesktop } = useScreenController()
 
 const handleFormSubmit = async () => {
+    const success = await formRef.value.validate()
+    if (!success) {
+        return
+    }
     onLoading()
     const res = await $fetch("/api/submit", {
         method: "POST",
