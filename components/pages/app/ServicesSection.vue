@@ -55,7 +55,7 @@ const services = ref<Service[]>([
     },
     {
         title: "Отделка фасадов",
-        image: "/img/facade_finishing.png",
+        image: "/img/facade_finishing.jpg",
         alt: "Facade finishing",
         to: "facades",
     },

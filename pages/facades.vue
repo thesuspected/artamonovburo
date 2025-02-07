@@ -1,6 +1,6 @@
 <template>
     <Layout>
-        <HeroSection background-image="/img/facade_finishing.png" background-position="bottom">
+        <HeroSection background-image="/img/facade_finishing.jpg" background-position="bottom">
             <template #title>
                 Отделка фасадов
             </template>
