@@ -26,6 +26,12 @@ import FormSection from "~/components/pages/general/FormSection.vue"
 import QuizSection from "~/components/pages/cooperation/QuizSection.vue"
 import { scrollToElement } from "~/utils/helpers"
 
+useSeoMeta({
+    title: "Строительство домов - Архитектурно-строительное бюро Artamonov",
+    description: "Вместе создадим дом, который будет соответствовать вашим ожиданиям и предпочтениям",
+    ogImage: "/img/construction/house_5.png",
+})
+
 const quizRef = ref()
 const scrollToQuiz = () => {
     scrollToElement(quizRef.value.$el)

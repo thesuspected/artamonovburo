@@ -36,6 +36,13 @@ import FacadeQuiz from "~/components/pages/facades/FacadeQuiz.vue"
 import HeroSection from "~/components/pages/general/HeroSection.vue"
 import { scrollToElement } from "~/utils/helpers"
 
+
+useSeoMeta({
+    title: "Отделка фасадов - Архитектурно-строительное бюро Artamonov",
+    description: "Используя знания о композиции, форме и цвете, создаём пространство для жизни в выбранном вами стиле",
+    ogImage: "/img/facade_finishing.jpg",
+})
+
 const quizRef = ref()
 const scrollToQuiz = () => {
     scrollToElement(quizRef.value.$el)

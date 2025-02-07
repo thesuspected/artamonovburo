@@ -37,6 +37,12 @@ import ImagesSection from "~/components/pages/building-design/ImagesSection.vue"
 import HeroSection from "~/components/pages/general/HeroSection.vue"
 import { Events } from "~/plugins/event-bus"
 
+useSeoMeta({
+    title: "Индивидуальное проектирование - Архитектурно-строительное бюро Artamonov",
+    description: "От предварительного концептуального дизайна до готовой рабочей документации, гарантируя высокое качество и соответствие всем строительным нормам",
+    ogImage: "/img/building-design/building-design-bg.png",
+})
+
 const { $event } = useNuxtApp()
 const handleOpenDialogEvent = () => {
     $event(Events.open_form_dialog, "Индивидуальное проектирование - Получить консультацию")

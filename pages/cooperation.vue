@@ -34,6 +34,12 @@ defineProps({
         default: "img/cooperation/expert.png",
     },
 })
+
+useSeoMeta({
+    title: "Сотрудничество - Архитектурно-строительное бюро Artamonov",
+    description: "Предлагаем лучшие условия для сотрудничества и инвестиций в застройку, обеспечивая надёжные партнёрские отношения",
+    ogImage: "/img/cooperation/cooperation.jpeg",
+})
 </script>
 
 <style lang="scss" scoped>

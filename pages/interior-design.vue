@@ -41,6 +41,11 @@ defineProps({
     },
 })
 
+useSeoMeta({
+    title: "Дизайн интерьера - Архитектурно-строительное бюро Artamonov",
+    description: "Используя знания о композиции, форме и цвете, создаём пространство для жизни в выбранном вами стиле",
+    ogImage: "/img/interior-design/interior-design.png",
+})
 
 </script>
 
