@@ -10,7 +10,7 @@
                 от проектирования дома <br />
                 до благоустройства участка
             </p>
-            <m-btn class="main-btn" label="Заказать проект" shine-effect @click="handleClickProject" />
+            <m-btn class="main-btn" label="Заказать проект" shine-effect @click="handleOpenDialogEvent" />
         </Container>
     </Section>
 </template>
@@ -25,7 +25,7 @@ import useScreenController from "~/hooks/useScreenController"
 const { isDesktop } = useScreenController()
 
 const { $event } = useNuxtApp()
-const handleClickProject = () => {
+const handleOpenDialogEvent = () => {
     $event(Events.open_form_dialog, "Главная - Заказать проект")
 }
 </script>

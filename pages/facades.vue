@@ -12,7 +12,7 @@
         </HeroSection>
         <AdvantagesSection />
         <TilesSection />
-        <StyleSection />
+        <StyleSection @click-btn="scrollToQuiz" />
         <FormSection>
             Записывайтесь на проект фасада<br>
             и точную смету на фасадные работы
@@ -22,7 +22,7 @@
         <!--            <b class="text-primary">Выберите материалы</b>-->
         <!--            для будущего фасада-->
         <!--        </FacadeMaterialsSection>-->
-        <FacadeQuiz />
+        <FacadeQuiz ref="quizRef" />
     </Layout>
 </template>
 
@@ -34,6 +34,12 @@ import StyleSection from "~/components/pages/facades/StyleSection.vue"
 import ImageSliderSection from "~/components/pages/facades/ImageSliderSection.vue"
 import FacadeQuiz from "~/components/pages/facades/FacadeQuiz.vue"
 import HeroSection from "~/components/pages/general/HeroSection.vue"
+import { scrollToElement } from "~/utils/helpers"
+
+const quizRef = ref()
+const scrollToQuiz = () => {
+    scrollToElement(quizRef.value.$el)
+}
 </script>
 
 <style lang="scss" scoped></style>

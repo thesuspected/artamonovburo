@@ -5,6 +5,7 @@
             <br> домов"
             description="Воспользуйтесь готовым проверенным решением или создайте уникальный дом по вашим пожеланиям"
             button-label="Рассчитать стоимость"
+            @click-btn="scrollToQuiz"
         />
         <ProjectsSection />
         <StagesSection />
@@ -13,7 +14,7 @@
             который <b class="text-primary">будет соответствовать</b><br>
             вашим<b class="text-primary"> ожиданиям </b> и предпочтениям
         </FormSection>
-        <QuizSection />
+        <QuizSection ref="quizRef" />
     </Layout>
 </template>
 
@@ -23,6 +24,12 @@ import ProjectsSection from "~/components/pages/construction/ProjectsSection.vue
 import StagesSection from "~/components/pages/construction/StagesSection.vue"
 import FormSection from "~/components/pages/general/FormSection.vue"
 import QuizSection from "~/components/pages/cooperation/QuizSection.vue"
+import { scrollToElement } from "~/utils/helpers"
+
+const quizRef = ref()
+const scrollToQuiz = () => {
+    scrollToElement(quizRef.value.$el)
+}
 </script>
 
 <style lang="scss" scoped></style>

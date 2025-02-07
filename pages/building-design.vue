@@ -1,7 +1,10 @@
 <template>
     <Layout>
-        <HeroSection background-image="/img/building-design/building-design-bg.png"
-                     button-label="Получить консультацию">
+        <HeroSection
+            background-image="/img/building-design/building-design-bg.png"
+            button-label="Получить консультацию"
+            @click-btn="handleOpenDialogEvent"
+        >
             <template #title>
                 Индивидуальное<br>
                 проектирование
@@ -32,4 +35,10 @@ import ServicesSection from "~/components/pages/building-design/ServicesSection.
 import FormSection from "~/components/pages/general/FormSection.vue"
 import ImagesSection from "~/components/pages/building-design/ImagesSection.vue"
 import HeroSection from "~/components/pages/general/HeroSection.vue"
+import { Events } from "~/plugins/event-bus"
+
+const { $event } = useNuxtApp()
+const handleOpenDialogEvent = () => {
+    $event(Events.open_form_dialog, "Индивидуальное проектирование - Получить консультацию")
+}
 </script>

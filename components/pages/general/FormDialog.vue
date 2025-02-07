@@ -1,5 +1,6 @@
 <template>
-    <q-dialog v-model="localValue" transition-show="jump-up" transition-hide="jump-down" :maximized="!isDesktop">
+    <q-dialog v-model="localValue" transition-show="jump-up" transition-hide="jump-down" :maximized="!isDesktop"
+              persistent>
         <q-card>
             <q-card-section class="row items-center q-pb-none">
                 <div class="text-h6"></div>

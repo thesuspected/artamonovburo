@@ -29,8 +29,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <MBtn class="button" @click="openDialog"> Начать проект</MBtn>
-                            <FormDialog v-model="isDialogVisible" @close="closeDialog" />
+                            <MBtn class="button" @click="handleOpenDialogEvent"> Начать проект</MBtn>
                         </div>
                     </div>
                 </div>
@@ -39,10 +38,9 @@
     </q-dialog>
 </template>
 <script setup lang="ts">
-import FormDialog from "../pages/general/FormDialog.vue"
 import MBtn from "../buttons/MBtn.vue"
-import useVisibilityController from "~/hooks/useVisibilityController"
 import { links, socials } from "./const"
+import { Events } from "~/plugins/event-bus"
 
 const props = defineProps({
     modelValue: {
@@ -53,7 +51,11 @@ const emit = defineEmits(["close"])
 
 const quasar = useQuasar()
 const localValue = toRef(props, "modelValue")
-const { isVisible: isDialogVisible, open: openDialog, close: closeDialog } = useVisibilityController()
+
+const { $event } = useNuxtApp()
+const handleOpenDialogEvent = () => {
+    $event(Events.open_form_dialog, "Мобильное меню - Начать проект")
+}
 
 const copyPhoneNumber = () => {
     navigator.clipboard.writeText("+7 (927) 102-39-69")

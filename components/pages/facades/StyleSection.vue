@@ -1,14 +1,14 @@
 <template>
     <Section>
         <Container>
-            <TextQuote> Выберите <b class="text-primary">будущий стиль</b> вашего дома </TextQuote>
+            <TextQuote> Выберите <b class="text-primary">будущий стиль</b> вашего дома</TextQuote>
             <div class="grid grid-cols-1 lg:grid-cols-3">
                 <div v-for="(item, key) in styles" :key="key" class="card">
                     <q-img :src="item.src" />
                     <div class="bottom">
                         <h5 class="infant-font" v-html="item.title" />
                         <p v-html="item.subtitle"></p>
-                        <m-btn label="Рассчитать стоимость" outline />
+                        <m-btn label="Рассчитать стоимость" outline @click="emit('click-btn')" />
                     </div>
                 </div>
             </div>
@@ -20,6 +20,8 @@
 import Section from "~/components/layout/Section.vue"
 import Container from "~/components/layout/Container.vue"
 import MBtn from "~/components/buttons/MBtn.vue"
+
+const emit = defineEmits(["click-btn"])
 
 const styles = [
     {

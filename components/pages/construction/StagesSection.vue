@@ -5,7 +5,7 @@
             >При проектировании дома<br>
                 мы согласовываем каждый этап, <br>чтобы <b class="text-primary">получить идеальный результат</b>
             </MainTitle>
-            <TwoColumnsTable :values="stages" with-numbers is-text-small class="grid grid-cols-1 lg:grid-cols-3" />
+            <TwoColumnsTable :values="stages" with-numbers is-text-small />
         </Container>
     </Section>
 </template>

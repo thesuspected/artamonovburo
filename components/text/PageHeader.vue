@@ -4,7 +4,7 @@
             <component :is="isDesktop ? 'h3' : 'h4'" class="title infant-font lg:col-span-2" v-html="title"></component>
             <div class="info">
                 <p>{{ description }}</p>
-                <m-btn :label="buttonLabel" shine-effect />
+                <m-btn :label="buttonLabel" shine-effect @click="emit('click-btn')" />
             </div>
         </Container>
     </Section>
@@ -28,6 +28,7 @@ defineProps({
         type: String,
     },
 })
+const emit = defineEmits(["click-btn"])
 </script>
 
 <style lang="scss" scoped>

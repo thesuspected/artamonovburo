@@ -8,7 +8,7 @@
             <p class="description">
                 <slot name="subtitle" />
             </p>
-            <m-btn class="main-btn" :label="buttonLabel" shine-effect @click="openDialog" />
+            <m-btn class="main-btn" :label="buttonLabel" shine-effect @click="emit('click-btn')" />
             <div class="bottom">
                 <p class="text">
                     <slot name="bottom" />
@@ -16,7 +16,6 @@
                 <q-icon name="fa-solid fa-arrow-down-long" size="30px" class="animate-bounce" />
             </div>
         </Container>
-        <FormDialog v-model="isDialogVisible" @close="closeDialog" />
     </Section>
 </template>
 
@@ -24,8 +23,6 @@
 import MBtn from "~/components/buttons/MBtn.vue"
 import Container from "~/components/layout/Container.vue"
 import Section from "~/components/layout/Section.vue"
-import FormDialog from "~/components/pages/general/FormDialog.vue"
-import useVisibilityController from "~/hooks/useVisibilityController"
 import useScreenController from "~/hooks/useScreenController"
 
 defineProps({
@@ -41,9 +38,9 @@ defineProps({
         default: "center",
     },
 })
+const emit = defineEmits(["click-btn"])
 
 const { isDesktop } = useScreenController()
-const { isVisible: isDialogVisible, open: openDialog, close: closeDialog } = useVisibilityController()
 </script>
 
 <style lang="scss" scoped>
