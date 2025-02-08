@@ -1,12 +1,14 @@
 <template>
     <Layout>
-        <HeroSection background-image="/img/facade_finishing.jpg" background-position="bottom">
-            <template #title>
-                Отделка фасадов
-            </template>
+        <HeroSection
+            background-image="/img/facade_finishing.jpg"
+            background-position="bottom"
+            @click-btn="handleOpenDialogEvent"
+        >
+            <template #title> Отделка фасадов </template>
             <template #subtitle>
-                Мы разрабатываем проект, подбираем материалы <br>
-                и выполняем все работы с гарантией. Вам не нужно<br>
+                Мы разрабатываем проект, подбираем материалы <br />
+                и выполняем все работы с гарантией. Вам не нужно<br />
                 беспокоиться о деталях — мы позаботимся обо всем
             </template>
         </HeroSection>
@@ -14,7 +16,7 @@
         <TilesSection />
         <StyleSection @click-btn="scrollToQuiz" />
         <FormSection>
-            Записывайтесь на проект фасада<br>
+            Записывайтесь на проект фасада<br />
             и точную смету на фасадные работы
         </FormSection>
         <ImageSliderSection />
@@ -34,8 +36,12 @@ import StyleSection from "~/components/pages/facades/StyleSection.vue"
 import ImageSliderSection from "~/components/pages/facades/ImageSliderSection.vue"
 import FacadeQuiz from "~/components/pages/facades/FacadeQuiz.vue"
 import HeroSection from "~/components/pages/general/HeroSection.vue"
+const { $event } = useNuxtApp()
+const handleOpenDialogEvent = () => {
+    $event(Events.open_form_dialog, "Отделка фасадов - Записаться на консультацию")
+}
 import { scrollToElement } from "~/utils/helpers"
-
+import { Events } from "~/plugins/event-bus"
 
 useSeoMeta({
     title: "Отделка фасадов - Архитектурно-строительное бюро Artamonov",

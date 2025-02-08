@@ -31,7 +31,7 @@
 
                         <div class="buttons">
                             <!--                            <m-btn label="Подробнее" />-->
-                            <m-btn label="Консультация" outline />
+                            <m-btn label="Консультация" outline @click="handleOpenDialogEvent" />
                         </div>
                     </div>
                 </div>
@@ -45,7 +45,11 @@ import Container from "~/components/layout/Container.vue"
 import Section from "~/components/layout/Section.vue"
 import MBtn from "~/components/buttons/MBtn.vue"
 import useScreenController from "~/hooks/useScreenController"
-
+import { Events } from "~/plugins/event-bus"
+const { $event } = useNuxtApp()
+const handleOpenDialogEvent = () => {
+    $event(Events.open_form_dialog, "Строительство домов - Консультация")
+}
 const { isDesktop } = useScreenController()
 const houses = [
     {

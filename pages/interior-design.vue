@@ -1,25 +1,24 @@
 <template>
     <Layout>
-        <HeroSection background-image="/img/interior-design/interior-design.png"
-                     button-label="Получить консультацию">
-            <template #title>
-                Дизайн интерьера
-            </template>
+        <HeroSection
+            background-image="/img/interior-design/interior-design.png"
+            button-label="Получить консультацию"
+            @click-btn="handleOpenDialogEvent"
+        >
+            <template #title> Дизайн интерьера </template>
             <template #subtitle>
-                Используя знания о композиции, форме и цвете,<br>
+                Используя знания о композиции, форме и цвете,<br />
                 создаём пространство для жизни в выбранном вами стиле
             </template>
-            <template #bottom>
-                Дизайн интерьера <br>от 4000 ₽/м2
-            </template>
+            <template #bottom> Дизайн интерьера <br />от 4000 ₽/м2 </template>
         </HeroSection>
         <DesignSection />
         <TilesSection />
         <ProjectSection />
         <FormSection :src="src">
-            Мы разрабатываем проекты, <br>
-            которые <b class="text-primary">соответствуют</b> вашим <br>
-            индивидуальным <b class="text-primary">потребностям</b> <br>
+            Мы разрабатываем проекты, <br />
+            которые <b class="text-primary">соответствуют</b> вашим <br />
+            индивидуальным <b class="text-primary">потребностям</b> <br />
             и желаниям
         </FormSection>
         <ImagesGrid />
@@ -33,6 +32,7 @@ import ProjectSection from "~/components/pages/interior-design/ProjectSection.vu
 import FormSection from "~/components/pages/general/FormSection.vue"
 import ImagesGrid from "~/components/pages/general/ImagesGrid.vue"
 import HeroSection from "~/components/pages/general/HeroSection.vue"
+import { Events } from "~/plugins/event-bus"
 
 defineProps({
     src: {
@@ -46,7 +46,10 @@ useSeoMeta({
     description: "Используя знания о композиции, форме и цвете, создаём пространство для жизни в выбранном вами стиле",
     ogImage: "/img/interior-design/interior-design.png",
 })
-
+const { $event } = useNuxtApp()
+const handleOpenDialogEvent = () => {
+    $event(Events.open_form_dialog, "Дизайн интерьера - Получить консультацию")
+}
 </script>
 
 <style lang="scss" scoped></style>

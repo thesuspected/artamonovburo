@@ -1,7 +1,7 @@
 <template>
     <Section>
         <MainTitle class="title">
-            Реализуем проект от <b class="text-primary">идеи </b><br>
+            Реализуем проект от <b class="text-primary">идеи </b><br />
             до <b class="text-primary">готового ремонта</b>
         </MainTitle>
 
@@ -21,7 +21,7 @@
                     <li>Фотореалистичные визуализации по каждому помещению</li>
                     <li>Спецификации осветительных приборов, мебели и оборудования</li>
                 </ul>
-                <m-btn class="button" label="Консультация" outline />
+                <m-btn class="button" label="Консультация" outline @click="handleOpenDialogEvent" />
             </div>
         </Container>
         <Container class="grid grid-cols-1 lg:grid-cols-2">
@@ -33,15 +33,15 @@
                     <li>Внесение согласованных корректировок в проектную документацию</li>
                 </ul>
                 <p class="description">
-                    Авторский надзор в нашей компании является неотъемлемой частью <br>
-                    разработки дизайна интерьера. Это помогает гарантировать, <br>
-                    что все элементы интерьера реализуются в соответствии <br>
-                    с первоначальной концепцией и замыслом дизайнера. <br>
-                    <br>
-                    Это также, позволяет избежать искажений и упрощений, <br>
+                    Авторский надзор в нашей компании является неотъемлемой частью <br />
+                    разработки дизайна интерьера. Это помогает гарантировать, <br />
+                    что все элементы интерьера реализуются в соответствии <br />
+                    с первоначальной концепцией и замыслом дизайнера. <br />
+                    <br />
+                    Это также, позволяет избежать искажений и упрощений, <br />
                     которые могут возникнуть на стадии выполнения работ.
                 </p>
-                <m-btn class="button" label="Консультация" outline />
+                <m-btn class="button" label="Консультация" outline @click="handleOpenDialogEvent" />
             </div>
             <div class="room-2 col-span-1">
                 <q-img src="/img/interior-design/room_2.png" />
@@ -55,6 +55,11 @@ import MainTitle from "~/components/text/MainTitle.vue"
 import MBtn from "~/components/buttons/MBtn.vue"
 import Container from "~/components/layout/Container.vue"
 import Section from "~/components/layout/Section.vue"
+import { Events } from "~/plugins/event-bus"
+const { $event } = useNuxtApp()
+const handleOpenDialogEvent = () => {
+    $event(Events.open_form_dialog, "Строительство домов - Консультация")
+}
 </script>
 
 <style lang="scss" scoped>

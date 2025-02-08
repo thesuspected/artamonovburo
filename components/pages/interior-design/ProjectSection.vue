@@ -2,19 +2,21 @@
     <Section :padding="100">
         <Container>
             <MainTitle>
-                Каждый проект <b class="text-primary">уникален</b>,<br>
+                Каждый проект <b class="text-primary">уникален</b>,<br />
                 как и <b class="text-primary">каждый клиент</b>, с которым мы работаем
             </MainTitle>
             <hr />
             <div class="button">
                 <h3 class="infant-font">Саратов | жк крылья</h3>
-                <MBtn outline>Подробнее о проекте</MBtn>
+                <NuxtLink to="/projects/jk-krylia-apartments"> <MBtn outline>Подробнее о проекте</MBtn></NuxtLink>
             </div>
             <ImagesGrid :images="images" />
             <hr class="hr-2" />
             <div class="button">
                 <h3 class="infant-font">Саратов | Техническая</h3>
-                <MBtn outline>Подробнее о проекте</MBtn>
+                <NuxtLink to="/projects/technical-street-apartments">
+                    <MBtn outline>Подробнее о проекте</MBtn></NuxtLink
+                >
             </div>
 
             <ImagesGrid :images="images2" />

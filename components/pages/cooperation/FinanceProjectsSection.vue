@@ -18,7 +18,7 @@
                     </div>
                 </div>
 
-                <m-btn label="Консультация" class="button" outline />
+                <m-btn label="Консультация" class="button" outline @click="handleOpenDialogEvent" />
             </div>
 
             <hr class="b-b" />
@@ -33,6 +33,11 @@ import Section from "~/components/layout/Section.vue"
 import Container from "~/components/layout/Container.vue"
 import ImagesGrid from "../general/ImagesGrid.vue"
 import MBtn from "~/components/buttons/MBtn.vue"
+import { Events } from "~/plugins/event-bus"
+const { $event } = useNuxtApp()
+const handleOpenDialogEvent = () => {
+    $event(Events.open_form_dialog, "Главная - Заказать проект")
+}
 defineProps({
     images: {
         type: Array as PropType<ImageGridType[]>,

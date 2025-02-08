@@ -1,6 +1,10 @@
 <template>
-    <Section class="hero-section"
-             :style="`background-image: url(${backgroundImage}); background-position: ${backgroundPosition}; height: calc(100vh - ${isDesktop ? 150 : 82}px)`">
+    <Section
+        class="hero-section"
+        :style="`background-image: url(${backgroundImage}); background-position: ${backgroundPosition}; height: calc(100vh - ${
+            isDesktop ? 150 : 82
+        }px)`"
+    >
         <Container class="content">
             <component :is="isDesktop ? 'h2' : 'h4'" class="title infant-font">
                 <slot name="title" />

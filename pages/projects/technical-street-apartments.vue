@@ -16,8 +16,8 @@ import ProjectInfo from "~/components/pages/projects/ProjectInfo.vue"
 
 const project: ProjectType = {
     title: `Саратов |<br>
-            Техническая /<br>
-            Название?`,
+            Техническая <br>
+            `,
     subtitle: `Пример примерыч: Дом выполнен из камня.<br>
                На первом этаже спальная комната, <br>
                кухня-гостиная с мягкой зоной и камином. <br>
