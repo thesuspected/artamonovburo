@@ -1,7 +1,7 @@
 <template>
     <Section>
-        <Container class="grid grid-cols-3">
-            <div class="sticky-block">
+        <Container class="grid grid-cols-1 lg:grid-cols-3">
+            <div class="sticky-block" :style="`position: ${isDesktop ? 'sticky' : 'block'}`">
                 <h3 class="infant-font" v-html="title" />
                 <p v-html="subtitle" />
             </div>
@@ -15,7 +15,7 @@
 <script lang="ts" setup>
 import Container from "~/components/layout/Container.vue"
 import Section from "~/components/layout/Section.vue"
-import MBtn from "~/components/buttons/MBtn.vue"
+import useScreenController from "~/hooks/useScreenController"
 
 defineProps({
     title: {
@@ -25,13 +25,13 @@ defineProps({
         type: String,
     },
 })
+const { isDesktop } = useScreenController()
 </script>
 
 <style lang="scss" scoped>
 .grid {
     .sticky-block {
-        position: sticky;
-        top: 15px;
+        top: 160px;
         align-self: self-start;
 
         h3 {

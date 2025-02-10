@@ -1,7 +1,7 @@
 <template>
     <div class="grid grid-cols-2">
         <div v-for="(item, key) in info" :key="key" class="info-block">
-            <h2 class="title">{{ item.value }}</h2>
+            <component :is="isDesktop ? 'h2' : 'h3'" class="title">{{ item.value }}</component>
             <p>{{ item.name }}</p>
         </div>
     </div>
@@ -10,12 +10,14 @@
 <script lang="ts" setup>
 import type { ProjectInfoType } from "~/components/pages/projects/types"
 import type { PropType } from "vue"
+import useScreenController from "~/hooks/useScreenController"
 
 defineProps({
     info: {
         type: Object as PropType<ProjectInfoType[]>,
     },
 })
+const { isDesktop } = useScreenController()
 </script>
 
 <style lang="scss" scoped>

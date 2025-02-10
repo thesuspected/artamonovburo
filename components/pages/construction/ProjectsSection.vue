@@ -1,7 +1,7 @@
 <template>
     <Section>
         <Container class="grid grid-cols-1 lg:grid-cols-3">
-            <div class="sticky-block">
+            <div class="sticky-block" :style="`position: ${isDesktop ? 'sticky' : 'block'}`">
                 <component :is="isDesktop ? 'h3' : 'h4'" class="infant-font">
                     Проекты домов <br />
                     готовые для <br />
@@ -46,6 +46,7 @@ import Section from "~/components/layout/Section.vue"
 import MBtn from "~/components/buttons/MBtn.vue"
 import useScreenController from "~/hooks/useScreenController"
 import { Events } from "~/plugins/event-bus"
+
 const { $event } = useNuxtApp()
 const handleOpenDialogEvent = () => {
     $event(Events.open_form_dialog, "Строительство домов - Консультация")
@@ -109,8 +110,7 @@ const houses = [
 <style lang="scss" scoped>
 .grid {
     .sticky-block {
-        position: sticky;
-        top: 15px;
+        top: 160px;
         align-self: self-start;
 
         h3 {
