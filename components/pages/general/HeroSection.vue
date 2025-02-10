@@ -1,7 +1,7 @@
 <template>
     <Section
         class="hero-section"
-        :style="`background-image: url(${backgroundImage}); background-position: ${backgroundPosition}; height: calc(100vh - ${
+        :style="`background-image: url(${backgroundImage}); background-position: ${backgroundPosition}; height: calc(100svh - ${
             isDesktop ? 150 : 82
         }px)`"
     >

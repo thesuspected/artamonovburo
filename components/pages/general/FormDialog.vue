@@ -64,6 +64,6 @@ const handleClose = () => {
 
 <style lang="scss" scoped>
 .mobile-content {
-    height: calc(100vh - 50px - 32px);
+    height: calc(100svh - 50px - 32px);
 }
 </style>

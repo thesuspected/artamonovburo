@@ -1,5 +1,5 @@
 <template>
-    <Section class="hero-section" :style="`height: calc(100vh - ${isDesktop ? 150 : 82}px)`">
+    <Section class="hero-section" :style="`height: calc(100svh - ${isDesktop ? 150 : 82}px)`">
         <Container class="content">
             <component :is="isDesktop ? 'h2' : 'h4'" class="title infant-font">
                 Создаём комфорт,<br />

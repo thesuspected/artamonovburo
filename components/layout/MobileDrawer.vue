@@ -81,7 +81,7 @@ const copyPhoneNumber = () => {
 }
 
 .main-block {
-    height: calc(95vh - 64px - 32px);
+    height: calc(100svh - 64px - 32px);
     width: 100%;
     display: flex;
     flex-direction: column;
