@@ -7,7 +7,7 @@
                 на строительство вашего дома
             </MainTitle>
 
-            <Quiz :quiz-options="options" />
+            <Quiz :quiz-options="options" from="Строительство домов - Квиз" />
         </Container>
     </Section>
 </template>
@@ -50,23 +50,23 @@ const options = ref<QuizType[]>([
         answers: [
             {
                 label: "Кирпич",
-                value: "Ответ 11",
+                value: "Кирпич",
             },
             {
                 label: "Газобетон",
-                value: "Ответ 22",
+                value: "Газобетон",
             },
             {
-                label: "Газоблок+кирпич",
-                value: "Ответ 33",
+                label: "Газоблок + кирпич",
+                value: "Газоблок + кирпич",
             },
             {
                 label: "Монолит",
-                value: "Ответ 44",
+                value: "Монолит",
             },
             {
                 label: "Пока не определился, нужна консультация",
-                value: "Ответ 55",
+                value: "Пока не определился, нужна консультация",
             },
         ],
     },
@@ -77,11 +77,11 @@ const options = ref<QuizType[]>([
         answers: [
             {
                 label: "За наличные средства",
-                value: "Ответ 11",
+                value: "За наличные средства",
             },
             {
                 label: "В ипотеку",
-                value: "Ответ 22",
+                value: "В ипотеку",
             },
         ],
     },
@@ -92,11 +92,11 @@ const options = ref<QuizType[]>([
         answers: [
             {
                 label: "Да",
-                value: "Ответ 11",
+                value: "Да",
             },
             {
                 label: "Участок еще не куплен",
-                value: "Ответ 22",
+                value: "Участок еще не куплен",
             },
         ],
     },
@@ -107,19 +107,19 @@ const options = ref<QuizType[]>([
         answers: [
             {
                 label: "В ближайшее время",
-                value: "Ответ 11",
+                value: "В ближайшее время",
             },
             {
                 label: "Через 1-3 месяца",
-                value: "Ответ 22",
+                value: "Через 1-3 месяца",
             },
             {
                 label: "Через 3-6 месяцев",
-                value: "Ответ 33",
+                value: "Через 3-6 месяцев",
             },
             {
                 label: "Не знаю, нужна консультация",
-                value: "Ответ 44",
+                value: "Не знаю, нужна консультация",
             },
         ],
     },
