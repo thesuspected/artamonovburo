@@ -1,10 +1,13 @@
 <template>
-    <h5 class="text-quote">
+    <component :is="isDesktop ? 'h5' : 'h6'" class="text-quote">
         <slot />
-    </h5>
+    </component>
 </template>
 
 <script lang="ts" setup>
+import useScreenController from "~/hooks/useScreenController"
+
+const { isDesktop } = useScreenController()
 </script>
 
 <style lang="scss" scoped>

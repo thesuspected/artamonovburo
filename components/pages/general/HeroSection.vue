@@ -93,7 +93,7 @@ const { isDesktop } = useScreenController()
 
         .bottom {
             position: absolute;
-            bottom: 30px;
+            bottom: 10px;
             left: 0;
             right: 0;
             display: flex;

@@ -1,5 +1,5 @@
 <template>
-    <q-form ref="formRef" class="form">
+    <q-form ref="formRef" class="form" :style="`${isDesktop ? 'padding: 40px' : ''}`">
         <component :is="isDesktop ? 'h3' : 'h4'" class="text-center infant-font">
             <slot name="title" />
         </component>
@@ -88,7 +88,6 @@ const handleFormSubmit = async () => {
     justify-content: center;
     height: 100%;
     gap: 16px;
-    padding: 40px;
 
     .sub-text {
         font-size: 12px;

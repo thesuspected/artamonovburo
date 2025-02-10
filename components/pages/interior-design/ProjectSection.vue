@@ -5,22 +5,23 @@
                 Каждый проект <b class="text-primary">уникален</b>,<br />
                 как и <b class="text-primary">каждый клиент</b>, с которым мы работаем
             </MainTitle>
-            <hr />
+            <hr :style="`margin: ${isDesktop ? '30px 0 60px' : '30px 0'}`" />
             <div class="button">
-                <h3 class="infant-font">Саратов | жк крылья</h3>
-                <NuxtLink to="/projects/jk-krylia-apartments"> <MBtn outline>Подробнее о проекте</MBtn></NuxtLink>
+                <component :is="isDesktop ? 'h3' : 'h4'" class="infant-font">Саратов | жк крылья</component>
+                <NuxtLink to="/projects/jk-krylia-apartments" :style="`${isDesktop ? '':'flex-grow: 1;'}`">
+                    <m-btn full-width outline>Подробнее о проекте</m-btn>
+                </NuxtLink>
             </div>
             <ImagesGrid :images="images" />
-            <hr class="hr-2" />
+            <hr :style="`margin: ${isDesktop ? '60px 0' : '30px 0'}`" />
             <div class="button">
-                <h3 class="infant-font">Саратов | Техническая</h3>
-                <NuxtLink to="/projects/technical-street-apartments">
-                    <MBtn outline>Подробнее о проекте</MBtn></NuxtLink
+                <component :is="isDesktop ? 'h3' : 'h4'" class="infant-font">Саратов | Техническая</component>
+                <NuxtLink to="/projects/technical-street-apartments" :style="`${isDesktop ? '':'flex-grow: 1;'}`">
+                    <m-btn full-width outline>Подробнее о проекте</m-btn>
+                </NuxtLink
                 >
             </div>
-
             <ImagesGrid :images="images2" />
-            <hr class="hr-2" />
         </Container>
     </Section>
 </template>
@@ -33,12 +34,14 @@ import Container from "~/components/layout/Container.vue"
 import Section from "~/components/layout/Section.vue"
 import MBtn from "~/components/buttons/MBtn.vue"
 import ImagesGrid from "../general/ImagesGrid.vue"
+import useScreenController from "~/hooks/useScreenController"
 
 defineProps({
     images: {
         type: Array as PropType<ImageGridType[]>,
     },
 })
+const { isDesktop } = useScreenController()
 const images: ImageGridType[] = [
     {
         src: "img/interior-design/Krilya_1.png",
@@ -109,15 +112,8 @@ const images2: ImageGridType[] = [
 .button {
     display: flex;
     justify-content: space-between;
-}
-
-hr {
-    margin-top: 30px;
-    margin-bottom: 90px;
-}
-
-.hr-2 {
-    margin-top: 90px;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .images-grid {

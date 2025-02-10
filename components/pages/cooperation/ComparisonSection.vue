@@ -9,10 +9,10 @@
             <div class="grid grid-cols-1 lg:grid-cols-2">
                 <div class="house_1 col-span-1">
                     <img src="/public/img/cooperation/Comparison_1.png" alt="" />
-                    <h3 class="infant-font">
+                    <component :is="isDesktop ? 'h3' : 'h4'" class="infant-font">
                         Что предлагают <br>
                         другие компании
-                    </h3>
+                    </component>
                     <p>
                         Массовые решения, приводят к чрезмерной конкуренции на рынке. <br>
                         Переизбыток таких предложений влияет на их цену, <br>
@@ -21,10 +21,10 @@
                 </div>
                 <div class="house_2 col-span-1">
                     <img src="/public/img/cooperation/Comparison_2.png" alt="" />
-                    <h3 class="infant-font">
+                    <component :is="isDesktop ? 'h3' : 'h4'" class="infant-font">
                         Что предлагает <br>
                         наша компания
-                    </h3>
+                    </component>
                     <p>
                         Благодаря ограниченности предложения такая архитектура <br>
                         имеет высокий спрос, поэтому уникальные объекты сохраняют <br>
@@ -40,6 +40,9 @@
 import MainTitle from "~/components/text/MainTitle.vue"
 import Section from "~/components/layout/Section.vue"
 import Container from "~/components/layout/Container.vue"
+import useScreenController from "~/hooks/useScreenController"
+
+const { isDesktop } = useScreenController()
 </script>
 
 <style lang="scss" scoped>

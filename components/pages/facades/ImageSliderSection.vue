@@ -7,7 +7,7 @@
             </MainTitle>
             <div v-for="(compare, key) in compares" :key="key" class="compare-block">
                 <TextQuote>{{ compare.title }}</TextQuote>
-                <div class="grid grid-cols-2">
+                <div class="grid grid-cols-1 lg:grid-cols-2">
                     <ImgComparisonSlider
                         v-for="(slider, sliderKey) in compare.sliders"
                         :key="sliderKey"

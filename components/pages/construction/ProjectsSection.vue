@@ -21,18 +21,14 @@
             <div class="house-block col-span-2">
                 <div v-for="(house, key) in houses" :key="key" class="house-card">
                     <img :src="house.src" alt="" />
-                    <div class="flex justify-between">
+                    <div class="flex justify-between items-center q-mt-sm">
                         <div class="icons">
                             <div v-for="(icon, key) in house.icons" :key="key" class="icon">
                                 <img class="icon_house" :src="icon.src" alt="icon house" />
                                 <p>{{ icon.title }}</p>
                             </div>
                         </div>
-
-                        <div class="buttons">
-                            <!--                            <m-btn label="Подробнее" />-->
-                            <m-btn label="Консультация" outline @click="handleOpenDialogEvent" />
-                        </div>
+                        <m-btn label="Консультация" :full-width="!isDesktop" outline @click="handleOpenDialogEvent" />
                     </div>
                 </div>
             </div>
@@ -135,7 +131,6 @@ const houses = [
                 .icons {
                     display: flex;
                     gap: 20px;
-                    margin-top: 5px;
 
                     .icon {
                         display: flex;
@@ -159,12 +154,6 @@ const houses = [
                 p {
                     margin-top: 17px;
                     margin-left: 5px;
-                }
-
-                .buttons {
-                    display: flex;
-                    gap: 12px;
-                    margin-top: 16px;
                 }
             }
 

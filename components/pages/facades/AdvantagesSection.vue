@@ -1,7 +1,8 @@
 <template>
     <Section>
         <Container class="grid grid-cols-1 lg:grid-cols-3">
-            <div v-for="(item, key) in advantages" :key="key" class="advantage">
+            <div v-for="(item, key) in advantages" :key="key" class="advantage"
+                 :style="`${isDesktop ? 'border-right: 1px solid #B1B1B1;' : 'border-bottom: 1px solid #B1B1B1;'}`">
                 <h5 class="infant-font" v-html="item.title" />
                 <p v-html="item.subtitle"></p>
             </div>
@@ -12,7 +13,9 @@
 <script lang="ts" setup>
 import Section from "~/components/layout/Section.vue"
 import Container from "~/components/layout/Container.vue"
+import useScreenController from "~/hooks/useScreenController"
 
+const { isDesktop } = useScreenController()
 const advantages = [
     {
         title: "Особенный<br> подход",
@@ -41,10 +44,9 @@ const advantages = [
         flex-direction: column;
         gap: 20px;
         padding: 40px 0;
-        border-right: 1px solid $secondary-color;
 
         &:last-child {
-            border: none;
+            border: none !important;
         }
 
         .infant-font {
