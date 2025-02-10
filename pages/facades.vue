@@ -5,7 +5,7 @@
             background-position="bottom"
             @click-btn="handleOpenDialogEvent"
         >
-            <template #title> Отделка фасадов </template>
+            <template #title> Отделка фасадов</template>
             <template #subtitle>
                 Мы разрабатываем проект, подбираем материалы <br />
                 и выполняем все работы с гарантией. Вам не нужно<br />
@@ -15,7 +15,7 @@
         <AdvantagesSection />
         <TilesSection />
         <StyleSection @click-btn="scrollToQuiz" />
-        <FormSection>
+        <FormSection from="Отделка фасадов - Обратная связь">
             Записывайтесь на проект фасада<br />
             и точную смету на фасадные работы
         </FormSection>
@@ -36,6 +36,7 @@ import StyleSection from "~/components/pages/facades/StyleSection.vue"
 import ImageSliderSection from "~/components/pages/facades/ImageSliderSection.vue"
 import FacadeQuiz from "~/components/pages/facades/FacadeQuiz.vue"
 import HeroSection from "~/components/pages/general/HeroSection.vue"
+
 const { $event } = useNuxtApp()
 const handleOpenDialogEvent = () => {
     $event(Events.open_form_dialog, "Отделка фасадов - Записаться на консультацию")

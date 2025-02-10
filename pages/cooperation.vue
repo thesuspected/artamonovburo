@@ -5,7 +5,7 @@
             button-label="Стать партнером"
             @click-btn="handleOpenDialogEvent"
         >
-            <template #title> Сотрудничество </template>
+            <template #title> Сотрудничество</template>
             <template #subtitle>
                 Предлагаем лучшие условия для сотрудничества и инвестиций<br />
                 в застройку, обеспечивая надёжные партнёрские отношения
@@ -14,7 +14,7 @@
         <TwoColumnsTable />
         <ComparisonSection />
         <FinanceProjectsSection />
-        <FormSection :src="src">
+        <FormSection :src="src" from="Сотрудничество - Обратная связь">
             <b class="text-primary">Уникальные возможности</b> <br />
             для инвестирования в застройку, <br />
             которые <b class="text-primary">гарантируют</b> стабильную<br />
@@ -30,6 +30,7 @@ import FinanceProjectsSection from "~/components/pages/cooperation/FinanceProjec
 import FormSection from "~/components/pages/general/FormSection.vue"
 import HeroSection from "~/components/pages/general/HeroSection.vue"
 import { Events } from "~/plugins/event-bus"
+
 const { $event } = useNuxtApp()
 const handleOpenDialogEvent = () => {
     $event(Events.open_form_dialog, "Сотрудничество - Стать партнером")

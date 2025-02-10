@@ -16,7 +16,7 @@
                         ближайшее время.
                     </template>
                 </FormSuccess>
-                <Form v-else button-label="Получить консультацию" :from="from" @submit="handleSubmit">
+                <FormInputs v-else button-label="Получить консультацию" :from="from" @submit="handleSubmit">
                     <template #title> Получить бесплатную консультацию</template>
                     <template #subtitle>
                         Пожалуйста, оставьте свои контактные данные, наш менеджер свяжется с вами для обсуждения
@@ -26,14 +26,14 @@
                         Нажимая кнопку «Получить консультацию», вы даёте согласие<br>
                         на обработку персональных данных
                     </template>
-                </Form>
+                </FormInputs>
             </q-card-section>
         </q-card>
     </q-dialog>
 </template>
 
 <script lang="ts" setup>
-import Form from "./Form.vue"
+import FormInputs from "./FormInputs.vue"
 import { toRef } from "vue"
 import type { FormType } from "~/components/pages/general/types"
 import FormSuccess from "~/components/pages/general/FormSuccess.vue"

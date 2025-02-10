@@ -10,7 +10,14 @@
                     <h3 class="infant-font title">Обратная связь</h3>
                 </q-img>
             </div>
-            <Form>
+            <FormSuccess v-if="filledForm">
+                <template #title> Заявка на консультацию отправлена!</template>
+                <template #subtitle>
+                    {{ filledForm.name }}, благодарим вас за оставленную заявку! Наш менеджер свяжется с вами в
+                    ближайшее время.
+                </template>
+            </FormSuccess>
+            <FormInputs v-else :from="from" @submit="handleSubmit">
                 <template #subtitle>
                     <b class="border-b-2">Давайте познакомимся поближе!</b><br />
                     Оставьте заявку, и мы вместе с вами<br />
@@ -20,7 +27,7 @@
                     Нажимая кнопку «Отправить», вы даёте согласие<br />
                     на обработку персональных данных
                 </template>
-            </Form>
+            </FormInputs>
         </Container>
     </Section>
 </template>
@@ -29,20 +36,25 @@
 import Section from "~/components/layout/Section.vue"
 import Container from "~/components/layout/Container.vue"
 import MainTitle from "~/components/text/MainTitle.vue"
-import Form from "./Form.vue"
+import FormInputs from "./FormInputs.vue"
 import useScreenController from "~/hooks/useScreenController"
+import { FormType } from "~/components/pages/general/types"
+import FormSuccess from "~/components/pages/general/FormSuccess.vue"
 
 defineProps({
     src: {
         type: String,
         default: "img/building-design/form-house.png",
     },
+    from: {
+        type: String,
+    },
 })
 
-const form = ref({
-    name: undefined,
-    phone: undefined,
-})
+const filledForm = ref<FormType>()
+const handleSubmit = (form: FormType) => {
+    filledForm.value = form
+}
 const { isDesktop } = useScreenController()
 </script>
 

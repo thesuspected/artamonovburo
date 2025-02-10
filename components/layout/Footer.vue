@@ -75,7 +75,7 @@ const copyPhoneNumber = () => {
         .confidential {
             color: $secondary-color;
             position: absolute;
-            bottom: 0;
+            bottom: -30px;
             font-weight: 400;
             left: 20px;
             font-size: 16px;

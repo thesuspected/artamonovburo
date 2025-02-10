@@ -5,17 +5,17 @@
             button-label="Получить консультацию"
             @click-btn="handleOpenDialogEvent"
         >
-            <template #title> Дизайн интерьера </template>
+            <template #title> Дизайн интерьера</template>
             <template #subtitle>
                 Используя знания о композиции, форме и цвете,<br />
                 создаём пространство для жизни в выбранном вами стиле
             </template>
-            <template #bottom> Дизайн интерьера <br />от 4000 ₽/м2 </template>
+            <template #bottom> Дизайн интерьера <br />от 4000 ₽/м2</template>
         </HeroSection>
         <DesignSection />
         <TilesSection />
         <ProjectSection />
-        <FormSection :src="src">
+        <FormSection :src="src" from="Дизайн интерьеров - Обратная связь">
             Мы разрабатываем проекты, <br />
             которые <b class="text-primary">соответствуют</b> вашим <br />
             индивидуальным <b class="text-primary">потребностям</b> <br />
