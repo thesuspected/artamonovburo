@@ -15,7 +15,7 @@ export default defineNuxtConfig({
                 },
                 {
                     name: "yandex-verification",
-                    content: "377275d4e3efefab",
+                    content: "d8f2b03afdc1b09a",
                 },
             ],
         },
