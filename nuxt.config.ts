@@ -13,6 +13,10 @@ export default defineNuxtConfig({
                     content:
                         "Создаём комфорт, меняя пространство. Возьмём на себя 100% работ от проектирования дома до благоустройства участка",
                 },
+                {
+                    name: "yandex-verification",
+                    content: "377275d4e3efefab",
+                },
             ],
         },
     },
