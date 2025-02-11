@@ -58,6 +58,22 @@ export default defineNuxtConfig({
                 },
             },
         ],
+        [
+            "nuxt-yandex-metrika",
+            {
+                id: "99875853",
+                // debug: process.env.NODE_ENV !== "production",
+                // delay: 0,
+                // cdn: false,
+                // verification: null, // Verification in Yandex Webmaster
+                options: {
+                    clickmap: true,
+                    trackLinks: true,
+                    accurateTrackBounce: true,
+                    webvisor: true,
+                },
+            },
+        ],
         "@nuxtjs/tailwindcss",
     ],
     vite: {
