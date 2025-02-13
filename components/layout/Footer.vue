@@ -10,8 +10,8 @@
                     <a href="tel:+79869864306" class="phone" v-touch-hold:300.mouse="copyPhoneNumber">
                         +7 (927) 102-39-69
                     </a>
-                    <span>
-                        г. Саратов, ул. им. Чернышевского Н.Г., 60/62.<br>Бизнес-центр «ФРЕГАТ» с 9:00 до 18:00
+                    <span class="address">
+                        г. Саратов, ул. им. Чернышевского Н.Г., 60/62.<br />Бизнес-центр «ФРЕГАТ» с 9:00 до 18:00
                     </span>
                 </div>
                 <div class="socials">
@@ -24,7 +24,7 @@
             </div>
             <a class="confidential" href="/privacy-policy.pdf">Политика конфиденциальности</a>
         </Container>
-        <img class="logo-bg" src="/icons/logo-a.svg" alt="">
+        <img class="logo-bg" src="/icons/logo-a.svg" alt="" />
     </Section>
 </template>
 
@@ -65,11 +65,15 @@ const copyPhoneNumber = () => {
             gap: 10px;
         }
 
-        .contacts, .socials {
+        .contacts,
+        .socials {
             display: flex;
             flex-direction: column;
             align-items: start;
             gap: 10px;
+            .address {
+                font-size: 15px;
+            }
         }
 
         .confidential {
