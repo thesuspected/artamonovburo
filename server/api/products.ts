@@ -28,7 +28,7 @@ export default defineEventHandler(async () => {
                 name,
                 pathName,
                 description,
-                price: salePrices[0].value,
+                price: salePrices[0].value / 100,
                 images: images.rows.map((image: any) => ({
                     title: image.title,
                     fullHref: image.meta.downloadHref,
