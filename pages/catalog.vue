@@ -86,6 +86,11 @@ const product = [
         price: "1 100 ₽",
     },
 ]
+const { data } = await useFetch("/api/products")
+
+onMounted(async () => {
+    console.log(data.value)
+})
 </script>
 
 <style lang="scss" scoped>
