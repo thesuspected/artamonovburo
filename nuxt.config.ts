@@ -18,6 +18,9 @@ export default defineNuxtConfig({
                     content: "d8f2b03afdc1b09a",
                 },
             ],
+            link: [
+                { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+            ],
         },
     },
     compatibilityDate: "2024-11-01",
