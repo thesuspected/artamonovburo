@@ -26,7 +26,9 @@
                         <h6>{{ product.name }}</h6>
                         <h6>{{ product.price }} ₽</h6>
                         <q-space />
-                        <m-btn class="btn" label="Подробнее" />
+                        <NuxtLink :to="`/product?id=${product.id}`">
+                            <m-btn class="btn" label="Подробнее" />
+                        </NuxtLink>
                     </div>
                 </div>
             </Container>

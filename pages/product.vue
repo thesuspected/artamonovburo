@@ -82,11 +82,20 @@ import "swiper/css"
 import "swiper/css/navigation"
 import FacadeMaterialsSection from "~/components/pages/general/FacadeMaterialsSection.vue"
 
+const route = useRoute()
+const { data } = await useFetch("/api/product", {
+    query: { id: route.query.id },
+})
+
 const materials = ["Кирпич", "Камень", "Песок"]
 const delivery = ["Да", "Нет"]
 const form = ref({
     material: "Кирпич",
     delivery: "Да",
+})
+
+onMounted(() => {
+    console.log(data.value)
 })
 </script>
 
