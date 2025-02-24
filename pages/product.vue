@@ -2,67 +2,41 @@
     <Layout>
         <Section>
             <Container>
-                <div class="grid grid-cols-2">
-                    <div class="img col-span-1">
-                        <img class="wall" src="/public/img/catalog/wall.png" alt="" />
-                        <div class="catalog">
-                            <img class="choice" src="/public/img/catalog/wall.png" alt="" />
-                            <img class="choice" src="/public/img/catalog/wall.png" alt="" />
-                            <img class="choice" src="/public/img/catalog/wall.png" alt="" />
-                            <img class="choice" src="/public/img/catalog/wall.png" alt="" />
-                            <img class="choice" src="/public/img/catalog/wall.png" alt="" />
+                <div class="main grid grid-cols-1 lg:grid-cols-2">
+                    <div class="img">
+                        <q-img :src="selectedImage.fullHref" :ratio="1" />
+                        <div class="miniatures">
+                            <q-img
+                                v-for="(item, key) in data.images"
+                                class="miniature"
+                                :class="{'selected': item.title === selectedImage.title}" :key="key"
+                                :src="item.miniatureHref"
+                                :ratio="1"
+                                @click="handleSelectImage(item)"
+                            />
                         </div>
                     </div>
-                    <div class="description col-span-1 ml-5">
-                        <h3 class="infant-font">
-                            термопанель <br>
-                            «название»
-                        </h3>
-                        <h3 class="price mt-10">1 100 ₽</h3>
-                        <div class="size mt-10">
-                            <p>Размер:</p>
-                            <m-btn label="50 мм" class="button" />
-                            <m-btn label="80 мм" class="button ml-5" outline />
-                            <m-btn label="100 мм" class="button ml-5" outline />
+                    <div class="description">
+                        <div class="fields">
+                            <h3 class="infant-font">
+                                {{ data.name }}
+                            </h3>
+                            <h3 class="price mt-8">{{ selectedModification.price }} ₽</h3>
+                            <div class="size mt-8">
+                                <p>Размер:</p>
+                                <div class="modifications">
+                                    <m-btn
+                                        v-for="(item, key) in data.modifications"
+                                        :key="key" :label="item.value"
+                                        :outline="selectedModification.value !== item.value"
+                                        @click="handleSelectModification(item)"
+                                    />
+                                </div>
+                            </div>
+                            <m-btn class="mt-10" label="Расчитать стоимость" full-width />
                         </div>
-                        <div class="materials mt-10">
-                            <p>Крепежные материалы:</p>
-                            <div class="q-pa">
-                                <q-select
-                                    v-model="form.material"
-                                    outlined
-                                    :options="materials"
-                                    placeholder="Выберите"
-                                    color="primary"
-                                />
-                            </div>
-                        </div>
-                        <div class="materials mt-10">
-                            <p>Необходима ли доставка?</p>
-                            <div class="q-pa">
-                                <q-select
-                                    v-model="form.delivery"
-                                    outlined
-                                    :options="delivery"
-                                    placeholder="Выберите"
-                                    color="primary"
-                                />
-                            </div>
-                        </div>
-                        <MBtn class="cost">Расчитать стоимость</MBtn>
-                        <div class="parameters">
-                            <div class="column-1">
-                                <p>Цвет</p>
-                                <p>Основа термопанели</p>
-                                <p>Декоративный слой</p>
-                                <p>Размер панели</p>
-                            </div>
-                            <div class="column-2">
-                                <p>Баварская кладка</p>
-                                <p>Cамозатухающий пенополистирол ППС‑С.20–25</p>
-                                <p>Клинкерная плитка с уже затёртыми швами</p>
-                                <p>1115×450 мм (0.46 кв.м.)</p>
-                            </div>
+                        <div class="parameters mt-10" v-html="data.description" style="white-space: pre-line">
+
                         </div>
                     </div>
                 </div>
@@ -81,21 +55,43 @@ import Container from "~/components/layout/Container.vue"
 import "swiper/css"
 import "swiper/css/navigation"
 import FacadeMaterialsSection from "~/components/pages/general/FacadeMaterialsSection.vue"
+import type { Product } from "~/server/types"
 
 const route = useRoute()
-const { data } = await useFetch("/api/product", {
+const selectedImage = ref({ fullHref: "", miniatureHref: "", title: "" })
+const selectedModification = ref({ name: "", value: "", price: 0 })
+const { data }: { data: Ref<Product> } = await useFetch("/api/product", {
     query: { id: route.query.id },
 })
+const handleSelectImage = (image: any) => {
+    selectedImage.value = image
+}
+const handleSelectModification = (modification: any) => {
+    selectedModification.value = modification
+}
 
-const materials = ["Кирпич", "Камень", "Песок"]
-const delivery = ["Да", "Нет"]
-const form = ref({
-    material: "Кирпич",
-    delivery: "Да",
-})
+const replaceImageHrefsByBlobs = async () => {
+    if (!data.value) {
+        return
+    }
+    const blobs = data.value.images.map((item) =>
+        fetch(item.fullHref).then(resp => resp.blob()),
+    )
+    const responses = await Promise.all(blobs)
+    data.value.images = data.value.images.map((item, key) => ({
+        ...item,
+        fullHref: window.URL.createObjectURL(responses[key]),
+    }))
+}
 
-onMounted(() => {
+onMounted(async () => {
     console.log(data.value)
+    if (!data.value) {
+        return
+    }
+    await replaceImageHrefsByBlobs()
+    selectedImage.value = data.value.images[0]
+    selectedModification.value = data.value.modifications[0]
 })
 </script>
 
@@ -104,43 +100,46 @@ onMounted(() => {
     width: 425px;
 }
 
-.grid {
+.main {
+    gap: 40px;
+
     .img {
-        .wall {
-            height: 721px;
-            width: 721px;
-        }
-
-        .catalog {
-            display: flex;
-            justify-content: space-between;
-            flex-direction: row;
+        .miniatures {
+            display: grid;
             margin-top: 20px;
+            gap: 20px;
+            grid-template-columns: repeat(5, 1fr);
 
-            .choice {
-                height: 129px;
-                width: 129px;
+            .miniature {
+                cursor: pointer;
+                transition-duration: 0.2s;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+
+                &.selected {
+                    border: 1px solid $primary-color;
+                }
             }
         }
     }
 
     .description {
-    }
+        .fields {
+            max-width: 425px;
 
-    .parameters {
-        margin-top: 20px;
-        border-top: 1px solid;
-        display: flex;
-        padding-top: 20px;
+            .modifications {
+                display: flex;
+                gap: 20px;
+            }
+        }
 
-        .column-2 {
-            margin-left: 50px;
+        .parameters {
+            border-top: 1px solid $secondary-color;
+            display: flex;
+            padding-top: 20px;
         }
     }
-}
-
-.cost {
-    width: 425px;
-    margin-top: 20px;
 }
 </style>
