@@ -4,6 +4,10 @@
             <Container>
                 <div class="main grid grid-cols-1 lg:grid-cols-2">
                     <div class="img">
+                        <NuxtLink to="/catalog" class="link">
+                            <q-icon name="fa-solid fa-chevron-left" color="primary" />
+                            <span class="text-primary">Назад</span>
+                        </NuxtLink>
                         <q-img :src="selectedImage.fullHref" :ratio="1" />
                         <div class="miniatures">
                             <q-img
@@ -35,9 +39,7 @@
                             </div>
                             <m-btn class="mt-10" label="Расчитать стоимость" full-width />
                         </div>
-                        <div class="parameters mt-10" v-html="data.description" style="white-space: pre-line">
-
-                        </div>
+                        <div class="parameters mt-10" v-html="data.description" style="white-space: pre-line" />
                     </div>
                 </div>
             </Container>
@@ -96,14 +98,20 @@ onMounted(async () => {
 </script>
 
 <style lang="scss" scoped>
-.q-pa {
-    width: 425px;
-}
-
 .main {
     gap: 40px;
+    position: relative;
 
     .img {
+        .link {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+            padding: 10px 0;
+            position: absolute;
+            top: -40px;
+        }
+
         .miniatures {
             display: grid;
             margin-top: 20px;
