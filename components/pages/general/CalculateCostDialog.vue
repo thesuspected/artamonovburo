@@ -27,6 +27,9 @@
                         Пожалуйста, оставьте свои контактные данные, наш менеджер свяжется с вами для обсуждения
                         будущего проекта
                     </template>
+                    <template #input>
+                        <q-option-group v-model="facadeSquareMeter" :options="options" color="primary" type="radio" />
+                    </template>
                     <template #under>
                         Нажимая кнопку «Получить консультацию», вы даёте согласие<br />
                         на обработку персональных данных
@@ -43,7 +46,31 @@ import { toRef } from "vue"
 import type { FormType } from "~/components/pages/general/types"
 import FormSuccess from "~/components/pages/general/FormSuccess.vue"
 import useScreenController from "~/hooks/useScreenController"
-
+const options = ref([
+    {
+        question: "Сколько м2 стен у вашего дома?",
+        selected: undefined,
+        type: "radio",
+        answers: [
+            {
+                label: "До 100 м²",
+                value: "До 100 м²",
+            },
+            {
+                label: "от 100 до 200м2",
+                value: "от 100 до 200м2",
+            },
+            {
+                label: "больше 200м2",
+                value: "больше 200м2",
+            },
+            {
+                label: "точно не знаю, нужен замер",
+                value: "точно не знаю, нужен замер",
+            },
+        ],
+    },
+])
 const props = defineProps({
     modelValue: {
         type: Boolean,

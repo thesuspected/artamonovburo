@@ -13,7 +13,8 @@
                             <q-img
                                 v-for="(item, key) in data.images"
                                 class="miniature"
-                                :class="{'selected': item.title === selectedImage.title}" :key="key"
+                                :class="{ selected: item.title === selectedImage.title }"
+                                :key="key"
                                 :src="item.miniatureHref"
                                 :ratio="1"
                                 @click="handleSelectImage(item)"
@@ -31,22 +32,22 @@
                                 <div class="modifications">
                                     <m-btn
                                         v-for="(item, key) in data.modifications"
-                                        :key="key" :label="item.value"
+                                        :key="key"
+                                        :label="item.value"
                                         :outline="selectedModification.value !== item.value"
                                         @click="handleSelectModification(item)"
                                     />
                                 </div>
                             </div>
                             <m-btn class="mt-10" label="Расчитать стоимость" full-width />
+                            <CalculateCostDialog />
                         </div>
                         <div class="parameters mt-10" v-html="data.description" style="white-space: pre-line" />
                     </div>
                 </div>
             </Container>
         </Section>
-        <FacadeMaterialsSection>
-            Смотрите также
-        </FacadeMaterialsSection>
+        <FacadeMaterialsSection> Смотрите также </FacadeMaterialsSection>
     </Layout>
 </template>
 
@@ -58,6 +59,7 @@ import "swiper/css"
 import "swiper/css/navigation"
 import FacadeMaterialsSection from "~/components/pages/general/FacadeMaterialsSection.vue"
 import type { Product } from "~/server/types"
+import CalculateCostDialog from "~/components/pages/general/CalculateCostDialog.vue"
 
 const route = useRoute()
 const selectedImage = ref({ fullHref: "", miniatureHref: "", title: "" })
@@ -76,9 +78,7 @@ const replaceImageHrefsByBlobs = async () => {
     if (!data.value) {
         return
     }
-    const blobs = data.value.images.map((item) =>
-        fetch(item.fullHref).then(resp => resp.blob()),
-    )
+    const blobs = data.value.images.map((item) => fetch(item.fullHref).then((resp) => resp.blob()))
     const responses = await Promise.all(blobs)
     data.value.images = data.value.images.map((item, key) => ({
         ...item,

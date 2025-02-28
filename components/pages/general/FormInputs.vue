@@ -12,7 +12,7 @@
                 label="Ваше Имя"
                 placeholder="Как к вам обращаться?"
                 lazy-rules
-                :rules="[ val => val && val.length > 0 || 'Обязательное поле']"
+                :rules="[(val) => (val && val.length > 0) || 'Обязательное поле']"
             />
             <m-input
                 v-model="form.phone"
@@ -20,11 +20,18 @@
                 mask="+7 (###) ###-##-##"
                 placeholder="+7 (987) 654-32-10"
                 lazy-rules
-                :rules="[ val => val && val.length > 0 || 'Обязательное поле']"
+                :rules="[(val) => (val && val.length > 0) || 'Обязательное поле']"
             />
+            <slot name="input" />
         </div>
-        <m-btn class="mt-default" :label="buttonLabel" :loading="isLoading" shine-effect full-width
-               @click="handleFormSubmit" />
+        <m-btn
+            class="mt-default"
+            :label="buttonLabel"
+            :loading="isLoading"
+            shine-effect
+            full-width
+            @click="handleFormSubmit"
+        />
         <span class="sub-text">
             <slot name="under" />
         </span>
