@@ -38,12 +38,13 @@ export default defineEventHandler(async (event) => {
         const responses = await Promise.all(requests)
 
         // Собираем нужные поля
-        const { id, name, pathName, description, images } = product
+        const { id, name, pathName, description, images, salePrices } = product
         return {
             id,
             name,
             pathName,
             description,
+            price: salePrices[0].value / 100,
             images: images.rows.map((image: any, key: number) => ({
                 title: image.title,
                 fullHref: responses[key].headers.get("location"),

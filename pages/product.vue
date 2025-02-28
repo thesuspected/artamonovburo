@@ -8,7 +8,8 @@
                             <q-icon name="fa-solid fa-chevron-left" color="primary" />
                             <span class="text-primary">Назад</span>
                         </NuxtLink>
-                        <q-img :src="selectedImage.fullHref" :ratio="1" />
+                        <q-img v-if="selectedImage.fullHref" :src="selectedImage.fullHref" :ratio="1" />
+                        <q-responsive v-else :ratio="1" class="no-image" />
                         <div class="miniatures">
                             <q-img
                                 v-for="(item, key) in data.images"
@@ -26,8 +27,8 @@
                             <h3 class="infant-font">
                                 {{ data.name }}
                             </h3>
-                            <h3 class="price mt-8">{{ selectedModification.price }} ₽</h3>
-                            <div class="size mt-8">
+                            <h3 class="price mt-8">{{ selectedModification.price ?? data.price }} ₽</h3>
+                            <div v-if="data.modifications?.length" class="size mt-8">
                                 <p>Размер:</p>
                                 <div class="modifications">
                                     <m-btn
@@ -62,8 +63,16 @@ import type { Product } from "~/server/types"
 import CalculateCostDialog from "~/components/pages/general/CalculateCostDialog.vue"
 
 const route = useRoute()
-const selectedImage = ref({ fullHref: "", miniatureHref: "", title: "" })
-const selectedModification = ref({ name: "", value: "", price: 0 })
+const selectedImage = ref<{ fullHref?: string, miniatureHref?: string, title?: string }>({
+    fullHref: undefined,
+    miniatureHref: undefined,
+    title: undefined,
+})
+const selectedModification = ref<{ name?: string, value?: string, price?: number }>({
+    name: undefined,
+    value: undefined,
+    price: undefined,
+})
 const { data }: { data: Ref<Product> } = await useFetch("/api/product", {
     query: { id: route.query.id },
 })
@@ -92,8 +101,12 @@ onMounted(async () => {
         return
     }
     await replaceImageHrefsByBlobs()
-    selectedImage.value = data.value.images[0]
-    selectedModification.value = data.value.modifications[0]
+    if (data.value.images?.length) {
+        selectedImage.value = data.value.images[0]
+    }
+    if (data.value.modifications?.length) {
+        selectedModification.value = data.value.modifications[0]
+    }
 })
 </script>
 
@@ -103,6 +116,10 @@ onMounted(async () => {
     position: relative;
 
     .img {
+        .no-image {
+            background: #d9d9d9;
+        }
+
         .link {
             display: flex;
             gap: 5px;

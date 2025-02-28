@@ -2,6 +2,7 @@ export interface ProductImage {
     title: string
     fullHref: string
     miniatureHref: string
+    isLoaded?: boolean
 }
 
 export interface ProductModification {
