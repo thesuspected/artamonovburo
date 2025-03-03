@@ -40,8 +40,13 @@
                                     />
                                 </div>
                             </div>
-                            <m-btn class="mt-10" label="Расчитать стоимость" full-width />
-                            <CalculateCostDialog />
+                            <m-btn class="mt-10" label="Расчитать стоимость" full-width @click="openDialog" />
+
+                            <CalculateCostDialog
+                                v-model="isDialogVisible"
+                                :quiz-options="options"
+                                @close="closeDialog"
+                            />
                         </div>
                         <div class="parameters mt-10" v-html="data.description" style="white-space: pre-line" />
                     </div>
@@ -53,6 +58,7 @@
 </template>
 
 <script lang="ts" setup>
+import useVisibilityController from "~/hooks/useVisibilityController"
 import MBtn from "~/components/buttons/MBtn.vue"
 import Section from "~/components/layout/Section.vue"
 import Container from "~/components/layout/Container.vue"
@@ -61,14 +67,41 @@ import "swiper/css/navigation"
 import FacadeMaterialsSection from "~/components/pages/general/FacadeMaterialsSection.vue"
 import type { Product } from "~/server/types"
 import CalculateCostDialog from "~/components/pages/general/CalculateCostDialog.vue"
+import type { QuizType } from "~/components/pages/general/types"
+const { isVisible: isDialogVisible, open: openDialog, close: closeDialog } = useVisibilityController()
 
+const options = ref<QuizType[]>([
+    {
+        question: "Сколько м2 стен у вашего дома?",
+        selected: undefined,
+        type: "radio",
+        answers: [
+            {
+                label: "До 100 м²",
+                value: "До 100 м²",
+            },
+            {
+                label: "от 100 до 200м2",
+                value: "от 100 до 200м2",
+            },
+            {
+                label: "больше 200м2",
+                value: "больше 200м2",
+            },
+            {
+                label: "точно не знаю, нужен замер",
+                value: "точно не знаю, нужен замер",
+            },
+        ],
+    },
+])
 const route = useRoute()
-const selectedImage = ref<{ fullHref?: string, miniatureHref?: string, title?: string }>({
+const selectedImage = ref<{ fullHref?: string; miniatureHref?: string; title?: string }>({
     fullHref: undefined,
     miniatureHref: undefined,
     title: undefined,
 })
-const selectedModification = ref<{ name?: string, value?: string, price?: number }>({
+const selectedModification = ref<{ name?: string; value?: string; price?: number }>({
     name: undefined,
     value: undefined,
     price: undefined,

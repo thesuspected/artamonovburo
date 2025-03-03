@@ -21,17 +21,25 @@
                         ближайшее время.
                     </template>
                 </FormSuccess>
-                <FormInputs v-else button-label="Получить консультацию" :from="from" @submit="handleSubmit">
-                    <template #title> Получить бесплатную консультацию</template>
+                <FormInputs v-else button-label="Рассчитать стоимость" :from="from" @submit="handleSubmit">
+                    <template #title> Рассчитать стоимость фасада</template>
                     <template #subtitle>
                         Пожалуйста, оставьте свои контактные данные, наш менеджер свяжется с вами для обсуждения
                         будущего проекта
                     </template>
                     <template #input>
-                        <q-option-group v-model="facadeSquareMeter" :options="options" color="primary" type="radio" />
+                        <div class="quiz">
+                            <h6>{{ options[step].question }}</h6>
+                            <q-option-group
+                                v-model="facadeSquareMeter"
+                                :options="options[step].answers"
+                                color="primary"
+                                type="radio"
+                            />
+                        </div>
                     </template>
                     <template #under>
-                        Нажимая кнопку «Получить консультацию», вы даёте согласие<br />
+                        Нажимая кнопку «Рассчитать стоимость», вы даёте согласие<br />
                         на обработку персональных данных
                     </template>
                 </FormInputs>
@@ -46,32 +54,12 @@ import { toRef } from "vue"
 import type { FormType } from "~/components/pages/general/types"
 import FormSuccess from "~/components/pages/general/FormSuccess.vue"
 import useScreenController from "~/hooks/useScreenController"
-const options = ref([
-    {
-        question: "Сколько м2 стен у вашего дома?",
-        selected: undefined,
-        type: "radio",
-        answers: [
-            {
-                label: "До 100 м²",
-                value: "До 100 м²",
-            },
-            {
-                label: "от 100 до 200м2",
-                value: "от 100 до 200м2",
-            },
-            {
-                label: "больше 200м2",
-                value: "больше 200м2",
-            },
-            {
-                label: "точно не знаю, нужен замер",
-                value: "точно не знаю, нужен замер",
-            },
-        ],
-    },
-])
+import type { QuizType } from "~/components/pages/general/types"
 const props = defineProps({
+    quizOptions: {
+        type: Array as PropType<QuizType[]>,
+        default: () => [],
+    },
     modelValue: {
         type: Boolean,
     },
@@ -79,6 +67,10 @@ const props = defineProps({
         type: String,
     },
 })
+
+const step = ref<number>(0)
+const facadeSquareMeter = ref()
+const options: Ref<QuizType[]> = toRef(props, "quizOptions")
 const emit = defineEmits(["close"])
 
 const { isDesktop } = useScreenController()
@@ -97,5 +89,8 @@ const handleClose = () => {
 <style lang="scss" scoped>
 .mobile-content {
     height: calc(100svh - 50px - 32px);
+}
+.quiz {
+    margin-top: 20px;
 }
 </style>

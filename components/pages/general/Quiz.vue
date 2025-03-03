@@ -45,7 +45,7 @@
                         label="Ваше Имя"
                         placeholder="Как к вам обращаться?"
                         lazy-rules
-                        :rules="[ val => val && val.length > 0 || 'Обязательное поле']"
+                        :rules="[(val) => (val && val.length > 0) || 'Обязательное поле']"
                     />
                     <m-input
                         v-model="form.phone"
@@ -53,16 +53,21 @@
                         mask="+7 (###) ###-##-##"
                         placeholder="+7 (987) 654-32-10"
                         lazy-rules
-                        :rules="[ val => val && val.length > 0 || 'Обязательное поле']"
+                        :rules="[(val) => (val && val.length > 0) || 'Обязательное поле']"
                     />
                 </q-form>
 
                 <div class="flex gap-3">
                     <m-btn v-if="step > 0" label="Назад" outline @click="clickPrev" class="prev mt-5" />
                     <m-btn v-if="step < options.length" label="Далее" @click="clickNext" class="next mt-5" />
-                    <m-btn v-if="step == options.length" class=" mt-5" label="Отправить" shine-effect
-                           :loading="isLoading"
-                           @click="handleSubmit" />
+                    <m-btn
+                        v-if="step == options.length"
+                        class="mt-5"
+                        label="Отправить"
+                        shine-effect
+                        :loading="isLoading"
+                        @click="handleSubmit"
+                    />
                 </div>
             </div>
         </div>
