@@ -41,10 +41,9 @@
                                 </div>
                             </div>
                             <m-btn class="mt-10" label="Расчитать стоимость" full-width @click="openDialog" />
-
                             <CalculateCostDialog
                                 v-model="isDialogVisible"
-                                :quiz-options="options"
+                                from="Каталог фасадов"
                                 @close="closeDialog"
                             />
                         </div>
@@ -53,7 +52,7 @@
                 </div>
             </Container>
         </Section>
-        <FacadeMaterialsSection> Смотрите также </FacadeMaterialsSection>
+        <FacadeMaterialsSection :images="sliderImages"> Смотрите также</FacadeMaterialsSection>
     </Layout>
 </template>
 
@@ -67,34 +66,9 @@ import "swiper/css/navigation"
 import FacadeMaterialsSection from "~/components/pages/general/FacadeMaterialsSection.vue"
 import type { Product } from "~/server/types"
 import CalculateCostDialog from "~/components/pages/general/CalculateCostDialog.vue"
-import type { QuizType } from "~/components/pages/general/types"
+
 const { isVisible: isDialogVisible, open: openDialog, close: closeDialog } = useVisibilityController()
 
-const options = ref<QuizType[]>([
-    {
-        question: "Сколько м2 стен у вашего дома?",
-        selected: undefined,
-        type: "radio",
-        answers: [
-            {
-                label: "До 100 м²",
-                value: "До 100 м²",
-            },
-            {
-                label: "от 100 до 200м2",
-                value: "от 100 до 200м2",
-            },
-            {
-                label: "больше 200м2",
-                value: "больше 200м2",
-            },
-            {
-                label: "точно не знаю, нужен замер",
-                value: "точно не знаю, нужен замер",
-            },
-        ],
-    },
-])
 const route = useRoute()
 const selectedImage = ref<{ fullHref?: string; miniatureHref?: string; title?: string }>({
     fullHref: undefined,
@@ -109,13 +83,21 @@ const selectedModification = ref<{ name?: string; value?: string; price?: number
 const { data }: { data: Ref<Product> } = await useFetch("/api/product", {
     query: { id: route.query.id },
 })
+const sliderImages = ref<string[]>([])
+
 const handleSelectImage = (image: any) => {
     selectedImage.value = image
 }
 const handleSelectModification = (modification: any) => {
     selectedModification.value = modification
 }
-
+const replaceSliderHrefsByBlobs = async (links: string[]) => {
+    const blobs = links.map((link: string) =>
+        fetch(link).then(resp => resp.blob()),
+    )
+    const responses = await Promise.all(blobs)
+    return responses.map((blob: Blob) => window.URL.createObjectURL(blob))
+}
 const replaceImageHrefsByBlobs = async () => {
     if (!data.value) {
         return
@@ -126,6 +108,19 @@ const replaceImageHrefsByBlobs = async () => {
         ...item,
         fullHref: window.URL.createObjectURL(responses[key]),
     }))
+}
+
+const loadSliderProducts = async (id: string, pathName: string) => {
+    const res: string[] = await $fetch("/api/slider", {
+        method: "POST",
+        body: {
+            id,
+            pathName,
+        },
+    })
+    if (res) {
+        sliderImages.value = await replaceSliderHrefsByBlobs(res)
+    }
 }
 
 onMounted(async () => {
@@ -140,6 +135,7 @@ onMounted(async () => {
     if (data.value.modifications?.length) {
         selectedModification.value = data.value.modifications[0]
     }
+    await loadSliderProducts(data.value.id, data.value.pathName)
 })
 </script>
 

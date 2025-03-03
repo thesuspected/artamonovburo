@@ -9,11 +9,9 @@
                     <m-btn v-if="showBtn" outline label="Смотреть все фасады" />
                 </div>
                 <swiper :slides-per-view="4" :space-between="30" :navigation="true" :modules="modules" class="mySwiper">
-                    <swiper-slide><img src="/img/catalog/wall.png" alt="" /></swiper-slide>
-                    <swiper-slide><img src="/img/catalog/wall.png" alt="" /></swiper-slide>
-                    <swiper-slide><img src="/img/catalog/wall.png" alt="" /></swiper-slide>
-                    <swiper-slide><img src="/img/catalog/wall.png" alt="" /></swiper-slide>
-                    <swiper-slide><img src="/img/catalog/wall.png" alt="" /></swiper-slide>
+                    <swiper-slide v-for="(href, key) in images" :key="key">
+                        <q-img :src="href" alt="" :ratio="1" />
+                    </swiper-slide>
                 </swiper>
             </div>
         </Container>
@@ -27,11 +25,16 @@ import "swiper/css"
 import "swiper/css/navigation"
 import { Navigation } from "swiper/modules"
 import MBtn from "~/components/buttons/MBtn.vue"
+import type { PropType } from "vue"
 
 defineProps({
     showBtn: {
         type: Boolean,
         default: false,
+    },
+    images: {
+        type: Array as PropType<string[]>,
+        default: () => [],
     },
 })
 const modules = [Navigation]
@@ -54,6 +57,12 @@ const modules = [Navigation]
     }
 
     &:deep(.swiper) {
+        overflow: inherit;
+
+        .swiper-button-disabled {
+            opacity: 0 !important;
+        }
+
         .swiper-button-prev {
             background: $primary-color;
             opacity: 1;
@@ -62,7 +71,8 @@ const modules = [Navigation]
             padding: 10px;
             width: 50px;
             height: 50px;
-            margin-left: -10px;
+            margin-left: -35px;
+            transition-duration: 0.2s;
 
             &:after {
                 font-size: 20px;
@@ -76,7 +86,8 @@ const modules = [Navigation]
             color: white;
             width: 50px;
             height: 50px;
-            margin-right: -10px;
+            margin-right: -35px;
+            transition-duration: 0.2s;
 
             &:after {
                 font-size: 20px;
