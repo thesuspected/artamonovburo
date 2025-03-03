@@ -15,7 +15,7 @@ export default defineEventHandler(async (event) => {
                 ],
                 SOURCE_ID: "WEB",
                 SOURCE_DESCRIPTION: body.from,
-                COMMENTS: body.quiz ?? "",
+                COMMENTS: body.payload ?? "",
             },
             params: {
                 REGISTER_SONET_EVENT: "Y",

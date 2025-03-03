@@ -15,17 +15,19 @@
 
             <q-card-section :class="{ 'mobile-content': !isDesktop }">
                 <FormSuccess v-if="filledForm">
-                    <template #title> Заявка на консультацию отправлена!</template>
+                    <template #title> Заявка на расчет стоимости отправлена!</template>
                     <template #subtitle>
                         {{ filledForm.name }}, благодарим вас за оставленную заявку! Наш менеджер свяжется с вами в
                         ближайшее время.
                     </template>
                 </FormSuccess>
-                <FormInputs v-else button-label="Рассчитать стоимость" :from="from" @submit="handleSubmit">
-                    <template #title> Рассчитать стоимость фасада</template>
+                <FormInputs
+                    v-else button-label="Рассчитать стоимость" :from="from"
+                    :payload="`${options[step].question} ${facadeSquareMeter ?? '-'}`"
+                    @submit="handleSubmit"
+                >
                     <template #subtitle>
-                        Пожалуйста, оставьте свои контактные данные, наш менеджер свяжется с вами для обсуждения
-                        будущего проекта
+                        Пожалуйста, оставьте свои контактные данные, наш менеджер свяжется с вами
                     </template>
                     <template #input>
                         <div class="quiz">
@@ -55,11 +57,8 @@ import type { FormType } from "~/components/pages/general/types"
 import FormSuccess from "~/components/pages/general/FormSuccess.vue"
 import useScreenController from "~/hooks/useScreenController"
 import type { QuizType } from "~/components/pages/general/types"
+
 const props = defineProps({
-    quizOptions: {
-        type: Array as PropType<QuizType[]>,
-        default: () => [],
-    },
     modelValue: {
         type: Boolean,
     },
@@ -67,11 +66,35 @@ const props = defineProps({
         type: String,
     },
 })
+const emit = defineEmits(["close"])
 
 const step = ref<number>(0)
 const facadeSquareMeter = ref()
-const options: Ref<QuizType[]> = toRef(props, "quizOptions")
-const emit = defineEmits(["close"])
+const options = ref<QuizType[]>([
+    {
+        question: "Сколько м² стен у вашего дома?",
+        selected: undefined,
+        type: "radio",
+        answers: [
+            {
+                label: "До 100 м²",
+                value: "До 100 м²",
+            },
+            {
+                label: "от 100 до 200м²",
+                value: "от 100 до 200м²",
+            },
+            {
+                label: "больше 200м²",
+                value: "больше 200м²",
+            },
+            {
+                label: "точно не знаю, нужен замер",
+                value: "точно не знаю, нужен замер",
+            },
+        ],
+    },
+])
 
 const { isDesktop } = useScreenController()
 const localValue = toRef(props, "modelValue")
@@ -90,6 +113,7 @@ const handleClose = () => {
 .mobile-content {
     height: calc(100svh - 50px - 32px);
 }
+
 .quiz {
     margin-top: 20px;
 }

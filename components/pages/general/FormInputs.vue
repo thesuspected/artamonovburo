@@ -56,6 +56,9 @@ const props = defineProps({
     from: {
         type: String,
     },
+    payload: {
+        type: String,
+    },
 })
 const emit = defineEmits(["submit"])
 
@@ -80,6 +83,7 @@ const handleFormSubmit = async () => {
             name: form.value.name,
             phone: form.value.phone,
             from: form.value.from,
+            payload: props.payload,
         },
     })
     offLoading()

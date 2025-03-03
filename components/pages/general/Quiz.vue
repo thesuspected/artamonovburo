@@ -147,7 +147,7 @@ const handleSubmit = async () => {
             name: form.value.name,
             phone: form.value.phone,
             from: form.value.from,
-            quiz: getQuizString(),
+            payload: getQuizString(),
         },
     })
     if (res) {
