@@ -1,7 +1,4 @@
-import Moysklad from "moysklad"
-
-const { NUXT_MS_LOGIN: login, NUXT_MS_PASS: password } = process.env
-const ms = Moysklad({ login, password })
+import { msApi } from "~/server/ms"
 
 const groupBy = (array: any, key: any) =>
     array.reduce((accumulator: any, object: any) => {
@@ -12,13 +9,7 @@ const groupBy = (array: any, key: any) =>
 export default defineEventHandler(async () => {
     try {
         // Получаем товары
-        const request = await ms.GET("entity/product", {
-            filter: {
-                archived: false,
-            },
-            expand: "images",
-            limit: 100,
-        })
+        const request = await msApi.getAllProducts()
 
         // Собираем нужные поля
         const products = request.rows.map((product: any) => {

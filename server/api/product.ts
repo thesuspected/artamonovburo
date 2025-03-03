@@ -1,26 +1,13 @@
-import Moysklad from "moysklad"
-
-const { NUXT_MS_LOGIN: login, NUXT_MS_PASS: password } = process.env
-const ms = Moysklad({ login, password })
+import { msApi } from "~/server/ms"
 
 export default defineEventHandler(async (event) => {
     const { id: productId } = getQuery(event)
     try {
         // Получаем товар по id
-        const product = await ms.GET(`entity/product/${productId}`, {
-            filter: {
-                archived: false,
-            },
-            expand: "images",
-        })
+        const product = await msApi.getProductById(String(productId))
 
         // Получаем модификации
-        const modificationsRequest = await ms.GET(`entity/variant`, {
-            filter: {
-                archived: false,
-                productid: product.id,
-            },
-        })
+        const modificationsRequest = await msApi.getProductModifications(String(productId))
         const modifications = modificationsRequest.rows.map((item: any) => {
             return {
                 name: item.characteristics[0].name,
@@ -31,9 +18,7 @@ export default defineEventHandler(async (event) => {
 
         // Скачиваем изображения
         const requests = product.images.rows.map((item: any) =>
-            ms.GET(`download/${item.meta.downloadHref.split("/").pop()}`, null, {
-                rawRedirect: true,
-            }),
+            msApi.downloadImages(item.meta.downloadHref.split("/").pop()),
         )
         const responses = await Promise.all(requests)
 
