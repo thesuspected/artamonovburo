@@ -1,8 +1,12 @@
 <template>
     <Section>
         <Container class="grid grid-cols-1 lg:grid-cols-3">
-            <div v-for="(item, key) in advantages" :key="key" class="advantage"
-                 :style="`${isDesktop ? 'border-right: 1px solid #B1B1B1;' : 'border-bottom: 1px solid #B1B1B1;'}`">
+            <div
+                v-for="(item, key) in advantages"
+                :key="key"
+                class="advantage"
+                :style="`${isDesktop ? 'border-right: 1px solid #B1B1B1;' : 'border-bottom: 1px solid #B1B1B1;'}`"
+            >
                 <h5 class="infant-font" v-html="item.title" />
                 <p v-html="item.subtitle"></p>
             </div>
@@ -24,8 +28,7 @@ const advantages = [
     },
     {
         title: "Визуализация<br> фасада",
-        subtitle:
-            "Придадим дому стильный фасад <br>благодаря дизайнеру, который сделает<br> предварительный проект фасада",
+        subtitle: "Бесплатно сделаем для вас фотореалистичный 3D проект, просто запишитесь на замер",
     },
     {
         title: "Отделочные<br> бригады",

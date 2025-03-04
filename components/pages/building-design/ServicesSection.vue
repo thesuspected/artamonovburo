@@ -1,9 +1,7 @@
 <template>
     <Section>
         <Container>
-            <MainTitle
-                ><b class="text-primary">Полный комплект</b> проектных <br />услуг для строительства дома
-            </MainTitle>
+            <MainTitle>Что входит в состав проекта? </MainTitle>
             <TwoColumnsTable :values="services" />
         </Container>
     </Section>

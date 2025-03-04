@@ -19,8 +19,8 @@
                         <div class="right-block">
                             <div class="desktop">
                                 <p>Контакты</p>
-                                <a href="tel:+79869864306" class="phone" v-touch-hold:300.mouse="copyPhoneNumber">
-                                    +7 (927) 102-39-69
+                                <a href="tel:+79931002112" class="phone" v-touch-hold:300.mouse="copyPhoneNumber">
+                                    +7 (993) 100-21-12
                                 </a>
                                 <div class="divider" />
                                 <div class="socials">
@@ -58,12 +58,11 @@ const handleOpenDialogEvent = () => {
 }
 
 const copyPhoneNumber = () => {
-    navigator.clipboard.writeText("+7 (927) 102-39-69")
+    navigator.clipboard.writeText("+7 (993) 100-21-12")
     quasar.notify({
         message: "Номер телефона скопирован",
     })
 }
-
 </script>
 
 <style lang="scss" scoped>

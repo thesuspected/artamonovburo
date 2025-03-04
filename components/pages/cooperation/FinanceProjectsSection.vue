@@ -1,13 +1,18 @@
 <template>
     <Section>
         <Container>
+            <MainTitle>наши действующие проекты</MainTitle>
             <hr />
             <h3 class="infant-font">Дом в стиле Тюдор</h3>
             <ImagesGrid :images="images" />
             <div class="house-block">
                 <div class="flex">
-                    <div v-for="(house, key) in houses" :key="key" class="info-block"
-                         :class="`${isDesktop ? 'desktop' : 'mobile'}`">
+                    <div
+                        v-for="(house, key) in houses"
+                        :key="key"
+                        class="info-block"
+                        :class="`${isDesktop ? 'desktop' : 'mobile'}`"
+                    >
                         <p>{{ house.title }}</p>
                         <div class="icons">
                             <div v-for="(icon, key) in house.icons" :key="key" class="icon">
@@ -19,8 +24,13 @@
                     </div>
                 </div>
 
-                <m-btn label="Консультация" :full-width="!isDesktop" class="button" outline
-                       @click="handleOpenDialogEvent" />
+                <m-btn
+                    label="Консультация"
+                    :full-width="!isDesktop"
+                    class="button"
+                    outline
+                    @click="handleOpenDialogEvent"
+                />
             </div>
 
             <hr class="b-b" />
@@ -29,6 +39,7 @@
 </template>
 
 <script lang="ts" setup>
+import MainTitle from "~/components/text/MainTitle.vue"
 import type { PropType } from "vue"
 import type { ImageGridType } from "~/components/pages/general/types"
 import Section from "~/components/layout/Section.vue"

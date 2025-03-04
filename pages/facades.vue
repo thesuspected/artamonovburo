@@ -7,17 +7,19 @@
         >
             <template #title> Отделка фасадов</template>
             <template #subtitle>
-                Мы разрабатываем проект, подбираем материалы <br />
-                и выполняем все работы с гарантией. Вам не нужно<br />
-                беспокоиться о деталях — мы позаботимся обо всем
+                <div class="subtitle">
+                    Мы разрабатываем проект, подбираем материалы <br />
+                    и выполняем все работы с гарантией. Вам не нужно<br />
+                    беспокоиться о деталях — мы позаботимся обо всем
+                </div>
             </template>
         </HeroSection>
         <AdvantagesSection />
         <TilesSection />
         <StyleSection @click-btn="scrollToQuiz" />
         <FormSection from="Отделка фасадов - Обратная связь">
-            Записывайтесь на проект фасада<br />
-            и точную смету на фасадные работы
+            Записывайтесь на <b class="text-primary">бесплатный</b> <br />
+            3D проект фасада и расчет точной сметы
         </FormSection>
         <ImageSliderSection />
         <!--        <FacadeMaterialsSection show-btn>-->
@@ -56,4 +58,8 @@ const scrollToQuiz = () => {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.subtitle {
+    font-size: 15px;
+}
+</style>

@@ -2,14 +2,11 @@
     <Layout>
         <HeroSection
             background-image="/img/cooperation/cooperation.jpeg"
-            button-label="Стать партнером"
+            button-label="Подробнее"
             @click-btn="handleOpenDialogEvent"
         >
-            <template #title> Сотрудничество</template>
-            <template #subtitle>
-                Предлагаем лучшие условия для сотрудничества и инвестиций<br />
-                в застройку, обеспечивая надёжные партнёрские отношения
-            </template>
+            <template #title> Инвестиции в застройку</template>
+            <template #subtitle> Предлагаем 30% годовых с входом от 300.000 рублей </template>
         </HeroSection>
         <TwoColumnsTable />
         <ComparisonSection />
@@ -33,7 +30,7 @@ import { Events } from "~/plugins/event-bus"
 
 const { $event } = useNuxtApp()
 const handleOpenDialogEvent = () => {
-    $event(Events.open_form_dialog, "Сотрудничество - Стать партнером")
+    $event(Events.open_form_dialog, "Сотрудничество - Подробнее")
 }
 defineProps({
     src: {

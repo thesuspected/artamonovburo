@@ -1,10 +1,7 @@
 <template>
     <Section :padding="100">
         <Container>
-            <MainTitle
-            >Проект, который <b class="text-primary">точно<br>соответствует</b> вашим пожеланиям
-                <br>и стандартам строительства
-            </MainTitle>
+            <MainTitle>Вот почему к нам обращаются: </MainTitle>
             <TileBlocks :tiles="tiles" inner-class="grid grid-cols-1 lg:grid-cols-4" />
         </Container>
     </Section>
@@ -45,7 +42,8 @@ const tiles: TilesType[] = [
     },
     {
         title: "Соответствие <br>стандартам",
-        subtitle: "Проекты соответствуют всем строительным нормам <br>и требованиям",
+        subtitle:
+            "Сначала работы принимает наш отдел качества, и только потом, мы сдаем его вам. Эта последовательность гарантирует, что вы на выходе получите на 100% качественно доделанный объект",
         number: "04",
         background: "#18443E",
         color: "#FFFFFF",

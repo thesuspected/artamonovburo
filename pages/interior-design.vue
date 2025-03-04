@@ -10,7 +10,7 @@
                 Используя знания о композиции, форме и цвете,<br />
                 создаём пространство для жизни в выбранном вами стиле
             </template>
-            <template #bottom> Дизайн интерьера <br />от 4000 ₽/м2 </template>
+            <template #bottom> Дизайн интерьера <br />от 2000 ₽/м² </template>
         </HeroSection>
         <DesignSection />
         <TilesSection />

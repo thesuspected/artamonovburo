@@ -110,13 +110,13 @@ const images2: ImageGridType[] = [
     display: flex;
     justify-content: space-between;
     .infant-font {
-        font-size: 30px;
+        font-size: 25px;
     }
 }
 
 hr {
     margin-top: 30px;
-    margin-bottom: 90px;
+    margin-bottom: 10px;
 }
 
 .hr-2 {

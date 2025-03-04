@@ -14,15 +14,15 @@
                 до готовой рабочей документации, гарантируя высокое качество<br />
                 и соответствие всем строительным нормам
             </template>
-            <template #bottom> Проектирование домов <br />от 4200 ₽/м2 </template>
+            <template #bottom> Проектирование домов <br />от 2000 ₽/м² </template>
         </HeroSection>
         <TilesSection />
         <ServicesSection />
         <ImagesSection />
         <FormSection>
-            Вместе <b class="text-primary">создадим дом</b>, <br />
-            который будет соответствовать<br />
-            <b class="text-primary">вашим ожиданиям </b> и предпочтениям
+            Оставьте номер,<br />
+            чтобы мы <b class="text-primary">создали дом</b> <br />соответствующий
+            <b class="text-primary">вашим ожиданиям </b>
         </FormSection>
     </Layout>
 </template>

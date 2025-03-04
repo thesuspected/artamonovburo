@@ -8,7 +8,7 @@
                 <div class="contacts">
                     <span class="mb-small font-light">Контакты</span>
                     <a href="tel:+79869864306" class="phone" v-touch-hold:300.mouse="copyPhoneNumber">
-                        +7 (927) 102-39-69
+                        +7 (993) 100-21-12
                     </a>
                     <span class="address">
                         г. Саратов, ул. им. Чернышевского Н.Г., 60/62.<br />Бизнес-центр «ФРЕГАТ» с 9:00 до 18:00
