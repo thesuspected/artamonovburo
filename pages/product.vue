@@ -9,7 +9,9 @@
                             <span class="text-primary">Назад</span>
                         </NuxtLink>
                         <q-img v-if="selectedImage.fullHref" :src="selectedImage.fullHref" :ratio="1" />
-                        <q-responsive v-else :ratio="1" class="no-image" />
+                        <q-responsive v-else :ratio="1">
+                            <q-skeleton />
+                        </q-responsive>
                         <div class="miniatures">
                             <q-img
                                 v-for="(item, key) in data.images"
@@ -52,7 +54,7 @@
                 </div>
             </Container>
         </Section>
-        <FacadeMaterialsSection :images="sliderImages"> Смотрите также</FacadeMaterialsSection>
+        <FacadeMaterialsSection :products="sliderProducts"> Смотрите также</FacadeMaterialsSection>
     </Layout>
 </template>
 
@@ -83,7 +85,7 @@ const selectedModification = ref<{ name?: string; value?: string; price?: number
 const { data }: { data: Ref<Product> } = await useFetch("/api/product", {
     query: { id: route.query.id },
 })
-const sliderImages = ref<string[]>([])
+const sliderProducts = ref<Product[]>([])
 
 const handleSelectImage = (image: any) => {
     selectedImage.value = image
@@ -91,12 +93,23 @@ const handleSelectImage = (image: any) => {
 const handleSelectModification = (modification: any) => {
     selectedModification.value = modification
 }
-const replaceSliderHrefsByBlobs = async (links: string[]) => {
-    const blobs = links.map((link: string) =>
-        fetch(link).then(resp => resp.blob()),
+const replaceSliderHrefsByBlobs = async (products: Product[]) => {
+    const blobs = products.map((product) =>
+        fetch(product.images[0].fullHref).then(resp => resp.blob()),
     )
     const responses = await Promise.all(blobs)
-    return responses.map((blob: Blob) => window.URL.createObjectURL(blob))
+    return products.map((product, key) => {
+        return {
+            ...product,
+            images: [
+                {
+                    ...product.images[0],
+                    fullHref: window.URL.createObjectURL(responses[key]),
+                    isLoaded: true,
+                },
+            ],
+        }
+    })
 }
 const replaceImageHrefsByBlobs = async () => {
     if (!data.value) {
@@ -111,7 +124,7 @@ const replaceImageHrefsByBlobs = async () => {
 }
 
 const loadSliderProducts = async (id: string, pathName: string) => {
-    const res: string[] = await $fetch("/api/slider", {
+    const res: Product[] = await $fetch("/api/slider", {
         method: "POST",
         body: {
             id,
@@ -119,12 +132,12 @@ const loadSliderProducts = async (id: string, pathName: string) => {
         },
     })
     if (res) {
-        sliderImages.value = await replaceSliderHrefsByBlobs(res)
+        sliderProducts.value = await replaceSliderHrefsByBlobs(res)
     }
 }
 
 onMounted(async () => {
-    console.log(data.value)
+    // console.log(data.value)
     if (!data.value) {
         return
     }

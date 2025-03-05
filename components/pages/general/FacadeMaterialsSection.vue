@@ -8,11 +8,28 @@
                     </TextQuote>
                     <m-btn v-if="showBtn" outline label="Смотреть все фасады" />
                 </div>
-                <swiper :slides-per-view="4" :space-between="30" :navigation="true" :modules="modules" class="mySwiper">
-                    <swiper-slide v-for="(href, key) in images" :key="key">
-                        <q-img :src="href" alt="" :ratio="1" />
+                <swiper
+                    v-if="products.length"
+                    :slides-per-view="isDesktop ? 4 : 2"
+                    :space-between="30"
+                    :navigation="true"
+                    :modules="modules"
+                    class="mySwiper"
+                >
+                    <swiper-slide v-for="(product, key) in products" :key="key">
+                        <ProductCard :product="product" is-href />
                     </swiper-slide>
                 </swiper>
+                <div v-else class="grid grid-cols-4 gap-7 mt-default">
+                    <div v-for="key in 4" :key="key">
+                        <q-responsive :ratio="1">
+                            <q-skeleton />
+                        </q-responsive>
+                        <q-skeleton type="text" class="text-subtitle1 mt-default" />
+                        <q-skeleton type="text" width="50%" class="text-subtitle1" />
+                        <q-skeleton type="QBtn" width="70%" class="mt-default" />
+                    </div>
+                </div>
             </div>
         </Container>
     </Section>
@@ -26,22 +43,30 @@ import "swiper/css/navigation"
 import { Navigation } from "swiper/modules"
 import MBtn from "~/components/buttons/MBtn.vue"
 import type { PropType } from "vue"
+import type { Product } from "~/server/types"
+import ProductCard from "~/components/pages/catalog/ProductCard.vue"
+import useScreenController from "~/hooks/useScreenController"
 
 defineProps({
     showBtn: {
         type: Boolean,
         default: false,
     },
-    images: {
-        type: Array as PropType<string[]>,
+    products: {
+        type: Array as PropType<Product[]>,
         default: () => [],
     },
 })
 const modules = [Navigation]
+const { isDesktop } = useScreenController()
 </script>
 
 <style lang="scss" scoped>
 .carousel {
+    .no-image {
+        background: #d9d9d9;
+    }
+
     .swiper {
         margin-top: 20px;
     }

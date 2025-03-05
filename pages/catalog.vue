@@ -20,18 +20,11 @@
                     </div>
                 </div>
                 <div class="products grid grid-cols-2 lg:grid-cols-4">
-                    <div class="card" v-for="(product, key) in selectedGroupProducts" :key="key">
-                        <q-img v-if="product.images.length"
-                               :src="product.images[0].isLoaded ? product.images[0].fullHref : product.images[0].miniatureHref"
-                               :ratio="1" />
-                        <q-responsive v-else :ratio="1" class="no-image" />
-                        <h6>{{ product.name }}</h6>
-                        <h6>{{ product.price }} ₽</h6>
-                        <q-space />
-                        <NuxtLink :to="`/product?id=${product.id}`">
-                            <m-btn class="btn" label="Подробнее" />
-                        </NuxtLink>
-                    </div>
+                    <ProductCard
+                        class="card" v-for="(product, key) in selectedGroupProducts"
+                        :key="key"
+                        :product="product"
+                    />
                 </div>
             </Container>
         </Section>
@@ -41,9 +34,9 @@
 <script lang="ts" setup>
 import Container from "~/components/layout/Container.vue"
 import Section from "~/components/layout/Section.vue"
-import MBtn from "~/components/buttons/MBtn.vue"
 import { Product } from "~/server/types"
 import { promiseTimeout } from "~/utils/helpers"
+import ProductCard from "~/components/pages/catalog/ProductCard.vue"
 
 const { data } = await useFetch("/api/products")
 const selectedGroupKey = ref()
@@ -65,7 +58,7 @@ const loadImagesByKey = async (key: string): Promise<{ data?: string[], error?: 
 }
 
 const replaceImageUrlByBlobs = async (links: string[]) => {
-    console.log("Заменяем ссылки на блобы")
+    // console.log("Заменяем ссылки на блобы")
     const blobs = links.map((link: string) =>
         fetch(link).then(resp => resp.blob()),
     )
@@ -78,23 +71,23 @@ const getImageLinks = async () => {
 
     // Проходимся по каждой группе
     for (const key of ["Полифасад", "Термопанели Клинкерные", "Под кирпич"]) {
-        console.log("key =", key)
+        // console.log("key =", key)
         const length = data.value[key].length
         let links: string[] = []
         let errorStack = 0
 
         // Загружаем по 5 изображений последовательно
         while (step.value < length) {
-            console.log("step =", step.value)
+            // console.log("step =", step.value)
             let res = await loadImagesByKey(key)
             if (res?.error) {
                 console.log("Ошибка =", res.error)
                 errorStack++
-                console.log("Ждем 500мс")
+                // console.log("Ждем 500мс")
                 await promiseTimeout(500)
             }
             if (res?.data) {
-                console.log("res =", res)
+                // console.log("res =", res)
                 links.push(...res.data)
                 step.value += 5
                 await promiseTimeout(100)
@@ -117,11 +110,11 @@ const getImageLinks = async () => {
                 }],
             }
         })
-        console.log("Заменили =", data.value[key])
+        // console.log("Заменили =", data.value[key])
 
         // Выставляем в selected
         if (key === selectedGroupKey.value) {
-            console.log("Выставляем в selected", key, selectedGroupKey.value)
+            // console.log("Выставляем в selected", key, selectedGroupKey.value)
             handleSelectGroup(key)
         }
 
@@ -130,7 +123,7 @@ const getImageLinks = async () => {
 }
 
 onMounted(async () => {
-    console.log(data.value)
+    // console.log(data.value)
     handleSelectGroup(Object.keys(data.value)[0])
     await getImageLinks()
 })
@@ -173,19 +166,5 @@ onMounted(async () => {
 .products {
     gap: 20px;
     margin-top: 60px;
-
-    .card {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-
-        .no-image {
-            background: #d9d9d9;
-        }
-
-        .btn {
-            align-self: flex-start;
-        }
-    }
 }
 </style>
