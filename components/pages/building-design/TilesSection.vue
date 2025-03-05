@@ -1,7 +1,7 @@
 <template>
     <Section :padding="100">
         <Container>
-            <MainTitle>Вот почему к нам обращаются: </MainTitle>
+            <MainTitle>Вот почему <b class="text-primary">к нам обращаются:</b></MainTitle>
             <TileBlocks :tiles="tiles" inner-class="grid grid-cols-1 lg:grid-cols-4" />
         </Container>
     </Section>

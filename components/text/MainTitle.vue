@@ -1,6 +1,6 @@
 <template>
     <div class="flex justify-center">
-        <component :is="isDesktop ? 'h3' : 'h5'" class="main-title infant-font">
+        <component :is="isDesktop ? 'h3' : 'h4'" class="main-title infant-font" :style="`max-width: ${maxWidth}`">
             <slot />
         </component>
     </div>
@@ -8,6 +8,12 @@
 
 <script lang="ts" setup>
 import useScreenController from "~/hooks/useScreenController"
+
+defineProps({
+    maxWidth: {
+        type: String,
+    },
+})
 
 const { isDesktop } = useScreenController()
 </script>

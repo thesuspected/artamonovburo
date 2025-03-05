@@ -2,10 +2,13 @@
     <Section class="hero-section" :style="`height: calc(100svh - ${isDesktop ? 150 : 82}px)`">
         <Container class="content">
             <component :is="isDesktop ? 'h2' : 'h4'" class="title infant-font">
-                Архитектурно-строительное <br />
-                бюро в Саратове
+                Создаем комфорт, <br />
+                меняя пространство
             </component>
-            <p class="description">Проектируем и строим так, как сами стремимся жить - надежно, красиво, удобно.</p>
+            <p class="description">
+                Архитектурно-строительное бюро в Саратове.
+                Проектируем и строим так, как сами
+                стремимся жить - надежно, красиво, удобно.</p>
             <m-btn class="main-btn" label="Консультация" shine-effect @click="handleOpenDialogEvent" />
         </Container>
     </Section>
@@ -63,6 +66,7 @@ const handleOpenDialogEvent = () => {
             color: $light-color;
             text-shadow: 2px 0 50px $dark-color;
             margin-bottom: 40px;
+            max-width: 450px;
         }
 
         .main-btn {

@@ -8,8 +8,8 @@
             <template #title> Отделка фасадов</template>
             <template #subtitle>
                 <div class="subtitle">
-                    Мы разрабатываем проект, подбираем материалы <br />
-                    и выполняем все работы с гарантией. Вам не нужно<br />
+                    Мы разрабатываем проект, подбираем материалы
+                    и выполняем все работы с гарантией. Вам не нужно
                     беспокоиться о деталях — мы позаботимся обо всем
                 </div>
             </template>
@@ -60,6 +60,6 @@ const scrollToQuiz = () => {
 
 <style lang="scss" scoped>
 .subtitle {
-    font-size: 15px;
+    max-width: 500px;
 }
 </style>

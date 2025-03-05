@@ -1,7 +1,7 @@
 <template>
     <Section>
         <Container>
-            <MainTitle>Что входит в состав проекта? </MainTitle>
+            <MainTitle>Что входит в <b class="text-primary">состав проекта?</b></MainTitle>
             <TwoColumnsTable :values="services" />
         </Container>
     </Section>

@@ -14,14 +14,14 @@
                 до готовой рабочей документации, гарантируя высокое качество<br />
                 и соответствие всем строительным нормам
             </template>
-            <template #bottom> Проектирование домов <br />от 2000 ₽/м² </template>
+            <template #bottom> Проектирование домов <br />от 2000 ₽/м²</template>
         </HeroSection>
         <TilesSection />
         <ServicesSection />
         <ImagesSection />
         <FormSection>
             Оставьте номер,<br />
-            чтобы мы <b class="text-primary">создали дом</b> <br />соответствующий
+            чтобы мы <b class="text-primary">создали дом,</b> <br />соответствующий
             <b class="text-primary">вашим ожиданиям </b>
         </FormSection>
     </Layout>

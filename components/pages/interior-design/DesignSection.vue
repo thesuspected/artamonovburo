@@ -1,15 +1,16 @@
 <template>
     <Section>
-        <MainTitle class="title">
-            Реализуем проект от <b class="text-primary">идеи </b><br />
+        <MainTitle class="title" max-width="700px">
+            Реализуем проект от <b class="text-primary">идеи </b>
             до <b class="text-primary">готового ремонта</b>
         </MainTitle>
 
-        <Container class="grid grid-cols-1 lg:grid-cols-3">
-            <div class="room-1 col-span-1">
+        <Container class="grid grid-cols-1 lg:grid-cols-3"
+                   :style="`${isDesktop ? 'column-gap: 60px' : 'row-gap: 30px'}`">
+            <div class="room-1">
                 <q-img src="/img/interior-design/room_1.png" />
             </div>
-            <div class="consultation-1 col-span-2">
+            <div class="consultation-1 col-span-2" :style="`${isDesktop ? 'border-bottom: solid 1px #B1B1B1;' : ''}`">
                 <p class="mainTitle">Дизайн-проект</p>
                 <ul>
                     <li>Размерный план с расстановкой мебели</li>
@@ -24,8 +25,10 @@
                 <m-btn class="button" label="Консультация" outline @click="handleOpenDialogEvent" />
             </div>
         </Container>
-        <Container class="grid grid-cols-1 lg:grid-cols-2">
-            <div class="consultation-2 col-span-1">
+        <Container class="block-2 grid grid-cols-1 lg:grid-cols-2"
+                   :style="`${isDesktop ? 'column-gap: 60px' : 'row-gap: 30px'}`">
+            <div class="consultation-2"
+                 :style="`${isDesktop ? 'border-bottom: solid 1px #B1B1B1;' : ''}`">
                 <p class="mainTitle">Авторский надзор</p>
                 <ul>
                     <li>Проверка соответствия выполненных работ проектным решениям</li>
@@ -43,7 +46,7 @@
                 </p>
                 <m-btn class="button" label="Консультация" outline @click="handleOpenDialogEvent" />
             </div>
-            <div class="room-2 col-span-1">
+            <div class="room-2 -order-1 lg:order-1">
                 <q-img src="/img/interior-design/room_2.png" />
             </div>
         </Container>
@@ -56,7 +59,10 @@ import MBtn from "~/components/buttons/MBtn.vue"
 import Container from "~/components/layout/Container.vue"
 import Section from "~/components/layout/Section.vue"
 import { Events } from "~/plugins/event-bus"
+import useScreenController from "~/hooks/useScreenController"
+
 const { $event } = useNuxtApp()
+const { isDesktop } = useScreenController()
 const handleOpenDialogEvent = () => {
     $event(Events.open_form_dialog, "Строительство домов - Консультация")
 }
@@ -67,11 +73,18 @@ const handleOpenDialogEvent = () => {
     margin-top: 50px;
 }
 
-.grid {
+.block-2 {
     margin-top: 50px;
+}
+
+.border-bottom {
+    border-bottom: solid 1px $secondary-color;
+}
+
+.grid {
+    gap: 50px;
 
     .consultation-1 {
-        border-bottom: solid 1px $secondary-color;
 
         .button {
             margin-top: 15px;
@@ -80,8 +93,6 @@ const handleOpenDialogEvent = () => {
         .mainTitle {
             font-size: 30px;
         }
-
-        margin-left: 70px;
 
         ul {
             padding-left: 20px;
@@ -94,8 +105,6 @@ const handleOpenDialogEvent = () => {
     }
 
     .consultation-2 {
-        border-bottom: solid 1px $secondary-color;
-        margin-right: 100px;
 
         .description {
             margin-top: 40px;

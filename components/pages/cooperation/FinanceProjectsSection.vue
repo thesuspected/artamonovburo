@@ -1,7 +1,7 @@
 <template>
     <Section>
         <Container>
-            <MainTitle>наши действующие проекты</MainTitle>
+            <MainTitle>наши <b class="text-primary">действующие проекты</b></MainTitle>
             <hr />
             <h3 class="infant-font">Дом в стиле Тюдор</h3>
             <ImagesGrid :images="images" />
