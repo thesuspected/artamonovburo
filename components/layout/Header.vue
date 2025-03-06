@@ -15,8 +15,8 @@
                             <img :src="social.icon" alt="" height="24px" width="24px" />
                         </a>
                     </div>
-                    <a href="tel:+79869864306" class="phone" v-touch-hold:300.mouse="copyPhoneNumber">
-                        +7 (927) 102-39-69
+                    <a href="tel:+79931002112" class="phone" v-touch-hold:300.mouse="copyPhoneNumber">
+                        +7 (993) 100-21-12
                     </a>
                 </div>
                 <q-btn v-else flat round icon="menu" @click="handleOpenDrawer" />

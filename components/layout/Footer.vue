@@ -7,7 +7,7 @@
             <div class="flex flex-col justify-between h-full gap-6">
                 <div class="contacts">
                     <span class="mb-small font-light">Контакты</span>
-                    <a href="tel:+79869864306" class="phone" v-touch-hold:300.mouse="copyPhoneNumber">
+                    <a href="tel:+79931002112" class="phone" v-touch-hold:300.mouse="copyPhoneNumber">
                         +7 (993) 100-21-12
                     </a>
                     <span class="address">
@@ -71,6 +71,7 @@ const copyPhoneNumber = () => {
             flex-direction: column;
             align-items: start;
             gap: 10px;
+
             .address {
                 font-size: 15px;
             }
