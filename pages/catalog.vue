@@ -60,7 +60,12 @@ const loadImagesByKey = async (key: string): Promise<{ data?: string[], error?: 
 const replaceImageUrlByBlobs = async (links: string[]) => {
     // console.log("Заменяем ссылки на блобы")
     const blobs = links.map((link: string) =>
-        fetch(link).then(resp => resp.blob()),
+        $fetch<Promise<Blob>>("/api/href", {
+            method: "POST",
+            body: {
+                href: link,
+            },
+        }),
     )
     const responses = await Promise.all(blobs)
     return responses.map((blob: Blob) => window.URL.createObjectURL(blob))
@@ -70,7 +75,7 @@ const getImageLinks = async () => {
     const keys = Object.keys(data.value)
 
     // Проходимся по каждой группе
-    for (const key of ["Полифасад", "Термопанели Клинкерные", "Под кирпич"]) {
+    for (const key of keys) {
         // console.log("key =", key)
         const length = data.value[key].length
         let links: string[] = []

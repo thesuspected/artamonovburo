@@ -94,9 +94,12 @@ const handleSelectModification = (modification: any) => {
     selectedModification.value = modification
 }
 const replaceSliderHrefsByBlobs = async (products: Product[]) => {
-    const blobs = products.map((product) =>
-        fetch(product.images[0].fullHref).then(resp => resp.blob()),
-    )
+    const blobs = products.map((product) => $fetch<Promise<Blob>>("/api/href", {
+        method: "POST",
+        body: {
+            href: product.images[0].fullHref,
+        },
+    }))
     const responses = await Promise.all(blobs)
     return products.map((product, key) => {
         return {
@@ -115,7 +118,12 @@ const replaceImageHrefsByBlobs = async () => {
     if (!data.value) {
         return
     }
-    const blobs = data.value.images.map((item) => fetch(item.fullHref).then((resp) => resp.blob()))
+    const blobs = data.value.images.map((item) => $fetch<Promise<Blob>>("/api/href", {
+        method: "POST",
+        body: {
+            href: item.fullHref,
+        },
+    }))
     const responses = await Promise.all(blobs)
     data.value.images = data.value.images.map((item, key) => ({
         ...item,

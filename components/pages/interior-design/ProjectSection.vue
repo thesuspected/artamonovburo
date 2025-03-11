@@ -8,18 +8,17 @@
             <hr :style="`margin: ${isDesktop ? '30px 0 60px' : '30px 0'}`" />
             <div class="button">
                 <component :is="isDesktop ? 'h3' : 'h4'" class="infant-font">Саратов | жк крылья</component>
-                <NuxtLink to="/projects/jk-krylia-apartments" :style="`${isDesktop ? '':'flex-grow: 1;'}`">
-                    <m-btn full-width outline>Подробнее о проекте</m-btn>
-                </NuxtLink>
+                <!--                <NuxtLink to="/projects/jk-krylia-apartments" :style="`${isDesktop ? '':'flex-grow: 1;'}`">-->
+                <!--                    <m-btn full-width outline>Подробнее о проекте</m-btn>-->
+                <!--                </NuxtLink>-->
             </div>
             <ImagesGrid :images="images" />
             <hr :style="`margin: ${isDesktop ? '60px 0' : '30px 0'}`" />
             <div class="button">
                 <component :is="isDesktop ? 'h3' : 'h4'" class="infant-font">Саратов | Техническая</component>
-                <NuxtLink to="/projects/technical-street-apartments" :style="`${isDesktop ? '':'flex-grow: 1;'}`">
-                    <m-btn full-width outline>Подробнее о проекте</m-btn>
-                </NuxtLink
-                >
+                <!--                <NuxtLink to="/projects/technical-street-apartments" :style="`${isDesktop ? '':'flex-grow: 1;'}`">-->
+                <!--                    <m-btn full-width outline>Подробнее о проекте</m-btn>-->
+                <!--                </NuxtLink>-->
             </div>
 
             <ImagesGrid :images="images2" />
@@ -34,7 +33,6 @@ import type { ImageGridType } from "~/components/pages/general/types"
 import MainTitle from "~/components/text/MainTitle.vue"
 import Container from "~/components/layout/Container.vue"
 import Section from "~/components/layout/Section.vue"
-import MBtn from "~/components/buttons/MBtn.vue"
 import ImagesGrid from "../general/ImagesGrid.vue"
 import useScreenController from "~/hooks/useScreenController"
 
