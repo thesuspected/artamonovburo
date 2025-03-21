@@ -61,22 +61,10 @@ defineProps({
 const { isDesktop } = useScreenController()
 const images: ImageGridType[] = [
     {
-        src: "img/cooperation/tudor_1.png",
+        src: "img/cooperation/tudor.png",
         rows: 3,
-        cols: 8,
+        cols: 12,
         alt: "house 1",
-    },
-    {
-        src: "img/cooperation/tudor_2.png",
-        rows: 2,
-        cols: 4,
-        alt: "house 2",
-    },
-    {
-        src: "img/cooperation/tudor_3.png",
-        rows: 1,
-        cols: 4,
-        alt: "house 3",
     },
 ]
 const houses = [
@@ -84,7 +72,7 @@ const houses = [
         title: "О проекте:",
         icons: [
             {
-                title: "250м2",
+                title: "145м2",
                 src: "/img/construction/house.svg",
             },
             {
@@ -105,7 +93,7 @@ const houses = [
                 src: "/img/cooperation/hand-coins.svg",
             },
             {
-                title: "от 1 млн. ₽ ",
+                title: "от 500 тыс. ₽ ",
                 src: "/img/cooperation/door.svg",
             },
         ],

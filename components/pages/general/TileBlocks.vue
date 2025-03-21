@@ -1,5 +1,4 @@
 <template>
-    
     <div class="grid grid-cols-1" :class="innerClass">
         <div
             class="tile"
@@ -20,7 +19,6 @@
         </div>
     </div>
 </template>
-
 <script lang="ts" setup>
 import { PropType } from "vue"
 import { TilesType } from "~/components/pages/building-design/types"
